@@ -9,12 +9,10 @@ public class UIController : MonoBehaviour
     private void Awake()
     {
         Events.OnUpdateTime += UpdateTime;
-        Events.OnChooseOption += DisplayChosenOption;
     }
     private void OnDestroy()
     {
         Events.OnUpdateTime -= UpdateTime;
-        Events.OnChooseOption -= DisplayChosenOption;
     }
 
 
@@ -42,10 +40,5 @@ public class UIController : MonoBehaviour
         
         
         clockText.text = minutesS + ":" + secondsS;
-    }
-    
-    private void DisplayChosenOption(Option option)
-    {
-        choseText.text = option.text;
     }
 }
