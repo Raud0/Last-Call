@@ -1,18 +1,18 @@
 ﻿using System.Collections.Generic;
 
-public class PCDeciderImp : Decider
+public class PCDeciderImp : DeciderImp
 {
-    public override void Receive(Emotion emotion)
+    public override void ImpReceive(Emotion emotion)
     {
         throw new System.NotImplementedException();
     }
 
-    public override void Receive(ContextInput contextInput)
+    public override void ImpReceive(ContextInput contextInput)
     {
         throw new System.NotImplementedException();
     }
 
-    public override void Receive(List<Thought> thoughts)
+    public override void ImpReceive(List<RankedThought> thoughts)
     {
         throw new System.NotImplementedException();
     }

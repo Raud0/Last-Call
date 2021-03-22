@@ -5,7 +5,7 @@ using UnityEngine;
 public class AttentionImp : Attention
 {
     private Dictionary<string, Topic> topicsByName;
-    private List<RankedThought> thoughts;
+    private List<FilteredThought> thoughts;
 
     private void Awake()
     {
@@ -17,21 +17,36 @@ public class AttentionImp : Attention
         Events.OnUpdateTime -= Decay;
     }
 
+    public override void Load(HashSet<Topic> topics)
+    {
+        topicsByName = new Dictionary<string, Topic>();
+        foreach (Topic topic in topics)
+        {
+            LoadTopic(topic);
+        }
+    }
+
+    private void LoadTopic(Topic topic)
+    {
+        string topicName = topic.TopicName;
+        topicsByName[topicName] = topic;
+    }
+    
     private void FilterThoughts()
     {
-        List<RankedThought> filteredRankedThoughts = new List<RankedThought>();
+        List<FilteredThought> filteredThoughts = new List<FilteredThought>();
 
-        foreach (RankedThought rankedThought in thoughts)
+        foreach (FilteredThought rankedThought in thoughts)
         {
             Appraise(rankedThought);
-            Topic topic = topicsByName[rankedThought.topic];
-            Topic.Stage stage = rankedThought.stage;
+            Topic topic = topicsByName[rankedThought.Topic];
+            Topic.Stage stage = rankedThought.Stage;
 
             bool add = false;
             
             // TODO: Check for climaxes and ignore other topics?
             
-            switch (topic.stage)
+            switch (topic.MyStage)
             {
                 case Topic.Stage.Orientation:
                     add = stage == Topic.Stage.Orientation ||
@@ -57,18 +72,24 @@ public class AttentionImp : Attention
                     break;
             }
             
-            if (add) filteredRankedThoughts.Add(rankedThought);
+            if (add) filteredThoughts.Add(rankedThought);
         }
 
-        filteredRankedThoughts = filteredRankedThoughts.GetRange(0, 10);
-        List<Thought> filteredThoughts = new List<Thought>(filteredRankedThoughts);
-        Send(filteredThoughts);
+        filteredThoughts = filteredThoughts.GetRange(0, 10);
+        List<RankedThought> rankedThoughts = new List<RankedThought>();
+        foreach (FilteredThought filteredThought in filteredThoughts)
+        {
+            RankedThought rankedThought = new RankedThought(filteredThought);
+            rankedThoughts.Add(rankedThought);
+        }
+        
+        Send(rankedThoughts);
     }
 
     public void Remove(Thought thought)
     {
-        RankedThought toRemove = null;
-        foreach (RankedThought rankedThought in thoughts)
+        FilteredThought toRemove = null;
+        foreach (FilteredThought rankedThought in thoughts)
         {
             if (((Thought) rankedThought).Equals(thought))
             {
@@ -82,23 +103,27 @@ public class AttentionImp : Attention
     
     public override void Receive(ThoughtFocus thoughtFocus)
     {
-        Thought original = thoughtFocus.originalThought;
-        if (original != null) { Remove(original); }
+        Thought original = thoughtFocus.MainThought;
+        if (thoughtFocus.RemoveThought && original != null) { Remove(original); }
         
-        Topic topic = topicsByName[thoughtFocus.topicName];
+        Topic topic = topicsByName[thoughtFocus.Topic];
         
-        foreach (String tangent in thoughtFocus.tangents)
+        foreach (String tangent in thoughtFocus.Tangents)
         {
             Topic tangentialTopic = topicsByName[tangent];
-            if (tangentialTopic.stage == Topic.Stage.Hidden) ExitTo(topic, Topic.Stage.Orientation);
+            if (tangentialTopic.MyStage == Topic.Stage.Hidden) ExitTo(topic, Topic.Stage.Orientation);
         }
         
         TopicHeard(topic, thoughtFocus);
     }
 
-    public override void Receive(Thought thought)
+    public override void Receive(ThoughtResponse thoughtResponse)
     {
-        thoughts.Add(RankNewThought(thought));
+        foreach (Thought thought in thoughtResponse.Thoughts)
+        {
+            thoughts.Add(FilterThought(thought));
+        }
+        FilterThoughts();
     }
 
     private void Decay(int seconds, int minutes)
@@ -109,7 +134,7 @@ public class AttentionImp : Attention
     
     private void TopicHeard(Topic topic, ThoughtFocus thoughtFocus)
     {
-        switch (topic.stage)
+        switch (topic.MyStage)
         {
             case Topic.Stage.Orientation:
                 Orientation(topic, thoughtFocus);
@@ -128,19 +153,19 @@ public class AttentionImp : Attention
                 break;
         }
 
-        ShiftAllTopics(-0.02f, 0f, thoughtFocus.finalMultiplier);
+        ShiftAllTopics(-0.02f, 0f, thoughtFocus.FinalMultiplier);
         FilterThoughts();
     }
 
     private void ShiftAllTopics(float percentage, float flat, float finalMultiplier)
     {
         foreach (Topic topic in topicsByName.Values)
-        {  ShiftFocusChange(topic, topic.focus * (1f + percentage) + flat, true, finalMultiplier); }
+        {  ShiftFocusChange(topic, topic.Focus * (1f + percentage) + flat, true, finalMultiplier); }
     }
 
     private void ShiftFocusChange(Topic topic, float desiredFocus, bool canIncrease, float finalMultiplier)
     {
-        float currentFocus = topic.focus;
+        float currentFocus = topic.Focus;
         float distance = desiredFocus - currentFocus;
         
         float low = float.NegativeInfinity;
@@ -155,7 +180,7 @@ public class AttentionImp : Attention
 
     private void ShiftFocusChangeDiminishing(Topic topic, float desiredFocus, bool canIncrease, float a, float finalMultiplier)
     {
-        float currentFocus = topic.focus;
+        float currentFocus = topic.Focus;
         float distance = desiredFocus - currentFocus;
         
         float multiplier = 1f;
@@ -177,41 +202,41 @@ public class AttentionImp : Attention
     
     private void Orientation(Topic topic, ThoughtFocus thoughtFocus)
     {
-        if (thoughtFocus.stage == Topic.Stage.Complication) ExitTo(topic, Topic.Stage.Complication);
-        ShiftFocusChangeDiminishing(topic, thoughtFocus.complexity, true, 5f, thoughtFocus.finalMultiplier);
+        if (thoughtFocus.MyStage == Topic.Stage.Complication) ExitTo(topic, Topic.Stage.Complication);
+        ShiftFocusChangeDiminishing(topic, thoughtFocus.Complexity, true, 5f, thoughtFocus.FinalMultiplier);
     }
 
     private void Complication(Topic topic, ThoughtFocus thoughtFocus)
     {
-        if (thoughtFocus.stage == Topic.Stage.Climax) ExitTo(topic, Topic.Stage.Climax);
-        if (thoughtFocus.stage == Topic.Stage.Denouement) ExitTo(topic, Topic.Stage.Denouement);
-        ShiftFocusChangeDiminishing(topic, thoughtFocus.complexity, true, 3f, thoughtFocus.finalMultiplier);
+        if (thoughtFocus.MyStage == Topic.Stage.Climax) ExitTo(topic, Topic.Stage.Climax);
+        if (thoughtFocus.MyStage == Topic.Stage.Denouement) ExitTo(topic, Topic.Stage.Denouement);
+        ShiftFocusChangeDiminishing(topic, thoughtFocus.Complexity, true, 3f, thoughtFocus.FinalMultiplier);
     }
 
     private void Climax(Topic topic, ThoughtFocus thoughtFocus)
     {
-        float focusBefore = topic.focus;
-        ShiftFocusChangeDiminishing(topic, thoughtFocus.complexity, true, 1f, thoughtFocus.finalMultiplier);
-        float focusAfter = topic.focus;
+        float focusBefore = topic.Focus;
+        ShiftFocusChangeDiminishing(topic, thoughtFocus.Complexity, true, 1f, thoughtFocus.FinalMultiplier);
+        float focusAfter = topic.Focus;
         
         if (focusAfter < focusBefore) ExitTo(topic, Topic.Stage.Denouement);
     }
 
     private void Denouement(Topic topic, ThoughtFocus thoughtFocus)
     {
-        if (thoughtFocus.stage == Topic.Stage.Coda) ExitTo(topic, Topic.Stage.Coda);
-        ShiftFocusChangeDiminishing(topic, thoughtFocus.complexity, false, 3f, thoughtFocus.finalMultiplier);
+        if (thoughtFocus.MyStage == Topic.Stage.Coda) ExitTo(topic, Topic.Stage.Coda);
+        ShiftFocusChangeDiminishing(topic, thoughtFocus.Complexity, false, 3f, thoughtFocus.FinalMultiplier);
     }
 
     private void Coda(Topic topic, ThoughtFocus thoughtFocus)
     {
-        if (thoughtFocus.stage == Topic.Stage.Coda) ExitTo(topic, Topic.Stage.Depleted);
-        ShiftFocusChangeDiminishing(topic, thoughtFocus.complexity, true, 5f, thoughtFocus.finalMultiplier);
+        if (thoughtFocus.MyStage == Topic.Stage.Coda) ExitTo(topic, Topic.Stage.Ended);
+        ShiftFocusChangeDiminishing(topic, thoughtFocus.Complexity, true, 5f, thoughtFocus.FinalMultiplier);
     }
 
     private void ExitTo(Topic topic, Topic.Stage stage)
     {
-        topic.stage = stage;
+        topic.MyStage = stage;
 
         switch (stage)
         {
@@ -226,37 +251,35 @@ public class AttentionImp : Attention
                 RemoveThoughts(topic, Topic.Stage.Complication);
                 RemoveThoughts(topic, Topic.Stage.Denouement);
                 break;
-            case Topic.Stage.Depleted:
+            case Topic.Stage.Ended:
                 RemoveThoughts(topic, Topic.Stage.Coda);
                 break;
         }
         
-        ThoughtRequest thoughtRequest = new ThoughtRequest();
-        thoughtRequest.topic = topic.topicName;
-        thoughtRequest.stage = topic.stage;
+        ThoughtRequest thoughtRequest = new ThoughtRequest(topic.TopicName, topic.MyStage);
         Send(thoughtRequest);
     }
 
     private void RemoveThoughts(Topic topic, Topic.Stage stage)
     {
-        Queue<RankedThought> delete = new Queue<RankedThought>();
-        foreach (RankedThought thought in thoughts)
-        { if (topicsByName[thought.topic].Equals(topic) && thought.stage == stage) delete.Enqueue(thought); }
+        Queue<FilteredThought> delete = new Queue<FilteredThought>();
+        foreach (FilteredThought thought in thoughts)
+        { if (topicsByName[thought.Topic].Equals(topic) && thought.Stage == stage) delete.Enqueue(thought); }
 
         while (delete.Count > 0) { thoughts.Remove(delete.Dequeue()); }
     }
 
-    private RankedThought RankNewThought(Thought thought)
+    private FilteredThought FilterThought(Thought thought)
     {
-        RankedThought rankedThought = (RankedThought) thought;
-        Appraise(rankedThought);
-        return rankedThought;
+        FilteredThought filteredThought = (FilteredThought) thought;
+        Appraise(filteredThought);
+        return filteredThought;
     }
 
-    private void Appraise(RankedThought rankedThought)
+    private void Appraise(FilteredThought filteredThought)
     {
-        rankedThought.rank = Math.Abs(rankedThought.complexity - topicsByName[rankedThought.topic].focus);
-        rankedThought.rank *= AttentionShare(topicsByName[rankedThought.topic]);
+        filteredThought.Filter = Math.Abs(filteredThought.Complexity - topicsByName[filteredThought.Topic].Focus);
+        filteredThought.Filter *= AttentionShare(topicsByName[filteredThought.Topic]);
     }
 
     private float AttentionShare(Topic soughtTopic)
@@ -273,6 +296,6 @@ public class AttentionImp : Attention
             if (topic.Equals(soughtTopic)) { sought = topicFocus; }
         }
 
-        return sought / total;
+        return 1f - sought / total;
     }
 }

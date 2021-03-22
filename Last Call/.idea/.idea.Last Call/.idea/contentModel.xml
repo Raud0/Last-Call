@@ -6,31 +6,39 @@
     <e p="E:\Thesis\Last Call" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Data" t="Include">
+          <e p="README.txt" t="Include" />
+          <e p="thoughts.txt" t="Include" />
+          <e p="topics.txt" t="Include" />
+        </e>
         <e p="Scripts" t="Include">
           <e p="DialogueAgents" t="Include">
             <e p="DataObjects" t="Include">
               <e p="Action.cs" t="Include" />
-              <e p="Affection.cs" t="Include" />
+              <e p="Attack.cs" t="Include" />
               <e p="ContextInput.cs" t="Include" />
               <e p="Emotion.cs" t="Include" />
               <e p="Thought.cs" t="Include" />
               <e p="ThoughtFocus.cs" t="Include" />
               <e p="ThoughtRequest.cs" t="Include" />
+              <e p="ThoughtResponse.cs" t="Include" />
               <e p="Topic.cs" t="Include" />
             </e>
             <e p="Structure" t="Include">
-              <e p="AgentSystem.cs" t="Include" />
+              <e p="ActorStack.cs" t="Include" />
               <e p="Attention.cs" t="Include" />
               <e p="ConversationMedium.cs" t="Include" />
               <e p="Decider.cs" t="Include" />
               <e p="Implementation" t="Include">
                 <e p="AttentionImp.cs" t="Include" />
+                <e p="DeciderImp.cs" t="Include" />
                 <e p="NPCDeciderImp.cs" t="Include" />
                 <e p="NPCStateManagerImp.cs" t="Include" />
                 <e p="ObservationProgress.cs" t="Include" />
                 <e p="ObserverImp.cs" t="Include" />
                 <e p="PCDeciderImp.cs" t="Include" />
                 <e p="PCStateManagerImp.cs" t="Include" />
+                <e p="StateManagerImp.cs" t="Include" />
                 <e p="ThoughtsImp.cs" t="Include" />
               </e>
               <e p="InputStack.cs" t="Include" />
@@ -43,6 +51,7 @@
             </e>
           </e>
           <e p="Events.cs" t="Include" />
+          <e p="Loader.cs" t="Include" />
           <e p="Ticker.cs" t="Include" />
           <e p="UIController.cs" t="Include" />
         </e>

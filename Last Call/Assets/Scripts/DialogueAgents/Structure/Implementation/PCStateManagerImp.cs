@@ -1,6 +1,8 @@
-﻿public class PCStateManagerImp : StateManager
+﻿using System.Collections.Generic;
+
+public class PCStateManagerImp : StateManagerImp
 {
-    public override void Receive(Affection affection)
+    public override void ImpReceive(Attack attack)
     {
         throw new System.NotImplementedException();
     }

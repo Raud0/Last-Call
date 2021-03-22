@@ -4,10 +4,10 @@ public abstract class Decider : OutputStackModule
 {
     public abstract void Receive(Emotion emotion);
     public abstract void Receive(ContextInput contextInput);
-    public abstract void Receive(List<Thought> thoughts);
+    public abstract void Receive(List<RankedThought> thoughts);
 
     public void Send(Speech speech)
-    { ConversationMedium.Speak(speech); }
+    { myOutput.Speak(speech); }
     public void Send(Interaction interaction)
-    { ConversationMedium.Interact(interaction);}
+    { myOutput.Interact(interaction);}
 }

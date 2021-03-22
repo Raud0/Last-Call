@@ -5,32 +5,16 @@ using UnityEngine.Assertions.Must;
 
 public class ObserverImp : Observer
 {
-    private Queue<Action> newActions;
-    private Dictionary<Thought, ObservationProgress> thoughts;
+    private Queue<Action> newActions = new Queue<Action>();
+    private HashSet<string> newSpeechActors = new HashSet<string>();
+    private Dictionary<Thought, ObservationProgress> thoughts = new Dictionary<Thought, ObservationProgress>();
     private Queue<Thought> delete = new Queue<Thought>();
     
-    private bool newSpeech;
-    private bool newInteractions;
+    private bool newSpeech = false;
+    private bool newInteractions = false;
     private float lastCheck;
     private float timeSinceLastCheck;
-
-    private void Awake()
-    {
-        ConversationMedium.OnSpeech += Receive;
-        ConversationMedium.OnInteraction += Receive;
-        
-        thoughts = new Dictionary<Thought, ObservationProgress>();
-        
-        newSpeech = false;
-        newInteractions = false;
-    }
-
-    private void OnDestroy()
-    {
-        ConversationMedium.OnSpeech -= Receive;
-        ConversationMedium.OnInteraction -= Receive;
-    }
-
+    
     private void HandleNewActions()
     {
         newSpeech = false;
@@ -39,10 +23,10 @@ public class ObserverImp : Observer
         {
             Action action = newActions.Dequeue();
 
-            if (action.type == Action.Type.Speech)
+            if (action.MyType == Action.Type.Speech)
             {
                 Handle((Speech) action);
-            } else if (action.type == Action.Type.Interaction)
+            } else if (action.MyType == Action.Type.Interaction)
             {
                 Handle((Interaction) action);
             }
@@ -51,12 +35,10 @@ public class ObserverImp : Observer
 
     private void Handle(Speech speech)
     {
-        newSpeech = true;
+        thoughts[speech.Thought].Progress = speech.Progress;
         
-        ContextInput contextInput = new ContextInput();
-        contextInput.acting = true;
-        contextInput.actor = speech.actor;
-        Send(contextInput);
+        newSpeech = true;
+        newSpeechActors.Add(speech.Actor);
     }
 
     private void Handle(Interaction interaction)
@@ -72,32 +54,32 @@ public class ObserverImp : Observer
         if (timeSinceLastCheck > 5f || newSpeech) { HandleSpeech(); }
     }
 
-    public void HandleSpeech()
+    private void HandleSpeech()
     {
         foreach (Thought thought in thoughts.Keys)
         {
             ObservationProgress observationProgress = thoughts[thought];
-            observationProgress.time += timeSinceLastCheck;
+            observationProgress.Time += timeSinceLastCheck;
 
-            if (observationProgress.stage == 0 && observationProgress.progress >= 0.1f)
+            if (observationProgress.Stage == 0 && observationProgress.Progress >= 0.1f)
             {
-                observationProgress.stage = 1;
+                observationProgress.Stage = 1;
                 HandleStageOne(thought);
             }
 
-            if (observationProgress.stage == 1 && observationProgress.progress >= 0.5f)
+            if (observationProgress.Stage == 1 && observationProgress.Progress >= 0.5f)
             {
-                observationProgress.stage = 2;
+                observationProgress.Stage = 2;
                 HandleStageTwo(thought);
             }
 
-            if (observationProgress.stage == 2 && observationProgress.progress >= 1.0f)
+            if (observationProgress.Stage == 2 && observationProgress.Progress >= 1.0f)
             {
-                observationProgress.stage = 3;
+                observationProgress.Stage = 3;
                 HandleStageThree(thought);
             }
 
-            if (observationProgress.stage == 3 || observationProgress.time >= 30.0f)
+            if (observationProgress.Stage == 3 || observationProgress.Time >= 30.0f)
             {
                 delete.Enqueue(thought);
             }
@@ -105,56 +87,56 @@ public class ObserverImp : Observer
 
         while (delete.Count > 0) { thoughts.Remove(delete.Dequeue()); }
 
+        HandleContext();
+
         lastCheck = Time.time;
     }
 
-    public void HandleStageOne(Thought thought)
+    private void HandleContext()
     {
-        ThoughtFocus thoughtFocus = new ThoughtFocus();
-        thoughtFocus.originalThought = thought;
-        thoughtFocus.topicName = thought.topic;
-        thoughtFocus.stage = Topic.Stage.None;
-        thoughtFocus.complexity = thought.complexity;
-        thoughtFocus.finalMultiplier = 0.2f;
-        thoughtFocus.tangents = new List<string>();
+        HashSet<string> actors = myInput.KnownActors();
+        
+        foreach (string actor in actors)
+        {
+            bool acting = newSpeechActors.Contains(actor);
+            Send(new ContextInput(actor, acting));
+        }
+        
+        newSpeechActors.Clear();
+    }
+
+    private void HandleStageOne(Thought thought)
+    {
+        ThoughtFocus thoughtFocus = new ThoughtFocus(thought, 0.2f, false);
+        
         Send(thoughtFocus);
     }
 
-    public void HandleStageTwo(Thought thought)
+    private void HandleStageTwo(Thought thought)
     {
-        ThoughtFocus thoughtFocus = new ThoughtFocus();
-        thoughtFocus.originalThought = null;
-        thoughtFocus.topicName = thought.topic;
-        thoughtFocus.stage = thought.stage;
-        thoughtFocus.complexity = thought.complexity;
-        thoughtFocus.finalMultiplier = 0.3f;
-        thoughtFocus.tangents = thought.tangents;
+        ThoughtFocus thoughtFocus = new ThoughtFocus(thought, 0.3f, true);
+        
         Send(thoughtFocus);
 
-        foreach (Affection affection in thought.affections)
+        foreach (Attack affection in thought.Affections)
         {
-            Affection newAffection = new Affection();
-            newAffection.strength *= 0.5f;
-            Send(newAffection);
+            Attack newAttack = new Attack(affection.MyType, affection.Strength * 0.5f);
+            
+            Send(newAttack);
         }
     }
 
-    public void HandleStageThree(Thought thought)
+    private void HandleStageThree(Thought thought)
     {
-        ThoughtFocus thoughtFocus = new ThoughtFocus();
-        thoughtFocus.originalThought = null;
-        thoughtFocus.topicName = thought.topic;
-        thoughtFocus.stage = Topic.Stage.None;
-        thoughtFocus.complexity = thought.complexity;
-        thoughtFocus.finalMultiplier = 0.5f;
-        thoughtFocus.tangents = new List<string>();
+        ThoughtFocus thoughtFocus = new ThoughtFocus(thought, 0.5f, true);
+        
         Send(thoughtFocus);
         
-        foreach (Affection affection in thought.affections)
+        foreach (Attack affection in thought.Affections)
         {
-            Affection newAffection = new Affection();
-            newAffection.strength *= 0.5f;
-            Send(newAffection);
+            Attack newAttack = new Attack(affection.MyType, affection.Strength * 0.5f);
+            
+            Send(newAttack);
         }
     }
 

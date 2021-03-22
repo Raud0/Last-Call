@@ -9,30 +9,51 @@
         Climax,
         Denouement,
         Coda,
-        Depleted
+        Ended
     }
-    
-    Topic parent;
 
-    public Stage stage;
-    public float focus;
+    public string TopicName { get; set; }
+    public Topic Parent { get; set; }
+    public Stage MyStage { get; set; }
+    public float Focus { get; set; }
 
     public float RootFocus(float multiplier, int maxDepth)
     {
-        if (maxDepth <= -1) { return 0f; }
-        if (this.parent == null) { return this.focus; }
-        
-        return this.focus + parent.RootFocus(multiplier, maxDepth - 1) * multiplier;
+        if (maxDepth <= -1)
+        {
+            return 0f;
+        }
+
+        if (this.Parent == null)
+        {
+            return this.Focus;
+        }
+
+        return this.Focus + Parent.RootFocus(multiplier, maxDepth - 1) * multiplier;
     }
 
     public void FocusToRoots(float amount, float multiplier, int maxDepth)
     {
-        if (maxDepth <= -1) { return; }
-        this.focus += amount;
-        
-        if (this.parent == null) { return; }
-        this.parent.FocusToRoots(amount * multiplier, multiplier, maxDepth - 1);
+        if (maxDepth <= -1)
+        {
+            return;
+        }
+
+        this.Focus += amount;
+
+        if (this.Parent == null)
+        {
+            return;
+        }
+
+        this.Parent.FocusToRoots(amount * multiplier, multiplier, maxDepth - 1);
     }
 
-    public string topicName;
+    public Topic(string name, Topic parent)
+    {
+        TopicName = name;
+        Parent = parent;
+        MyStage = Stage.Hidden;
+        Focus = 0f;
+    }
 }

@@ -1,6 +1,13 @@
 ﻿public class ObservationProgress
 {
-     public float time = 0f;
-     public float progress = 0f;
-     public int stage = 0;
+     public float Time { get; set; }
+     public float Progress { get; set; }
+     public int Stage { get; set; }
+
+     public ObservationProgress()
+     {
+          Time = 0f;
+          Progress = 0f;
+          Stage = 0;
+     }
 }

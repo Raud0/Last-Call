@@ -1,0 +1,2 @@
+Export to tab-seperated txt.file, remember to save the working file before you export and then switching back afterwards (it automatically changes the working file to the one you exported);
+Use the txt.files as text assets in unity;
