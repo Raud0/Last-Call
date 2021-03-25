@@ -49,11 +49,11 @@
         this.Parent.FocusToRoots(amount * multiplier, multiplier, maxDepth - 1);
     }
 
-    public Topic(string name, Topic parent)
+    public Topic(string name, Topic parent, Stage stage = Stage.Hidden, float focus = 0f)
     {
         TopicName = name;
         Parent = parent;
-        MyStage = Stage.Hidden;
-        Focus = 0f;
+        MyStage = stage;
+        Focus = focus;
     }
 }

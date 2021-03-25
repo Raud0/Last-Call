@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 public class NPCDeciderImp : DeciderImp
@@ -20,7 +21,7 @@ public class NPCDeciderImp : DeciderImp
         return;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         DoSpeaking();
     }
@@ -38,18 +39,22 @@ public class NPCDeciderImp : DeciderImp
 
     private void PickThought()
     {
+        if (thoughts.Count == 0) return; 
+        
         currentThought = thoughts[0];
         currentThoughtProgress = 0f;
     }
 
     private void ProgressThought()
     {
-        float progression = currentThoughtProgress + thoughtSpeed / currentThought.Text.Length;
-        Speech speech = new Speech(myOutput.myStack.Me, progression, currentThought);
+        if (currentThought == null) return;
+        
+        currentThoughtProgress += thoughtSpeed / currentThought.Text.Length * Time.fixedDeltaTime;
+        Speech speech = new Speech(myOutput.myStack.Me, currentThoughtProgress, currentThought);
         
         Send(speech);
 
-        if (progression >= 1f)
+        if (currentThoughtProgress >= 1f)
         {
             currentThought = null;
             currentThoughtProgress = 0f;

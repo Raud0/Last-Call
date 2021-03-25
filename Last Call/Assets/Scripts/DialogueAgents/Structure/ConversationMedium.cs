@@ -12,10 +12,37 @@ public class ConversationMedium : MonoBehaviour
 
     public TextAsset topicTextAsset;
     public TextAsset thoughtTextAsset;
+    public List<ActorStack> ActorStacks;
     public HashSet<ActorStack> Actors { get; set; }
-    public HashSet<Topic> Topics { get; set; }
+    public string lead;
+    public Dictionary<string,HashSet<Topic>> Topics { get; set; }
     public Dictionary<string,HashSet<Thought>> Thoughts { get; set; }
-    
+
+    public HashSet<Topic> GetTopics(string actor)
+    {
+        if (Topics.ContainsKey(actor)) return Topics[actor];
+        return new HashSet<Topic>();
+    }
+
+    public HashSet<Thought> GetThoughts(string actor)
+    {
+        if (Thoughts.ContainsKey(actor)) return Thoughts[actor];
+        return new HashSet<Thought>();
+    }
+
+    public ActorStack GetActorByName(string actor)
+    {
+        foreach (ActorStack actorStack in Actors)
+        {
+            if (actorStack.Me.Equals(actor))
+            {
+                return actorStack;
+            }
+        }
+
+        return null;
+    }
+
     public HashSet<string> GetActorNames()
     {
         HashSet<string> names = new HashSet<string>();
@@ -25,15 +52,33 @@ public class ConversationMedium : MonoBehaviour
 
     private void LoadData(TextAsset topicTextAsset, TextAsset thoughtTextAsset)
     {
-        Topics = Loader.LoadTopics(topicTextAsset);
+        Topics = Loader.LoadTopics(topicTextAsset, Actors);
         Thoughts = Loader.LoadThoughts(thoughtTextAsset);
     }
 
     private void Initialize()
     {
-        LoadData(topicTextAsset, thoughtTextAsset);
+        Actors = new HashSet<ActorStack>(ActorStacks);
         
+        LoadData(topicTextAsset, thoughtTextAsset);
+
         foreach (ActorStack actor in Actors) actor.Initialize(this);
+
+        foreach (ActorStack actor in Actors)
+        {
+            if (!actor.Me.Equals("Joe")) continue;
+            
+            actor.inputStack.Route(new ThoughtFocus(
+                    null, 
+                    null,
+                    Topic.Stage.None,
+                    0f,
+                    new HashSet<string>() {"Call"},
+                    0.0f,
+                    false
+                    ));
+    
+        }
     }
 
     private void DeInitialize()

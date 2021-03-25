@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class ThoughtsImp : Thoughts
 {
@@ -8,9 +9,13 @@ public class ThoughtsImp : Thoughts
     {
         Topic.Stage requestStage = thoughtRequest.MyStage;
         string topic = thoughtRequest.Topic;
+
+        if (!thoughts.ContainsKey(topic)) return;
+        if (!thoughts[topic].ContainsKey(requestStage)) return;
+        if (thoughts[topic][requestStage].Count <= 0) return;
         
-        ThoughtResponse thoughtResponse = new ThoughtResponse(thoughts[topic][requestStage]);
-        
+        ThoughtResponse thoughtResponse = new ThoughtResponse(new HashSet<Thought>(thoughts[topic][requestStage]));
+        thoughts[topic][requestStage].Clear();
         Send(thoughtResponse);
     }
 

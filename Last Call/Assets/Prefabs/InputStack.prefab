@@ -43,3 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0f4015401519c04db5b50ff9f47ec1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myStack: {fileID: 0}
+  attentionObject: {fileID: 4723952507254764740, guid: 588607bc7bd623e488d0be0c770367bf, type: 3}
+  thoughtsObject: {fileID: 7055675526295853653, guid: 536c7df35040aa44a8c006cd28e2f0ea, type: 3}
+  observerObject: {fileID: 8177378002666207644, guid: 0efe5cf7ebe6dc146903abde20afeea5, type: 3}
+  attention: {fileID: 6383463073946802597, guid: 588607bc7bd623e488d0be0c770367bf, type: 3}
+  thoughts: {fileID: 6400654061896585975, guid: 536c7df35040aa44a8c006cd28e2f0ea, type: 3}
+  observer: {fileID: 1745161250810269891, guid: 0efe5cf7ebe6dc146903abde20afeea5, type: 3}

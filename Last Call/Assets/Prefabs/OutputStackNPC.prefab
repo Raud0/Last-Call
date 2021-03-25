@@ -43,3 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa541a74a155c39409861adc388d77a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myStack: {fileID: 0}
+  stateManagerObject: {fileID: 7673382643417700909, guid: 53c288b3bc440a548a2fe865dc6586f4, type: 3}
+  deciderObject: {fileID: 7825085955239029478, guid: b87b857fd6322564b9cd261347d8f536, type: 3}
+  stateManager: {fileID: 6400543334959063322, guid: 53c288b3bc440a548a2fe865dc6586f4, type: 3}
+  decider: {fileID: 4818778201626632255, guid: b87b857fd6322564b9cd261347d8f536, type: 3}

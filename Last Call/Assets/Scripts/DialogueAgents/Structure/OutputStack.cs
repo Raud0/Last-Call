@@ -5,15 +5,21 @@ using UnityEngine;
 public class OutputStack : MonoBehaviour
 {
     public ActorStack myStack;
-    
+
+    public GameObject stateManagerObject;
+    public GameObject deciderObject;
+    [HideInInspector]
     public StateManager stateManager;
+    [HideInInspector]
     public Decider decider;
 
     public void Initialize(ActorStack stack)
     {
         this.myStack = stack;
 
+        stateManager = Instantiate(stateManagerObject,transform).GetComponent<StateManager>();
         stateManager.Initialize(this);
+        decider = Instantiate(deciderObject,transform).GetComponent<Decider>();
         decider.Initialize(this);
     }
     

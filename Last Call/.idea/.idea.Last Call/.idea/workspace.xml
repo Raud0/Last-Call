@@ -2,37 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b04634c2-073d-4ed4-a6b5-aa70d43bd294" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Attack.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Last Call/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Last Call/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Last Call/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Last Call/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Last Call/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Last Call/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Action.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Action.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Affection.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Affection.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Attack.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ContextInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ContextInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Emotion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Emotion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/thoughts.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/thoughts.csv.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/thoughts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/thoughts.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/topics.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/topics.csv.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/topics.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/topics.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/Minuteman_III_Launch_Control.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/Minuteman_III_Launch_Control.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Agent.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Agent.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/InputStack.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/InputStack.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/NPC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/NPC.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/OutputStackNPC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/OutputStackNPC.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/OutputStackPC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/OutputStackPC.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PC.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DialogueScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DialogueScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Thought.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Thought.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ThoughtFocus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ThoughtFocus.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ThoughtRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ThoughtRequest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Topic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Topic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/AgentSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/ActorStack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/AgentSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/ActorStack.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Attention.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Attention.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/ActorStack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/ActorStack.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/ConversationMedium.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/ConversationMedium.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Decider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Decider.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/AttentionImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/AttentionImp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/DeciderImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/DeciderImp.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCDeciderImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCDeciderImp.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCStateManagerImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCStateManagerImp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ObservationProgress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ObservationProgress.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ObserverImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ObserverImp.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCDeciderImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCDeciderImp.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCStateManagerImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCStateManagerImp.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ThoughtsImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ThoughtsImp.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/InputStack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/InputStack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Observer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Observer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/OutputStack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/OutputStack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/StateManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/StateManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Thoughts.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Thoughts.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Events.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Events.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Loader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Loader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Display/UIController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Display/UIController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,24 +48,40 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/InputStack.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Action.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCStateManagerImp.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/AttentionImp.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Topic.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/43/5cff3a34/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCStateManagerImp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Observer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Events.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Thought.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Display/ConversationDisplayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Display/UIController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Singleton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62FFEEB7-EC02-4BEA-B61E-5FBF8D44AC5B/90/57fde61a/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/StateManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ThoughtFocus.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ContextInput.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Attention.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Attack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ticker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/ActorStack.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prefabs/Agent.prefab" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/OutputStackModule.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ThoughtResponse.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/InputStackModule.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Display/SpeechDisplay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/42A5878C-E129-4030-83AC-CCF18E43363F/eb/2fa90ad5/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/394C8FAE-4BA1-4DD2-A259-BD441D5BEF25/58/2804f9b1/Queue`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/ConversationMedium.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Thoughts.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Display/FudgeHeight.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Action.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/AttentionImp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Topic.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/43/5cff3a34/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Events.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Thought.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Display/OptionDisplayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Attention.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://E:/Unity/2020.3.0f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Display/Option.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeA.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Loader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/DeciderImp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexJitter.cs" root0="FORCE_HIGHLIGHTING" />
@@ -69,73 +89,72 @@
     <setting file="file://$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexColorCycler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ObserverImp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ThoughtsImp.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/OutputStackModule.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/42A5878C-E129-4030-83AC-CCF18E43363F/3d/61946146/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCDeciderImp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Emotion.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Decider.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ThoughtResponse.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/InputStackModule.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/StateManagerImp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Display/TextEffects/ColourWaveEffect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ThoughtRequest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62FFEEB7-EC02-4BEA-B61E-5FBF8D44AC5B/43/a7d92663/IComparable`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Display/TextEffects/ColourEffect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/OutputStack.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/ConversationMedium.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Thoughts.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Display/TextEffects/WaveAndFade.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ObservationProgress.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Observer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Context.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/ConversationContext.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Context.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/DecisionInput.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/FocusInput.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/AttentionInput.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/TopicRequest.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Weight.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/StateOutput.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/StateManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/StateInput.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Emotions.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Affections.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/FocusShift.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Observer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ObservationProgress.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCStateManagerImp.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCStateManagerImp.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCDeciderImp.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ContextInput.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ThoughtRequest.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Effection.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/StateManagerImp.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Affection.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ObservationProgress.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/DeciderImp.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCDeciderImp.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Action.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Topic.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ConversationCreator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameEvents.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Events.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/AgentSystem.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Decider.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ObserverImp.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/OutputStack.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/ActorStack.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Thoughts.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Attention.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/InputStack.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ThoughtResponse.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ThoughtsImp.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Loader.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/ConversationMedium.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ThoughtFocus.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Attack.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Emotion.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/OutputStack.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueInterface.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Display/DialogueInterface.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Display/DialogueOptionsUIController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Display/OptionController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Singleton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Display/FudgeHeight.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Display/ColourEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Display/ColourWaveEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Display/Option.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCDeciderImp.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ObserverImp.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCDeciderImp.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Thought.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCStateManagerImp.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCStateManagerImp.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/DeciderImp.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Display/OptionDisplayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Display/ConversationDisplayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Display/TextEffects/WaveAndFade.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Display/SpeechDisplay.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/InputStack.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ThoughtsImp.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Attention.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/OutputStackModule.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/InputStackModule.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Topic.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/ConversationMedium.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Loader.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/ActorStack.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/AttentionImp.cs" />
       </list>
     </option>
@@ -195,6 +214,10 @@
       <workItem from="1615741257571" duration="21632000" />
       <workItem from="1616168387231" duration="16245000" />
       <workItem from="1616340114259" duration="15917000" />
+      <workItem from="1616447156901" duration="7308000" />
+      <workItem from="1616539538507" duration="4923000" />
+      <workItem from="1616592516527" duration="18254000" />
+      <workItem from="1616704680708" duration="7468000" />
     </task>
     <servers />
   </component>
@@ -225,14 +248,18 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="461" y="182" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1616194703048" />
+    <state x="1086" y="158" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1616626721210">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1086" y="158" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1616626721210" />
     <state x="-7" y="0" width="974" height="1087" key="dock-window-1" timestamp="1608581974297">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="-7" y="0" width="974" height="1087" key="dock-window-1/0.0.1920.1080@0.0.1920.1080" timestamp="1608581974297" />
-    <state x="616" y="250" key="run.anything.popup" timestamp="1616192913939">
+    <state x="616" y="250" key="run.anything.popup" timestamp="1616621039645">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="616" y="250" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1616192913939" />
+    <state x="616" y="250" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1616621039645" />
     <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1615748031755">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

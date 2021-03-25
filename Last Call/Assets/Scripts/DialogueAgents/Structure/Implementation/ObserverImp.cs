@@ -35,6 +35,8 @@ public class ObserverImp : Observer
 
     private void Handle(Speech speech)
     {
+        if (!thoughts.ContainsKey(speech.Thought)) thoughts[speech.Thought] = new ObservationProgress();
+        
         thoughts[speech.Thought].Progress = speech.Progress;
         
         newSpeech = true;

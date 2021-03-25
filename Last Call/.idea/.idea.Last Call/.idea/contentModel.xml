@@ -50,10 +50,23 @@
               <e p="Thoughts.cs" t="Include" />
             </e>
           </e>
+          <e p="Display" t="Include">
+            <e p="ConversationDisplayer.cs" t="Include" />
+            <e p="FudgeHeight.cs" t="Include" />
+            <e p="Option.cs" t="Include" />
+            <e p="OptionDisplayer.cs" t="Include" />
+            <e p="SpeechDisplay.cs" t="Include" />
+            <e p="TextEffects" t="Include">
+              <e p="ColourEffect.cs" t="Include" />
+              <e p="ColourWaveEffect.cs" t="Include" />
+              <e p="WaveAndFade.cs" t="Include" />
+            </e>
+            <e p="UIController.cs" t="Include" />
+          </e>
           <e p="Events.cs" t="Include" />
           <e p="Loader.cs" t="Include" />
+          <e p="Singleton.cs" t="Include" />
           <e p="Ticker.cs" t="Include" />
-          <e p="UIController.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Examples &amp; Extras" t="Include">

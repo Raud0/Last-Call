@@ -5,9 +5,15 @@ using UnityEngine;
 public class InputStack : MonoBehaviour
 {
     public ActorStack myStack;
-    
+
+    public GameObject attentionObject;
+    public GameObject thoughtsObject;
+    public GameObject observerObject;
+    [HideInInspector]
     public Attention attention;
+    [HideInInspector]
     public Thoughts thoughts;
+    [HideInInspector]
     public Observer observer;
     
     public void Initialize(ActorStack stack, HashSet<Topic> newTopics, HashSet<Thought> newThoughts)
@@ -15,9 +21,12 @@ public class InputStack : MonoBehaviour
         myStack = stack;
         myStack.conversation.OnSpeech += Route;
         myStack.conversation.OnInteraction += Route;
-
+        
+        attention = Instantiate(attentionObject, transform).GetComponent<Attention>();
         attention.Initialize(this);
+        thoughts = Instantiate(thoughtsObject, transform).GetComponent<Thoughts>();
         thoughts.Initialize(this);
+        observer = Instantiate(observerObject, transform).GetComponent<Observer>();
         observer.Initialize(this);
 
         attention.Load(newTopics);

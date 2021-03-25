@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AttentionImp : Attention
 {
-    private Dictionary<string, Topic> topicsByName;
-    private List<FilteredThought> thoughts;
+    private Dictionary<string, Topic> topicsByName = new Dictionary<string, Topic>();
+    private List<FilteredThought> thoughts = new List<FilteredThought>();
 
     private void Awake()
     {
@@ -15,6 +15,30 @@ public class AttentionImp : Attention
     private void OnDestroy()
     {
         Events.OnUpdateTime -= Decay;
+    }
+    
+    protected void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T)) DebugText();
+    }
+
+    public void DebugText()
+    {
+        string text = myInput.myStack.Me + ":";
+        foreach (KeyValuePair<string, Topic> pair in topicsByName)
+        {
+            String topicName = pair.Key;
+            Topic topic = pair.Value;
+            text += "\n" + topic.MyStage + "("+ topic.Focus + "): " + topic.TopicName;
+            foreach (FilteredThought filteredThought in thoughts)
+            {
+                if (filteredThought.Topic.Equals(topicName))
+                {
+                    text += "\n\t" + filteredThought.Text;
+                }
+            }
+        }
+        Debug.Log(text);
     }
 
     public override void Load(HashSet<Topic> topics)
@@ -36,11 +60,11 @@ public class AttentionImp : Attention
     {
         List<FilteredThought> filteredThoughts = new List<FilteredThought>();
 
-        foreach (FilteredThought rankedThought in thoughts)
+        foreach (FilteredThought filteredThought in thoughts)
         {
-            Appraise(rankedThought);
-            Topic topic = topicsByName[rankedThought.Topic];
-            Topic.Stage stage = rankedThought.Stage;
+            Appraise(filteredThought);
+            Topic topic = topicsByName[filteredThought.Topic];
+            Topic.Stage stage = filteredThought.Stage;
 
             bool add = false;
             
@@ -49,33 +73,33 @@ public class AttentionImp : Attention
             switch (topic.MyStage)
             {
                 case Topic.Stage.Orientation:
-                    add = stage == Topic.Stage.Orientation ||
-                          stage == Topic.Stage.Complication;
+                    add = stage.Equals(Topic.Stage.Orientation) ||
+                          stage.Equals(Topic.Stage.Complication);
                     break;
                 case Topic.Stage.Complication:
-                    add = stage == Topic.Stage.Orientation ||
-                          stage == Topic.Stage.Complication ||
-                          stage == Topic.Stage.Climax ||
-                          stage == Topic.Stage.Denouement;
+                    add = stage.Equals(Topic.Stage.Orientation) ||
+                          stage.Equals(Topic.Stage.Complication) ||
+                          stage.Equals(Topic.Stage.Climax) ||
+                          stage.Equals(Topic.Stage.Denouement);
                     break;
                 case Topic.Stage.Climax:
-                    add = stage == Topic.Stage.Complication ||
-                          stage == Topic.Stage.Climax;
+                    add = stage.Equals(Topic.Stage.Complication) ||
+                          stage.Equals(Topic.Stage.Climax);
                     break;
                 case Topic.Stage.Denouement:
-                    add = stage == Topic.Stage.Complication ||
-                          stage == Topic.Stage.Denouement ||
-                          stage == Topic.Stage.Coda;
+                    add = stage.Equals(Topic.Stage.Complication) ||
+                          stage.Equals(Topic.Stage.Denouement) ||
+                          stage.Equals(Topic.Stage.Coda);
                     break;
                 case Topic.Stage.Coda:
-                    add = stage == Topic.Stage.Coda;
+                    add = stage.Equals(Topic.Stage.Coda);
                     break;
             }
             
-            if (add) filteredThoughts.Add(rankedThought);
+            if (add) filteredThoughts.Add(filteredThought);
         }
 
-        filteredThoughts = filteredThoughts.GetRange(0, 10);
+        filteredThoughts = filteredThoughts.GetRange(0, Math.Min(filteredThoughts.Count,10));
         List<RankedThought> rankedThoughts = new List<RankedThought>();
         foreach (FilteredThought filteredThought in filteredThoughts)
         {
@@ -88,30 +112,30 @@ public class AttentionImp : Attention
 
     public void Remove(Thought thought)
     {
-        FilteredThought toRemove = null;
-        foreach (FilteredThought rankedThought in thoughts)
+        Queue<FilteredThought> delete = new Queue<FilteredThought>();
+        foreach (FilteredThought filteredThought in thoughts)
         {
-            if (((Thought) rankedThought).Equals(thought))
-            {
-                toRemove = rankedThought;
-                break;
-            }
+            if (filteredThought.Text.Equals(thought.Text)) delete.Enqueue(filteredThought);
         }
 
-        if (toRemove != null) thoughts.Remove(toRemove);
+        while (delete.Count > 0) thoughts.Remove(delete.Dequeue());
     }
     
     public override void Receive(ThoughtFocus thoughtFocus)
     {
         Thought original = thoughtFocus.MainThought;
         if (thoughtFocus.RemoveThought && original != null) { Remove(original); }
-        
-        Topic topic = topicsByName[thoughtFocus.Topic];
-        
+
+        Topic topic = null;
+        if (thoughtFocus.Topic != null) { topic = topicsByName[thoughtFocus.Topic]; }
+
+        if (topic != null && topic.MyStage.Equals(Topic.Stage.Hidden)) ExitTo(topic, Topic.Stage.Orientation);
+            
         foreach (String tangent in thoughtFocus.Tangents)
         {
+            //Debug.Log("\"" + tangent + "\"");
             Topic tangentialTopic = topicsByName[tangent];
-            if (tangentialTopic.MyStage == Topic.Stage.Hidden) ExitTo(topic, Topic.Stage.Orientation);
+            ExitTo(tangentialTopic, Topic.Stage.Orientation);
         }
         
         TopicHeard(topic, thoughtFocus);
@@ -128,32 +152,36 @@ public class AttentionImp : Attention
 
     private void Decay(int seconds, int minutes)
     {
-        ShiftAllTopics(0f, -0.15f, 1f); // decays by 9 points per minute, intuition tells me to switch to percentage, since decay is usually exponential
+        ShiftAllTopics(0f, -0.15f * Time.deltaTime, 1f); // decays by 9 points per minute, intuition tells me to switch to percentage, since decay is usually exponential
         FilterThoughts();
     }
     
     private void TopicHeard(Topic topic, ThoughtFocus thoughtFocus)
     {
-        switch (topic.MyStage)
+        if (topic != null)
         {
-            case Topic.Stage.Orientation:
-                Orientation(topic, thoughtFocus);
-                break;
-            case Topic.Stage.Complication:
-                Complication(topic, thoughtFocus);
-                break;
-            case Topic.Stage.Climax:
-                Climax(topic, thoughtFocus);
-                break;
-            case Topic.Stage.Denouement:
-                Denouement(topic, thoughtFocus);
-                break;
-            case Topic.Stage.Coda:
-                Coda(topic, thoughtFocus);
-                break;
+            switch (topic.MyStage)
+            {
+                case Topic.Stage.Orientation:
+                    Orientation(topic, thoughtFocus);
+                    break;
+                case Topic.Stage.Complication:
+                    Complication(topic, thoughtFocus);
+                    break;
+                case Topic.Stage.Climax:
+                    Climax(topic, thoughtFocus);
+                    break;
+                case Topic.Stage.Denouement:
+                    Denouement(topic, thoughtFocus);
+                    break;
+                case Topic.Stage.Coda:
+                    Coda(topic, thoughtFocus);
+                    break;
+            }
+            
+            ShiftAllTopics(-0.02f, 0f, thoughtFocus.FinalMultiplier);
         }
-
-        ShiftAllTopics(-0.02f, 0f, thoughtFocus.FinalMultiplier);
+        
         FilterThoughts();
     }
 
@@ -202,14 +230,14 @@ public class AttentionImp : Attention
     
     private void Orientation(Topic topic, ThoughtFocus thoughtFocus)
     {
-        if (thoughtFocus.MyStage == Topic.Stage.Complication) ExitTo(topic, Topic.Stage.Complication);
+        if (thoughtFocus.MyStage.Equals(Topic.Stage.Complication)) ExitTo(topic, Topic.Stage.Complication);
         ShiftFocusChangeDiminishing(topic, thoughtFocus.Complexity, true, 5f, thoughtFocus.FinalMultiplier);
     }
 
     private void Complication(Topic topic, ThoughtFocus thoughtFocus)
     {
-        if (thoughtFocus.MyStage == Topic.Stage.Climax) ExitTo(topic, Topic.Stage.Climax);
-        if (thoughtFocus.MyStage == Topic.Stage.Denouement) ExitTo(topic, Topic.Stage.Denouement);
+        if (thoughtFocus.MyStage.Equals(Topic.Stage.Climax)) ExitTo(topic, Topic.Stage.Climax);
+        if (thoughtFocus.MyStage.Equals(Topic.Stage.Denouement)) ExitTo(topic, Topic.Stage.Denouement);
         ShiftFocusChangeDiminishing(topic, thoughtFocus.Complexity, true, 3f, thoughtFocus.FinalMultiplier);
     }
 
@@ -224,13 +252,13 @@ public class AttentionImp : Attention
 
     private void Denouement(Topic topic, ThoughtFocus thoughtFocus)
     {
-        if (thoughtFocus.MyStage == Topic.Stage.Coda) ExitTo(topic, Topic.Stage.Coda);
+        if (thoughtFocus.MyStage.Equals(Topic.Stage.Coda)) ExitTo(topic, Topic.Stage.Coda);
         ShiftFocusChangeDiminishing(topic, thoughtFocus.Complexity, false, 3f, thoughtFocus.FinalMultiplier);
     }
 
     private void Coda(Topic topic, ThoughtFocus thoughtFocus)
     {
-        if (thoughtFocus.MyStage == Topic.Stage.Coda) ExitTo(topic, Topic.Stage.Ended);
+        if (thoughtFocus.MyStage.Equals(Topic.Stage.Coda)) ExitTo(topic, Topic.Stage.Ended);
         ShiftFocusChangeDiminishing(topic, thoughtFocus.Complexity, true, 5f, thoughtFocus.FinalMultiplier);
     }
 
@@ -238,16 +266,34 @@ public class AttentionImp : Attention
     {
         topic.MyStage = stage;
 
+        Queue<ThoughtRequest> requests = new Queue<ThoughtRequest>();
+        
         switch (stage)
         {
+            case Topic.Stage.Orientation:
+                requests.Enqueue(new ThoughtRequest(topic.TopicName, Topic.Stage.Orientation));
+                requests.Enqueue(new ThoughtRequest(topic.TopicName, Topic.Stage.Complication));
+                break;
+            case Topic.Stage.Complication:
+                requests.Enqueue(new ThoughtRequest(topic.TopicName, Topic.Stage.Orientation));
+                requests.Enqueue(new ThoughtRequest(topic.TopicName, Topic.Stage.Complication));
+                requests.Enqueue(new ThoughtRequest(topic.TopicName, Topic.Stage.Climax));
+                requests.Enqueue(new ThoughtRequest(topic.TopicName, Topic.Stage.Denouement));
+                break;
             case Topic.Stage.Climax:
+                requests.Enqueue(new ThoughtRequest(topic.TopicName, Topic.Stage.Complication));
+                requests.Enqueue(new ThoughtRequest(topic.TopicName, Topic.Stage.Climax));
                 RemoveThoughts(topic, Topic.Stage.Orientation);
                 break;
             case Topic.Stage.Denouement:
+                requests.Enqueue(new ThoughtRequest(topic.TopicName, Topic.Stage.Complication));
+                requests.Enqueue(new ThoughtRequest(topic.TopicName, Topic.Stage.Denouement));
+                requests.Enqueue(new ThoughtRequest(topic.TopicName, Topic.Stage.Coda));
                 RemoveThoughts(topic, Topic.Stage.Orientation);
                 RemoveThoughts(topic, Topic.Stage.Climax);
                 break;
             case Topic.Stage.Coda:
+                requests.Enqueue(new ThoughtRequest(topic.TopicName, Topic.Stage.Coda));
                 RemoveThoughts(topic, Topic.Stage.Complication);
                 RemoveThoughts(topic, Topic.Stage.Denouement);
                 break;
@@ -255,23 +301,22 @@ public class AttentionImp : Attention
                 RemoveThoughts(topic, Topic.Stage.Coda);
                 break;
         }
-        
-        ThoughtRequest thoughtRequest = new ThoughtRequest(topic.TopicName, topic.MyStage);
-        Send(thoughtRequest);
+
+        while (requests.Count > 0) Send(requests.Dequeue());
     }
 
     private void RemoveThoughts(Topic topic, Topic.Stage stage)
     {
         Queue<FilteredThought> delete = new Queue<FilteredThought>();
         foreach (FilteredThought thought in thoughts)
-        { if (topicsByName[thought.Topic].Equals(topic) && thought.Stage == stage) delete.Enqueue(thought); }
+        { if (topicsByName[thought.Topic].Equals(topic) && thought.Stage.Equals(stage)) delete.Enqueue(thought); }
 
         while (delete.Count > 0) { thoughts.Remove(delete.Dequeue()); }
     }
 
     private FilteredThought FilterThought(Thought thought)
     {
-        FilteredThought filteredThought = (FilteredThought) thought;
+        FilteredThought filteredThought = new FilteredThought(thought, 0f);
         Appraise(filteredThought);
         return filteredThought;
     }

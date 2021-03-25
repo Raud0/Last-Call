@@ -1,1 +1,13 @@
-Topic	Stage	Complexity	Actor	Text	Tangents (;)	Event	Social	Will	Love	Shame	Praise	Scare	Encourage	Mistrust	Trust	Silence
+Topic	Stage	Actor	Complexity	Text	Tangents (;)	Event	Social	Will	Love	Shame	Praise	Scare	Encourage	Mistrust	Trust	Silence
+Call	Orientation	Joe	10	I just got a call from command.												
+		Jack	15	More malfunctions?	Malfunction											
+	Complication	Joe	20	DEFCON 1.	Defcon											
+			25	The Ruskies finally did it.												
+		Jack	25	Are you sure?												
+	Climax	Joe	30	We have 30 minutes to launch.	Launch											
+	Denouement	Joe	25	We have no choice.												3
+		Jack	20	I can't believe it.												
+	Coda	Joe	15	"And now, a shooting war."	War						1	1				
+			10	Those bastards.							2					
+			5	About time they made the call.												3
+		Jack	5	Those bastards!												

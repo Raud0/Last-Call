@@ -76,8 +76,6 @@ public class RankedThought : Thought,  IComparable<RankedThought>
         Rank = rank;
     }
 
-    public RankedThought(FilteredThought filteredThought) : base(filteredThought)
-    {
-        Rank = filteredThought.Filter;
-    } 
+    public RankedThought(FilteredThought filteredThought) : this(filteredThought, filteredThought.Filter)
+    {} 
 }

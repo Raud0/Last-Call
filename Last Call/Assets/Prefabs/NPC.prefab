@@ -94,6 +94,14 @@ PrefabInstance:
       propertyPath: outputStack
       value: 
       objectReference: {fileID: 6178876524365933898, guid: f25128f2d94074c4bb8e56604eef7f84, type: 3}
+    - target: {fileID: 6608172523323021367, guid: 863c51a756d73a84a8f347327600b76c, type: 3}
+      propertyPath: inputStackObject
+      value: 
+      objectReference: {fileID: 7444836824761128865, guid: d54ed17004851234ea8205146c176c64, type: 3}
+    - target: {fileID: 6608172523323021367, guid: 863c51a756d73a84a8f347327600b76c, type: 3}
+      propertyPath: outputStackObject
+      value: 
+      objectReference: {fileID: 3393875020044033778, guid: f25128f2d94074c4bb8e56604eef7f84, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 863c51a756d73a84a8f347327600b76c, type: 3}
 --- !u!4 &910137408047020880 stripped

@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public abstract class DeciderImp : Decider
 {
     protected Thought currentThought = null;
-    protected float thoughtSpeed = 1f;
+    protected float thoughtSpeed = 30f;
     protected float currentThoughtProgress = 0f;
     protected List<RankedThought> thoughts = new List<RankedThought>();
     protected Dictionary<Emotion.Type, float> weights = new Dictionary<Emotion.Type, float>();
@@ -35,6 +37,21 @@ public abstract class DeciderImp : Decider
         RankThoughts();
         
         ImpReceive(thoughts);
+    }
+
+    protected void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.H)) DebugText();
+    }
+
+    public void DebugText()
+    {
+        string text = myOutput.myStack.Me + ":";
+        foreach (RankedThought rankedThought in thoughts)
+        {
+            text += "\n" + rankedThought.Rank + ": " + rankedThought.Text;
+        }
+        Debug.Log(text);
     }
 
     private void RankThoughts()
