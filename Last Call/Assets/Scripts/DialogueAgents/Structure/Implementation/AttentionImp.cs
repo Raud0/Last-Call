@@ -5,7 +5,7 @@ using UnityEngine;
 public class AttentionImp : Attention
 {
     private Dictionary<string, Topic> topicsByName = new Dictionary<string, Topic>();
-    private List<FilteredThought> thoughts = new List<FilteredThought>();
+    private List<FocusedThought> thoughts = new List<FocusedThought>();
 
     private void Awake()
     {
@@ -30,11 +30,11 @@ public class AttentionImp : Attention
             String topicName = pair.Key;
             Topic topic = pair.Value;
             text += "\n" + topic.MyStage + "("+ topic.Focus + "): " + topic.TopicName;
-            foreach (FilteredThought filteredThought in thoughts)
+            foreach (FocusedThought focusedThought in thoughts)
             {
-                if (filteredThought.Topic.Equals(topicName))
+                if (focusedThought.Topic.Equals(topicName))
                 {
-                    text += "\n\t" + filteredThought.Text;
+                    text += "\n\t(" + focusedThought.Focus() + ") " + focusedThought.Text;
                 }
             }
         }
@@ -56,15 +56,15 @@ public class AttentionImp : Attention
         topicsByName[topicName] = topic;
     }
     
-    private void FilterThoughts()
+    private void FocusThoughts()
     {
-        List<FilteredThought> filteredThoughts = new List<FilteredThought>();
+        List<FocusedThought> focusedThoughts = new List<FocusedThought>();
 
-        foreach (FilteredThought filteredThought in thoughts)
+        foreach (FocusedThought focusedThought in thoughts)
         {
-            Appraise(filteredThought);
-            Topic topic = topicsByName[filteredThought.Topic];
-            Topic.Stage stage = filteredThought.Stage;
+            Appraise(focusedThought);
+            Topic topic = topicsByName[focusedThought.Topic];
+            Topic.Stage stage = focusedThought.Stage;
 
             bool add = false;
             
@@ -96,26 +96,65 @@ public class AttentionImp : Attention
                     break;
             }
             
-            if (add) filteredThoughts.Add(filteredThought);
+            if (add) focusedThoughts.Add(focusedThought);
         }
+        
+        if (true) ClimaxFilter(focusedThoughts);
+        if (true) FocusFilter(focusedThoughts, 10f);
 
-        filteredThoughts = filteredThoughts.GetRange(0, Math.Min(filteredThoughts.Count,10));
+        focusedThoughts = focusedThoughts.GetRange(0, Math.Min(focusedThoughts.Count,10));
         List<RankedThought> rankedThoughts = new List<RankedThought>();
-        foreach (FilteredThought filteredThought in filteredThoughts)
+        foreach (FocusedThought focusedThought in focusedThoughts)
         {
-            RankedThought rankedThought = new RankedThought(filteredThought);
+            RankedThought rankedThought = new RankedThought(focusedThought);
             rankedThoughts.Add(rankedThought);
         }
         
         Send(rankedThoughts);
     }
 
+    private void ClimaxFilter(List<FocusedThought> focusedThoughts)
+    {
+        Queue<FocusedThought> delete = new Queue<FocusedThought>();
+        bool climaxFound = false;
+        foreach (FocusedThought focusedThought in focusedThoughts)
+        {
+            if (focusedThought.Stage.Equals(Topic.Stage.Climax))
+            {
+                climaxFound = true;
+                break;
+            }
+        }
+        if (!climaxFound) return;
+
+        foreach (FocusedThought focusedThought in focusedThoughts)
+        {
+            if (focusedThought.Stage.Equals(Topic.Stage.Climax) || focusedThought.Stage.Equals(Topic.Stage.Complication)) continue;
+            delete.Enqueue(focusedThought);
+        }
+        
+        while (delete.Count > 0) focusedThoughts.Remove(delete.Dequeue());
+        
+    }
+    private void FocusFilter(List<FocusedThought> focusedThoughts, float cap)
+    {
+        Queue<FocusedThought> delete = new Queue<FocusedThought>();
+        
+        foreach (FocusedThought focusedThought in focusedThoughts)
+        {
+            if (focusedThought.Focus() < cap) continue;
+            delete.Enqueue(focusedThought);
+        }
+        
+        while (delete.Count > 0) focusedThoughts.Remove(delete.Dequeue());
+    }
+
     public void Remove(Thought thought)
     {
-        Queue<FilteredThought> delete = new Queue<FilteredThought>();
-        foreach (FilteredThought filteredThought in thoughts)
+        Queue<FocusedThought> delete = new Queue<FocusedThought>();
+        foreach (FocusedThought focusedThought in thoughts)
         {
-            if (filteredThought.Text.Equals(thought.Text)) delete.Enqueue(filteredThought);
+            if (focusedThought.Text.Equals(thought.Text)) delete.Enqueue(focusedThought);
         }
 
         while (delete.Count > 0) thoughts.Remove(delete.Dequeue());
@@ -145,15 +184,15 @@ public class AttentionImp : Attention
     {
         foreach (Thought thought in thoughtResponse.Thoughts)
         {
-            thoughts.Add(FilterThought(thought));
+            thoughts.Add(FocusThought(thought));
         }
-        FilterThoughts();
+        FocusThoughts();
     }
 
     private void Decay(int seconds, int minutes)
     {
         ShiftAllTopics(0f, -0.15f * Time.deltaTime, 1f); // decays by 9 points per minute, intuition tells me to switch to percentage, since decay is usually exponential
-        FilterThoughts();
+        FocusThoughts();
     }
     
     private void TopicHeard(Topic topic, ThoughtFocus thoughtFocus)
@@ -182,7 +221,7 @@ public class AttentionImp : Attention
             ShiftAllTopics(-0.02f, 0f, thoughtFocus.FinalMultiplier);
         }
         
-        FilterThoughts();
+        FocusThoughts();
     }
 
     private void ShiftAllTopics(float percentage, float flat, float finalMultiplier)
@@ -307,24 +346,24 @@ public class AttentionImp : Attention
 
     private void RemoveThoughts(Topic topic, Topic.Stage stage)
     {
-        Queue<FilteredThought> delete = new Queue<FilteredThought>();
-        foreach (FilteredThought thought in thoughts)
+        Queue<FocusedThought> delete = new Queue<FocusedThought>();
+        foreach (FocusedThought thought in thoughts)
         { if (topicsByName[thought.Topic].Equals(topic) && thought.Stage.Equals(stage)) delete.Enqueue(thought); }
 
         while (delete.Count > 0) { thoughts.Remove(delete.Dequeue()); }
     }
 
-    private FilteredThought FilterThought(Thought thought)
+    private FocusedThought FocusThought(Thought thought)
     {
-        FilteredThought filteredThought = new FilteredThought(thought, 0f);
-        Appraise(filteredThought);
-        return filteredThought;
+        FocusedThought focusedThought = new FocusedThought(thought, 0f, 0f);
+        Appraise(focusedThought);
+        return focusedThought;
     }
 
-    private void Appraise(FilteredThought filteredThought)
+    private void Appraise(FocusedThought focusedThought)
     {
-        filteredThought.Filter = Math.Abs(filteredThought.Complexity - topicsByName[filteredThought.Topic].Focus);
-        filteredThought.Filter *= AttentionShare(topicsByName[filteredThought.Topic]);
+        focusedThought.Distance = Math.Abs(focusedThought.Complexity - topicsByName[focusedThought.Topic].Focus);
+        focusedThought.Share = AttentionShare(topicsByName[focusedThought.Topic]);
     }
 
     private float AttentionShare(Topic soughtTopic)
@@ -338,9 +377,9 @@ public class AttentionImp : Attention
         {
             float topicFocus = topic.RootFocus(0.7f, 3);
             total += topicFocus;
-            if (topic.Equals(soughtTopic)) { sought = topicFocus; }
+            if (topic.Equals(soughtTopic)) { sought += topicFocus; }
         }
 
-        return 1f - sought / total;
+        return sought / total;
     }
 }

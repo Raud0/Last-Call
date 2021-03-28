@@ -7,8 +7,10 @@ public abstract class Observer : InputStackModule
     
     public void Send(ThoughtFocus thoughtFocus)
     { myInput.Route(thoughtFocus); }
+    public void Send(SocialInput socialInput)
+    { myInput.Route(socialInput); }
     public void Send(Attack attack)
     { myInput.Route(attack); }
-    public void Send(ContextInput contextInput)
-    { myInput.Route(contextInput); }
+    public void Send(ActingInput actingInput)
+    { myInput.Route(actingInput); }
 }

@@ -53,7 +53,7 @@ public class ObserverImp : Observer
         HandleNewActions();
         
         timeSinceLastCheck = Time.time - lastCheck;
-        if (timeSinceLastCheck > 5f || newSpeech) { HandleSpeech(); }
+        if (timeSinceLastCheck > 1f || newSpeech) { HandleSpeech(); }
     }
 
     private void HandleSpeech()
@@ -101,7 +101,7 @@ public class ObserverImp : Observer
         foreach (string actor in actors)
         {
             bool acting = newSpeechActors.Contains(actor);
-            Send(new ContextInput(actor, acting));
+            Send(new ActingInput(actor, acting));
         }
         
         newSpeechActors.Clear();
@@ -110,20 +110,20 @@ public class ObserverImp : Observer
     private void HandleStageOne(Thought thought)
     {
         ThoughtFocus thoughtFocus = new ThoughtFocus(thought, 0.2f, false);
-        
         Send(thoughtFocus);
     }
 
     private void HandleStageTwo(Thought thought)
     {
         ThoughtFocus thoughtFocus = new ThoughtFocus(thought, 0.3f, true);
-        
         Send(thoughtFocus);
 
+        SocialInput socialInput = new SocialInput(thought.Actor, thought.InterruptStrategy, Thought.Turn.None);
+        Send(socialInput);
+        
         foreach (Attack affection in thought.Affections)
         {
             Attack newAttack = new Attack(affection.MyType, affection.Strength * 0.5f);
-            
             Send(newAttack);
         }
     }
@@ -131,13 +131,14 @@ public class ObserverImp : Observer
     private void HandleStageThree(Thought thought)
     {
         ThoughtFocus thoughtFocus = new ThoughtFocus(thought, 0.5f, true);
-        
         Send(thoughtFocus);
+        
+        SocialInput socialInput = new SocialInput(thought.Actor, Thought.Interrupt.None, thought.TurnStrategy);
+        Send(socialInput);
         
         foreach (Attack affection in thought.Affections)
         {
             Attack newAttack = new Attack(affection.MyType, affection.Strength * 0.5f);
-            
             Send(newAttack);
         }
     }

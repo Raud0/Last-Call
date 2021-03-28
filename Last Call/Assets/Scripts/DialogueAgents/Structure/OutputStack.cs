@@ -27,24 +27,14 @@ public class OutputStack : MonoBehaviour
     {
 
     }
-    
-    public void Route(Attack attack)
-    { stateManager.Receive(attack); }
-    
-    public void Route(Emotion emotion)
-    { decider.Receive(emotion); }
 
-    public void Route(ContextInput contextInput)
-    { decider.Receive(contextInput); }
-
-    public void Route(List<RankedThought> thoughts)
-    { decider.Receive(thoughts); }
-
-    public void Speak(Speech speech)
-    { myStack.conversation.Speak(speech); }
-
-    public void Interact(Interaction interaction)
-    { myStack.conversation.Interact(interaction); }
+    public void Route(SocialInput socialInput) => decider.Receive(socialInput);
+    public void Route(Attack attack) => stateManager.Receive(attack);
+    public void Route(Emotion emotion) => decider.Receive(emotion);
+    public void Route(ActingInput actingInput) => decider.Receive(actingInput);
+    public void Route(List<RankedThought> thoughts) => decider.Receive(thoughts);
+    public void Speak(Speech speech) => myStack.conversation.Speak(speech);
+    public void Interact(Interaction interaction) => myStack.conversation.Interact(interaction);
     
     public bool IsMe(string name)
     {

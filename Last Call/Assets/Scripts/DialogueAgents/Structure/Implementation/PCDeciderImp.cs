@@ -8,8 +8,13 @@ public class PCDeciderImp : DeciderImp
     {
         return;
     }
+    
+    public override void ImpReceive(SocialInput socialInput)
+    {
+        return;
+    }
 
-    public override void ImpReceive(ContextInput contextInput)
+    public override void ImpReceive(ActingInput actingInput)
     {
         return;
     }
@@ -42,22 +47,10 @@ public class PCDeciderImp : DeciderImp
         currentThoughtProgress = 0f;
     }
 
-    public void FinishThought()
+    public override void FinishThought()
     {
         OptionDisplayer.Instance.FinishThought(currentThought);
         currentThought = null;
         currentThoughtProgress = 0f;
-    }
-    
-    private void ProgressThought()
-    {
-        if (currentThought == null) return;
-        
-        currentThoughtProgress += thoughtSpeed / currentThought.Text.Length * Time.fixedDeltaTime;
-        Speech speech = new Speech(myOutput.myStack.Me, currentThoughtProgress, currentThought);
-        
-        Send(speech);
-
-        if (currentThoughtProgress >= 1f) FinishThought();
     }
 }

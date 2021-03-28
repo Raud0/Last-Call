@@ -19,17 +19,17 @@
 
     public float RootFocus(float multiplier, int maxDepth)
     {
-        if (maxDepth <= -1)
+        if (maxDepth <= 0)
         {
             return 0f;
         }
 
-        if (this.Parent == null)
+        if (Parent == null)
         {
-            return this.Focus;
+            return Focus;
         }
 
-        return this.Focus + Parent.RootFocus(multiplier, maxDepth - 1) * multiplier;
+        return Focus + Parent.RootFocus(multiplier, maxDepth - 1) * multiplier;
     }
 
     public void FocusToRoots(float amount, float multiplier, int maxDepth)

@@ -1,23 +1,53 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class Thought
 {
+    public enum Interrupt
+    {
+        Want,
+        None,
+        Hate
+    }
+    public enum Turn
+    {
+        Give,
+        None,
+        Keep
+    }
+    public enum Affinity
+    {
+        Love,
+        None,
+        Hate
+    }
+    
     public string Topic { get; set; }
     public Topic.Stage Stage { get; set; }
+    public string Actor { get; set; }
     public float Complexity { get; set; }
     public string Text { get; set; }
+    public Interrupt InterruptStrategy { get; set; }
+    public Turn TurnStrategy { get; set; }
+    public Affinity MyAffinity { get; set; }
     public HashSet<string> Tangents { get; set; }
     public int EventCode { get; set; }
     public HashSet<Attack> Affections { get; set; }
     public HashSet<Emotion> Emotions { get; set; }
 
-    public Thought(string topic, Topic.Stage stage, float complexity, string text, HashSet<string> tangents, int eventCode, HashSet<Attack> affections, HashSet<Emotion> emotions)
+    public Thought(string topic, Topic.Stage stage, string actor, float complexity, string text,
+        Interrupt interruptStrategy, Turn turnStrategy, Affinity myAffinity, HashSet<string> tangents,
+        int eventCode, HashSet<Attack> affections, HashSet<Emotion> emotions)
     {
         Topic = topic;
         Stage = stage;
+        Actor = actor;
         Complexity = complexity;
         Text = text;
+        InterruptStrategy = interruptStrategy;
+        TurnStrategy = turnStrategy;
+        MyAffinity = myAffinity;
         Tangents = tangents;
         EventCode = eventCode;
         Affections = affections;
@@ -28,8 +58,12 @@ public class Thought
     {
         Topic = thought.Topic;
         Stage = thought.Stage;
+        Actor = thought.Actor;
         Complexity = thought.Complexity;
         Text = thought.Text;
+        InterruptStrategy = thought.InterruptStrategy;
+        TurnStrategy = thought.TurnStrategy;
+        MyAffinity = thought.MyAffinity;
         Tangents = thought.Tangents;
         EventCode = thought.EventCode;
         Affections = thought.Affections;
@@ -37,22 +71,29 @@ public class Thought
     }
 }
 
-public class FilteredThought : Thought,  IComparable<FilteredThought>
+public class FocusedThought : Thought,  IComparable<FocusedThought>
 {
-    public float Filter { get; set; }
-    
-    public int CompareTo(FilteredThought other)
+    public float Distance { get; set; }
+    public float Share { get; set; }
+
+    public float Focus()
     {
-        float dif = Filter - other.Filter;
+        return Distance * (1.5f - Share);
+    }
+    
+    public int CompareTo(FocusedThought other)
+    {
+        float dif = Focus() - other.Focus();
 
         if (dif < -float.Epsilon) return -1;
         if (dif > float.Epsilon) return 1;
         return 0;
     }
 
-    public FilteredThought(Thought thought, float filter) : base(thought)
+    public FocusedThought(Thought thought, float distance, float share) : base(thought)
     {
-        Filter = filter;
+        Distance = distance;
+        Share = share;
     }
 }
 
@@ -76,6 +117,6 @@ public class RankedThought : Thought,  IComparable<RankedThought>
         Rank = rank;
     }
 
-    public RankedThought(FilteredThought filteredThought) : this(filteredThought, filteredThought.Filter)
+    public RankedThought(FocusedThought focusedThought) : this(focusedThought, focusedThought.Focus())
     {} 
 }

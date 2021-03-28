@@ -1,10 +1,9 @@
-﻿public class ContextInput
+﻿public class ActingInput
 {
-    
     public string Actor { get; set; }
     public bool Acting { get; set; }
 
-    public ContextInput(string actor, bool acting)
+    public ActingInput(string actor, bool acting)
     {
         Actor = actor;
         Acting = acting;

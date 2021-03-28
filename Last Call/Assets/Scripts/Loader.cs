@@ -15,23 +15,44 @@ public static class Loader
         {"coda", Topic.Stage.Coda},
         {"ended", Topic.Stage.Ended},
     };
-    
-    private static Dictionary<int, Emotion.Type> emotionIndexMap = new Dictionary<int, Emotion.Type>()
+
+    private static Dictionary<string, Thought.Interrupt> interruptMap = new Dictionary<string, Thought.Interrupt>()
     {
-        {8, Emotion.Type.Social},
-        {9, Emotion.Type.Will},
-        {10, Emotion.Type.Love}
+        {"want", Thought.Interrupt.Want},
+        {"none", Thought.Interrupt.None},
+        {"hate", Thought.Interrupt.Hate}
+    };
+
+    private static Dictionary<string, Thought.Turn> turnMap = new Dictionary<string, Thought.Turn>()
+    {
+        {"give", Thought.Turn.Give},
+        {"none", Thought.Turn.None},
+        {"keep", Thought.Turn.Keep}
+    };
+    
+    private static Dictionary<string, Thought.Affinity> affinityMap = new Dictionary<string, Thought.Affinity>()
+    {
+        {"love", Thought.Affinity.Love},
+        {"none", Thought.Affinity.None},
+        {"hate", Thought.Affinity.Hate}
+    };
+
+private static Dictionary<int, Emotion.Type> emotionIndexMap = new Dictionary<int, Emotion.Type>()
+    {
+        {10, Emotion.Type.Social},
+        {11, Emotion.Type.Will},
+        {12, Emotion.Type.Love}
     };
     
     private static Dictionary<int, Attack.Type> attackIndexMap = new Dictionary<int, Attack.Type>()
     {
-        {11, Attack.Type.Shame},
-        {12, Attack.Type.Praise},
-        {13, Attack.Type.Scare},
-        {14, Attack.Type.Encourage},
-        {15, Attack.Type.Mistrust},
-        {16, Attack.Type.Trust},
-        {17, Attack.Type.Silence}
+        {13, Attack.Type.Shame},
+        {14, Attack.Type.Praise},
+        {15, Attack.Type.Scare},
+        {16, Attack.Type.Encourage},
+        {17, Attack.Type.Mistrust},
+        {18, Attack.Type.Trust},
+        {19, Attack.Type.Silence}
     };
 
     public static Dictionary<string,HashSet<Topic>> LoadTopics(TextAsset textAsset, HashSet<ActorStack> actors)
@@ -115,10 +136,12 @@ public static class Loader
             {
                 // Update running values: Topic, Stage, Actor
                 if (!values[0].Equals("")) topic = values[0].Trim();
-                if (!values[1].Equals("")) stage = stageMap[values[1].Trim().ToLower()];
-                if (!values[2].Equals(""))
+                string stageText = values[1].Trim().ToLower();
+                if (stageMap.ContainsKey(stageText)) stage = stageMap[stageText];
+                string actorText = values[2].Trim();
+                if (!actorText.Equals(""))
                 {
-                    actor = values[2].Trim();
+                    actor = actorText;
                     if (!newThoughts.ContainsKey(actor)) newThoughts[actor] = new HashSet<Thought>();
                 }
 
@@ -132,22 +155,32 @@ public static class Loader
 
                 // Read Text
                 string thoughtText = values[4].Trim();
-                if (values[4].Equals(""))
-                {
-                    continue;
-                }
+                if (values[4].Equals("")) continue;
+                
+                // Read Social Expectations
+                Thought.Interrupt interruptStrategy = Thought.Interrupt.None;
+                string interruptText = values[5].Trim().ToLower();
+                if (interruptMap.ContainsKey(interruptText)) interruptStrategy = interruptMap[interruptText];
+
+                Thought.Turn turnStrategy = Thought.Turn.None;
+                string turnText = values[6].Trim().ToLower();
+                if (turnMap.ContainsKey(turnText)) turnStrategy = turnMap[turnText];
+
+                Thought.Affinity affinity = Thought.Affinity.None;
+                string affinityText = values[7].Trim().ToLower();
+                if (affinityMap.ContainsKey(affinityText)) affinity = affinityMap[affinityText];
 
                 // Read Tangental Topics
-                string[] tangentStrings = values[5].Trim().Split(nextSubValueChars);
+                string[] tangentStrings = values[8].Trim().Split(nextSubValueChars);
                 HashSet<string> tangents = new HashSet<string>();
-                foreach (string tangent in tangentStrings)
+                foreach (var tangent in tangentStrings)
                 {
                     if (!tangent.Equals("")) tangents.Add(tangent.Trim());
                 }
 
                 // Read Special Event Codes 
                 int eventCode = -1;
-                int.TryParse(values[7].Trim(), out eventCode);
+                int.TryParse(values[9].Trim(), out eventCode);
 
                 // Read Emotional Weight Values
                 HashSet<Emotion> emotions = new HashSet<Emotion>();
@@ -183,7 +216,7 @@ public static class Loader
                     }
                 }
                 
-                Thought thought = new Thought(topic, stage, complexity, thoughtText, tangents, eventCode, attacks, emotions);
+                Thought thought = new Thought(topic, stage, actor, complexity, thoughtText, interruptStrategy, turnStrategy, affinity, tangents, eventCode, attacks, emotions);
                 newThoughts[actor].Add(thought);
                 
             } catch (Exception e)

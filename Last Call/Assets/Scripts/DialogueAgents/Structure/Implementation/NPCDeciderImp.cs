@@ -11,7 +11,12 @@ public class NPCDeciderImp : DeciderImp
         return;
     }
 
-    public override void ImpReceive(ContextInput contextInput)
+    public override void ImpReceive(SocialInput socialInput)
+    {
+        return;
+    }
+
+    public override void ImpReceive(ActingInput actingInput)
     {
         return;
     }
@@ -26,38 +31,37 @@ public class NPCDeciderImp : DeciderImp
         DoSpeaking();
     }
 
-    private bool ShouldSpeak() => currentThought != null || !SomeoneElseIsSpeaking();
-
     private void DoSpeaking()
     {
-        if (!ShouldSpeak()) return;
-        
-        if (currentThought == null) PickThought();
+        if (currentThought == null) SpeechStrategy();
 
         ProgressThought();
     }
 
-    private void PickThought()
+    private void SpeechStrategy()
     {
-        if (thoughts.Count == 0) return; 
+        if (thoughts.Count == 0) return;
         
+        float waitThreshold = 0f;
+        
+        if (SomeoneElseIsSpeaking())
+        {
+            //TODO: Read emotional state
+            waitThreshold += 5f;
+        }
+
+        waitThreshold += thoughts[0].Rank;
+
+        float timeSinceLastSpeech = Time.time - lastSpokeAt;
+        if (timeSinceLastSpeech < waitThreshold) return;
+
         currentThought = thoughts[0];
         currentThoughtProgress = 0f;
     }
-
-    private void ProgressThought()
+    
+    public override void FinishThought()
     {
-        if (currentThought == null) return;
-        
-        currentThoughtProgress += thoughtSpeed / currentThought.Text.Length * Time.fixedDeltaTime;
-        Speech speech = new Speech(myOutput.myStack.Me, currentThoughtProgress, currentThought);
-        
-        Send(speech);
-
-        if (currentThoughtProgress >= 1f)
-        {
-            currentThought = null;
-            currentThoughtProgress = 0f;
-        }
+        currentThought = null;
+        currentThoughtProgress = 0f;
     }
 }
