@@ -1,13 +1,13 @@
 ﻿public class SocialInput
 {
     public string Actor { get; set; }
-    public Thought.Interrupt InterruptExpectation { get; set; }
-    public Thought.Turn TurnExpectations { get; set; }
+    public Thought Thought { get; set; }
+    public int Stage { get; set; }
 
-    public SocialInput(string actor, Thought.Interrupt interruptExpectation, Thought.Turn turnExpectations)
+    public SocialInput(string actor, Thought thought, int stage)
     {
         Actor = actor;
-        InterruptExpectation = interruptExpectation;
-        TurnExpectations = turnExpectations;
+        Thought = thought;
+        Stage = stage;
     }
 }

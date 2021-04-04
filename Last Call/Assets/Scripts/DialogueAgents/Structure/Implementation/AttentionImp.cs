@@ -84,7 +84,8 @@ public class AttentionImp : Attention
                     break;
                 case Topic.Stage.Climax:
                     add = stage.Equals(Topic.Stage.Complication) ||
-                          stage.Equals(Topic.Stage.Climax);
+                          stage.Equals(Topic.Stage.Climax) ||
+                          stage.Equals(Topic.Stage.Denouement);
                     break;
                 case Topic.Stage.Denouement:
                     add = stage.Equals(Topic.Stage.Complication) ||
@@ -322,6 +323,7 @@ public class AttentionImp : Attention
             case Topic.Stage.Climax:
                 requests.Enqueue(new ThoughtRequest(topic.TopicName, Topic.Stage.Complication));
                 requests.Enqueue(new ThoughtRequest(topic.TopicName, Topic.Stage.Climax));
+                requests.Enqueue(new ThoughtRequest(topic.TopicName, Topic.Stage.Denouement));
                 RemoveThoughts(topic, Topic.Stage.Orientation);
                 break;
             case Topic.Stage.Denouement:

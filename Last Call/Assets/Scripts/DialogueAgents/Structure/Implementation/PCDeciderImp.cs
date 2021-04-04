@@ -35,11 +35,7 @@ public class PCDeciderImp : DeciderImp
         ProgressThought();
     }
 
-    public void SelectThought(Thought thought)
-    {
-        currentThought = thought;
-        currentThoughtProgress = 0f;
-    }
+    
 
     public void ReleaseThought(Thought thought)
     {
@@ -47,10 +43,9 @@ public class PCDeciderImp : DeciderImp
         currentThoughtProgress = 0f;
     }
 
-    public override void FinishThought()
+    protected override void FinishThought()
     {
         OptionDisplayer.Instance.FinishThought(currentThought);
-        currentThought = null;
-        currentThoughtProgress = 0f;
+        ReleaseThought(currentThought);
     }
 }

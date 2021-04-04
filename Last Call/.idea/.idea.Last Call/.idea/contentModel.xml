@@ -16,7 +16,7 @@
             <e p="DataObjects" t="Include">
               <e p="ActingInput.cs" t="Include" />
               <e p="Action.cs" t="Include" />
-              <e p="Attack.cs" t="Include" />
+              <e p="Argument.cs" t="Include" />
               <e p="Emotion.cs" t="Include" />
               <e p="SocialInput.cs" t="Include" />
               <e p="Thought.cs" t="Include" />

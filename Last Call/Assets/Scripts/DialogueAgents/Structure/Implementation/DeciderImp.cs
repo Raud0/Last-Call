@@ -5,13 +5,21 @@ using UnityEngine;
 
 public abstract class DeciderImp : Decider
 {
-    protected Thought currentThought = null;
     protected float thoughtSpeed = 30f;
+    
+    protected Thought currentThought = null;
+    protected Thought lastThought = null;
+    protected int lastStage = 0;
+    protected Thought lastHeardThought = null;
+    protected int lastHeardStage = 0;
+    
     protected float currentThoughtProgress = 0f;
     protected float lastSpokeAt = 0f;
-    protected List<RankedThought> thoughts = new List<RankedThought>();
-    protected Dictionary<Emotion.Type, float> weights = new Dictionary<Emotion.Type, float>();
-    protected Dictionary<string, bool> actorSpeaking = new Dictionary<string, bool>();
+    protected float lastHeardSpokeAt = 0f;
+    
+    protected List<RankedThought> Thoughts { get; set;}
+    protected Dictionary<Emotion.Type, float> Weights { get; set; }
+    protected Dictionary<string, bool> ActorSpeaking { get; set; }
 
     public abstract void ImpReceive(Emotion emotion);
     public abstract void ImpReceive(SocialInput socialInput);
@@ -20,7 +28,7 @@ public abstract class DeciderImp : Decider
 
     public override void Receive(Emotion emotion)
     {
-        weights[emotion.MyType] = emotion.Strength;
+        Weights[emotion.MyType] = emotion.Strength;
         RankThoughts();
         
         ImpReceive(emotion);
@@ -28,24 +36,41 @@ public abstract class DeciderImp : Decider
 
     public override void Receive(SocialInput socialInput)
     {
-        
-        
+        if (myOutput.IsMe(socialInput.Actor))
+        {
+            lastThought = socialInput.Thought;
+            lastStage = socialInput.Stage;
+        }
+        else
+        {
+            lastHeardThought = socialInput.Thought;
+            lastHeardStage = socialInput.Stage;
+            lastHeardSpokeAt = Time.time;
+        }
+
         ImpReceive(socialInput);
     }
 
     public override void Receive(ActingInput actingInput)
     {
-        actorSpeaking[actingInput.Actor] = actingInput.Acting;
+        ActorSpeaking[actingInput.Actor] = actingInput.Acting;
 
         ImpReceive(actingInput);
     }
 
     public override void Receive(List<RankedThought> thoughts)
     {
-        this.thoughts = thoughts;
+        this.Thoughts = thoughts;
         RankThoughts();
         
         ImpReceive(thoughts);
+    }
+
+    private void Awake()
+    {
+        Thoughts = new List<RankedThought>();
+        Weights = new Dictionary<Emotion.Type, float>();
+        ActorSpeaking = new Dictionary<string, bool>();
     }
 
     protected void Update()
@@ -56,7 +81,7 @@ public abstract class DeciderImp : Decider
     public void DebugText()
     {
         string text = myOutput.myStack.Me + ":";
-        foreach (RankedThought rankedThought in thoughts)
+        foreach (RankedThought rankedThought in Thoughts)
         {
             text += "\n" + rankedThought.Rank + ": " + rankedThought.Text;
         }
@@ -65,24 +90,42 @@ public abstract class DeciderImp : Decider
 
     private void RankThoughts()
     {
-        foreach (RankedThought thought in thoughts)
+        foreach (RankedThought thought in Thoughts)
         {
-            float emotionalAffinity = thought.Emotions.Sum(emotion => emotion.Strength * weights[emotion.MyType]);
+            float emotionalAffinity = thought.Emotions.Sum(emotion => emotion.Strength * (Weights[emotion.MyType] / 100f));
             
-            thought.Rank = thought.OriginalRank + emotionalAffinity;
+            thought.Rank = thought.OriginalRank * 2f - emotionalAffinity;
         }
         
-        thoughts.Sort();
+        Thoughts.Sort();
     }
 
     protected bool SomeoneElseIsSpeaking()
     {
-        return actorSpeaking.Any(item => !myOutput.IsMe(item.Key) && item.Value);
+        return ActorSpeaking.Any(item => !myOutput.IsMe(item.Key) && item.Value);
     }
 
-    public abstract void FinishThought();
+    public void SelectThought(Thought thought)
+    {
+        currentThought = thought;
+        currentThoughtProgress = 0f;
+    }
     
-    public void ProgressThought()
+    protected abstract void FinishThought();
+    
+    protected void ReleaseLastThought()
+    {
+        lastThought = null;
+        lastStage = 0;
+    }
+
+    protected void ReleaseLastHeardThought()
+    {
+        lastHeardThought = null;
+        lastHeardStage = 0;
+    }
+    
+    protected void ProgressThought()
     {
         if (currentThought == null) return;
         
@@ -94,4 +137,14 @@ public abstract class DeciderImp : Decider
 
         if (currentThoughtProgress >= 1f) FinishThought();
     }
+
+    protected float TimeSinceLastSpeech() => Time.time - lastSpokeAt;
+    protected float TimeSinceLastHeardSpeech() => Time.time - lastHeardSpokeAt;
+
+    protected void ExperienceRudeness(Thought thought, float strength)
+    {
+        myOutput.Route(new Argument(Argument.Type.Superiority, strength * Time.deltaTime));
+    }
+    
+    protected Thought FindThoughtOfTopic(string topic) => Thoughts.FirstOrDefault(rankedThought => rankedThought.Topic.Equals(topic));
 }

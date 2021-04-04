@@ -29,7 +29,7 @@ public class OutputStack : MonoBehaviour
     }
 
     public void Route(SocialInput socialInput) => decider.Receive(socialInput);
-    public void Route(Attack attack) => stateManager.Receive(attack);
+    public void Route(Argument argument) => stateManager.Receive(argument);
     public void Route(Emotion emotion) => decider.Receive(emotion);
     public void Route(ActingInput actingInput) => decider.Receive(actingInput);
     public void Route(List<RankedThought> thoughts) => decider.Receive(thoughts);

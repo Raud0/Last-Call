@@ -111,6 +111,9 @@ public class ObserverImp : Observer
     {
         ThoughtFocus thoughtFocus = new ThoughtFocus(thought, 0.2f, false);
         Send(thoughtFocus);
+        
+        SocialInput socialInput = new SocialInput(thought.Actor, thought, 1);
+        Send(socialInput);
     }
 
     private void HandleStageTwo(Thought thought)
@@ -118,13 +121,16 @@ public class ObserverImp : Observer
         ThoughtFocus thoughtFocus = new ThoughtFocus(thought, 0.3f, true);
         Send(thoughtFocus);
 
-        SocialInput socialInput = new SocialInput(thought.Actor, thought.InterruptStrategy, Thought.Turn.None);
+        SocialInput socialInput = new SocialInput(thought.Actor, thought, 2);
         Send(socialInput);
-        
-        foreach (Attack affection in thought.Affections)
+
+        if (!myInput.IsMe(thought.Actor))
         {
-            Attack newAttack = new Attack(affection.MyType, affection.Strength * 0.5f);
-            Send(newAttack);
+            foreach (Argument argument in thought.Arguments)
+            {
+                Argument newArgument = new Argument(argument.MyType, argument.Strength * 0.5f);
+                Send(newArgument);
+            }
         }
     }
 
@@ -133,13 +139,16 @@ public class ObserverImp : Observer
         ThoughtFocus thoughtFocus = new ThoughtFocus(thought, 0.5f, true);
         Send(thoughtFocus);
         
-        SocialInput socialInput = new SocialInput(thought.Actor, Thought.Interrupt.None, thought.TurnStrategy);
+        SocialInput socialInput = new SocialInput(thought.Actor, thought, 3);
         Send(socialInput);
         
-        foreach (Attack affection in thought.Affections)
+        if (!myInput.IsMe(thought.Actor))
         {
-            Attack newAttack = new Attack(affection.MyType, affection.Strength * 0.5f);
-            Send(newAttack);
+            foreach (Argument argument in thought.Arguments)
+            {
+                Argument newArgument = new Argument(argument.MyType, argument.Strength * 0.5f);
+                Send(newArgument);
+            }
         }
     }
 

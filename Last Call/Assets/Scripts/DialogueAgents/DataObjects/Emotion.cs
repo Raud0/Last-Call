@@ -2,9 +2,10 @@
 {
     public enum Type
     {
-        Social,
-        Will,
-        Love
+        Anger,
+        Fear,
+        Ego,
+        Respect
     }
 
     public Type MyType { get; set; }

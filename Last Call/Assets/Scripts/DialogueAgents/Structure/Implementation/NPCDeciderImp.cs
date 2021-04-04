@@ -34,34 +34,125 @@ public class NPCDeciderImp : DeciderImp
     private void DoSpeaking()
     {
         if (currentThought == null) SpeechStrategy();
-
+        else if (SomeoneElseIsSpeaking())
+        {
+            ExperienceRudeness(currentThought, 2f);
+            if (CareAboutCivility()) InterruptSelf();
+        }
+        
         ProgressThought();
+    }
+
+    private void InterruptSelf()
+    {
+        ReleaseThought();
     }
 
     private void SpeechStrategy()
     {
-        if (thoughts.Count == 0) return;
-        
+        if (Thoughts.Count == 0) return;
+
         float waitThreshold = 0f;
-        
-        if (SomeoneElseIsSpeaking())
+
+        if (SomeoneElseIsSpeaking() || TimeSinceLastHeardSpeech() < 3f)
         {
-            //TODO: Read emotional state
-            waitThreshold += 5f;
+            waitThreshold += 5f * (2f - Weights[Emotion.Type.Anger] / 100f - Weights[Emotion.Type.Ego] / 100f + Weights[Emotion.Type.Respect] / 100f);
         }
 
-        waitThreshold += thoughts[0].Rank;
+        bool waitingForAnswer = WaitingForAnswer();
+        bool otherWaitingForAnswer = OtherWaitinForAnswer();
+        bool continuingThought = ContinuingTurn();
+        bool otherContinuingThought = OtherContinuingTurn();
+        
+        // Do I respect the other people enough to care about being civil?
+        if (!CareAboutCivility())
+        {
+            otherWaitingForAnswer = false;
+            otherContinuingThought = false;
+        }
+        else
+        {
+            waitThreshold += 3f;
+        }
+        
+        waitThreshold += Thoughts[0].Rank;
 
-        float timeSinceLastSpeech = Time.time - lastSpokeAt;
-        if (timeSinceLastSpeech < waitThreshold) return;
+        if (waitingForAnswer) waitThreshold *= (1f + Weights[Emotion.Type.Respect] / 100f - Weights[Emotion.Type.Anger] / 100f) * 2f;
+        if (otherWaitingForAnswer) waitThreshold *= (1f - Weights[Emotion.Type.Respect] / 100f) * 2f;
+        if (continuingThought) waitThreshold *= (1f + Weights[Emotion.Type.Respect] / 100f) * 0.2f;
+        if (otherContinuingThought) waitThreshold *= (1f - Weights[Emotion.Type.Respect] / 100f) * 0.2f;
+        
+        if (TimeSinceLastSpeech() < waitThreshold)
+        {
+            ReleaseThought();
+            return;
+        }
 
-        currentThought = thoughts[0];
-        currentThoughtProgress = 0f;
+        if (waitingForAnswer)
+        {
+            ExperienceRudeness(lastThought, 5f);
+            ReleaseLastThought();
+        }
+        
+        Thought thought = null;
+        if (thought == null && lastHeardThought != null && otherWaitingForAnswer)
+        {
+            thought = FindThoughtOfTopic(lastHeardThought.Topic);
+            ReleaseLastHeardThought();
+        }
+
+        if (thought == null && lastThought != null && continuingThought)
+        {
+            thought = FindThoughtOfTopic(lastThought.Topic);
+            ReleaseLastThought();
+        }
+        if (thought == null && Thoughts.Count > 0) thought = Thoughts[0];
+        if (thought == null) return;
+        SelectThought(thought);
     }
-    
-    public override void FinishThought()
+
+    private bool WaitingForAnswer()
+    {
+        if (lastThought == null) return false;
+        if (lastStage < 3) return false;
+        
+        return lastThought.TurnStrategy.Equals(Thought.Turn.Give);
+    }
+
+    private bool OtherWaitinForAnswer()
+    {
+        if (lastHeardThought == null) return false;
+        if (lastHeardStage < 3) return false;
+        
+        return lastHeardThought.TurnStrategy.Equals(Thought.Turn.Give);
+    }
+
+    private bool ContinuingTurn()
+    {
+        if (lastThought == null) return false;
+        if (lastStage < 3) return false;
+        
+        return lastThought.TurnStrategy.Equals(Thought.Turn.Keep);
+    }
+
+    private bool OtherContinuingTurn()
+    {
+        if (lastHeardThought == null) return false;
+        if (lastHeardStage < 3) return false;
+        
+        return lastHeardThought.TurnStrategy.Equals(Thought.Turn.Keep);
+    }
+
+    private void ReleaseThought()
     {
         currentThought = null;
         currentThoughtProgress = 0f;
+    }
+
+    private bool CareAboutCivility() => Weights[Emotion.Type.Respect] - Weights[Emotion.Type.Anger] > -10f;
+
+    protected override void FinishThought()
+    {
+        ReleaseThought();
     }
 }

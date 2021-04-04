@@ -1,13 +1,13 @@
-Topic	Stage	Actor	Complexity	Text	Interrupt	Turn	Affinity	Tangents (;)	Event	Social	Will	Love	Shame	Praise	Scare	Encourage	Mistrust	Trust	Silence
-Call	Orientation	Joe	5	I just got a call from command.															
-		Jack	8	More malfunctions?				Malfunction											
-	Complication	Joe	10	DEFCON 1.				Defcon											
-			14	The Ruskies finally did it.															
-		Jack	13	Are you sure?															
-	Climax	Joe	20	We have 30 minutes to launch.				Launch											
-	Denouement	Joe	16	We have no choice.															3
-		Jack	14	I can't believe it.															
-	Coda	Joe	14	"And now, a shooting war."				War						1	1				
-			12	Those bastards.										2					
-			12	About time they made the call.															3
-		Jack	10	Those bastards!															
+Topic	Stage	Actor	Complexity	Text	Interrupt	Turn	Affinity	Tangents (;)	Event	Anger	Fear	Ego	Respect	Idealism	Pacifism	Altruism	Fatalism	Futurism	Tribalism	Authoritarianism	Militarism	Utilitarianism	Supperiority
+Call	Orientation	Joe	5	I just got a call from command.																			
+		Jack	8	More malfunctions?	Want			Malfunction															
+	Complication	Joe	10	DEFCON 1.				Defcon															
+			14	The Ruskies finally did it.															0.3				
+		Jack	13	Are you sure?		Give																	
+	Climax	Joe	20	We have 30 minutes to launch.				Launch															
+	Denouement	Joe	16	We have no choice.													0.1						
+		Jack	14	I can't believe it.										0.2	0.2								
+	Coda	Joe	14	"And now, a shooting war."				War						0.2	0.2								
+			12	Those bastards.										1									
+			12	About time they made the call.																0.5	0.5		
+		Jack	10	Those bastards!										1									

@@ -42,7 +42,7 @@ public class InputStack : MonoBehaviour
     public void Route(ThoughtFocus thoughtFocus) => attention.Receive(thoughtFocus);
     public void Route(SocialInput socialInput) => myStack.outputStack.Route(socialInput);
     public void Route(ActingInput actingInput) => myStack.outputStack.Route(actingInput);
-    public void Route(Attack attack) => myStack.outputStack.Route(attack);
+    public void Route(Argument argument) => myStack.outputStack.Route(argument);
     public void Route(ThoughtRequest thoughtRequest) => thoughts.Receive(thoughtRequest);
     public void Route(ThoughtResponse thoughtResponse) => attention.Receive(thoughtResponse);
     public void Route(List<RankedThought> thoughts) => myStack.outputStack.Route(thoughts);

@@ -6,19 +6,23 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Last Call/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Last Call/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Data/thoughts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/thoughts.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Data/thoughts.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/thoughts.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ContextInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ActingInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ContextInput.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ActingInput.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Attack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Argument.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Attack.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Argument.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Emotion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Emotion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/SocialInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/SocialInput.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Thought.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Thought.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Topic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Topic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Decider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Decider.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/AttentionImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/AttentionImp.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/DeciderImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/DeciderImp.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCDeciderImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCDeciderImp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCStateManagerImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCStateManagerImp.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ObserverImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ObserverImp.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCDeciderImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCDeciderImp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCStateManagerImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCStateManagerImp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/StateManagerImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/StateManagerImp.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/InputStack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/InputStack.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Observer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Observer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/OutputStack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/OutputStack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/StateManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/StateManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Loader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Loader.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,11 +42,11 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Display/ConversationDisplayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Display/UIController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Singleton.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62FFEEB7-EC02-4BEA-B61E-5FBF8D44AC5B/90/57fde61a/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62FFEEB7-EC02-4BEA-B61E-5FBF8D44AC5B/90/57fde61a/List`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/StateManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ThoughtFocus.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ActingInput.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Attack.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Argument.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ticker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/ActorStack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Prefabs/Agent.prefab" root0="FORCE_HIGHLIGHTING" />
@@ -90,8 +94,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Effection.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/StateManagerImp.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Affection.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ObservationProgress.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Action.cs" />
@@ -104,7 +106,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Loader.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ThoughtFocus.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Attack.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Emotion.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueInterface.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Display/DialogueInterface.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Display/DialogueOptionsUIController.cs" />
@@ -114,8 +115,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Display/ColourEffect.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Display/ColourWaveEffect.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Display/Option.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCStateManagerImp.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCStateManagerImp.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Display/OptionDisplayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Display/ConversationDisplayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Display/TextEffects/WaveAndFade.cs" />
@@ -126,21 +125,26 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/InputStackModule.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/ConversationMedium.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/ActorStack.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/AttentionImp.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Topic.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Thought.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Loader.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ContextInput.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ActingInput.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/SocialInput.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ObserverImp.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Observer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/OutputStack.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/InputStack.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Decider.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Emotion.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Thought.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCStateManagerImp.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCDeciderImp.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/SocialInput.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ObserverImp.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Argument.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Loader.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCStateManagerImp.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/StateManagerImp.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/DeciderImp.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCDeciderImp.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/AttentionImp.cs" />
       </list>
     </option>
   </component>
@@ -205,6 +209,10 @@
       <workItem from="1616704680708" duration="7468000" />
       <workItem from="1616767275855" duration="11158000" />
       <workItem from="1616889467388" duration="1206000" />
+      <workItem from="1616929312814" duration="2051000" />
+      <workItem from="1617472738656" duration="1654000" />
+      <workItem from="1617474903477" duration="7608000" />
+      <workItem from="1617542464903" duration="9743000" />
     </task>
     <servers />
   </component>

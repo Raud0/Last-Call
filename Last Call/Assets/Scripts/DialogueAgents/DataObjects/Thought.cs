@@ -7,8 +7,7 @@ public class Thought
     public enum Interrupt
     {
         Want,
-        None,
-        Hate
+        None
     }
     public enum Turn
     {
@@ -33,12 +32,12 @@ public class Thought
     public Affinity MyAffinity { get; set; }
     public HashSet<string> Tangents { get; set; }
     public int EventCode { get; set; }
-    public HashSet<Attack> Affections { get; set; }
+    public HashSet<Argument> Arguments { get; set; }
     public HashSet<Emotion> Emotions { get; set; }
 
     public Thought(string topic, Topic.Stage stage, string actor, float complexity, string text,
         Interrupt interruptStrategy, Turn turnStrategy, Affinity myAffinity, HashSet<string> tangents,
-        int eventCode, HashSet<Attack> affections, HashSet<Emotion> emotions)
+        int eventCode, HashSet<Argument> arguments, HashSet<Emotion> emotions)
     {
         Topic = topic;
         Stage = stage;
@@ -50,7 +49,7 @@ public class Thought
         MyAffinity = myAffinity;
         Tangents = tangents;
         EventCode = eventCode;
-        Affections = affections;
+        Arguments = arguments;
         Emotions = emotions;
     }
 
@@ -66,7 +65,7 @@ public class Thought
         MyAffinity = thought.MyAffinity;
         Tangents = thought.Tangents;
         EventCode = thought.EventCode;
-        Affections = thought.Affections;
+        Arguments = thought.Arguments;
         Emotions = thought.Emotions;
     }
 }

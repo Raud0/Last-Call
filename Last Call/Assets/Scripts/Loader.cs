@@ -19,8 +19,7 @@ public static class Loader
     private static Dictionary<string, Thought.Interrupt> interruptMap = new Dictionary<string, Thought.Interrupt>()
     {
         {"want", Thought.Interrupt.Want},
-        {"none", Thought.Interrupt.None},
-        {"hate", Thought.Interrupt.Hate}
+        {"none", Thought.Interrupt.None}
     };
 
     private static Dictionary<string, Thought.Turn> turnMap = new Dictionary<string, Thought.Turn>()
@@ -39,20 +38,24 @@ public static class Loader
 
 private static Dictionary<int, Emotion.Type> emotionIndexMap = new Dictionary<int, Emotion.Type>()
     {
-        {10, Emotion.Type.Social},
-        {11, Emotion.Type.Will},
-        {12, Emotion.Type.Love}
+        {10, Emotion.Type.Anger},
+        {11, Emotion.Type.Fear},
+        {12, Emotion.Type.Ego},
+        {13, Emotion.Type.Respect},
     };
     
-    private static Dictionary<int, Attack.Type> attackIndexMap = new Dictionary<int, Attack.Type>()
+    private static Dictionary<int, Argument.Type> argumentIndexMap = new Dictionary<int, Argument.Type>()
     {
-        {13, Attack.Type.Shame},
-        {14, Attack.Type.Praise},
-        {15, Attack.Type.Scare},
-        {16, Attack.Type.Encourage},
-        {17, Attack.Type.Mistrust},
-        {18, Attack.Type.Trust},
-        {19, Attack.Type.Silence}
+        {14, Argument.Type.Idealism},
+        {15, Argument.Type.Pacifism},
+        {16, Argument.Type.Altruism},
+        {17, Argument.Type.Fatalism},
+        {18, Argument.Type.Futurism},
+        {19, Argument.Type.Tribalism},
+        {20, Argument.Type.Authoritarianism},
+        {21, Argument.Type.Militarism},
+        {22, Argument.Type.Utilitarianism},
+        {23, Argument.Type.Superiority}
     };
 
     public static Dictionary<string,HashSet<Topic>> LoadTopics(TextAsset textAsset, HashSet<ActorStack> actors)
@@ -130,7 +133,7 @@ private static Dictionary<int, Emotion.Type> emotionIndexMap = new Dictionary<in
         for (int i = 1; i < lines.Length; i++)
         {
             string line = lines[i];
-            string[] values = line.Split(nextValueChars, 18);
+            string[] values = line.Split(nextValueChars, 24);
             
             try
             {
@@ -197,26 +200,26 @@ private static Dictionary<int, Emotion.Type> emotionIndexMap = new Dictionary<in
                         Emotion emotion = new Emotion(type, strength);
                         emotions.Add(emotion);
                     }
-                }
+                } 
 
                 // Read Emotional Attack Values
-                HashSet<Attack> attacks = new HashSet<Attack>();
-                foreach (KeyValuePair<int, Attack.Type> pair in attackIndexMap)
+                HashSet<Argument> arguments = new HashSet<Argument>();
+                foreach (KeyValuePair<int, Argument.Type> pair in argumentIndexMap)
                 {
                     int index = pair.Key;
                     if (index > values.Length - 1) continue;
                     
-                    Attack.Type type = pair.Value;
+                    Argument.Type type = pair.Value;
 
                     float strength = 0f;
                     if (float.TryParse(values[index].Trim(), out strength))
                     {
-                        Attack attack = new Attack(type, strength);
-                        attacks.Add(attack);
+                        Argument argument = new Argument(type, strength);
+                        arguments.Add(argument);
                     }
                 }
                 
-                Thought thought = new Thought(topic, stage, actor, complexity, thoughtText, interruptStrategy, turnStrategy, affinity, tangents, eventCode, attacks, emotions);
+                Thought thought = new Thought(topic, stage, actor, complexity, thoughtText, interruptStrategy, turnStrategy, affinity, tangents, eventCode, arguments, emotions);
                 newThoughts[actor].Add(thought);
                 
             } catch (Exception e)
