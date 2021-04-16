@@ -18,7 +18,7 @@ public class SpeechDisplay : MonoBehaviour
         ugui = GetComponent<TextMeshProUGUI>();
         rect = GetComponent<RectTransform>();
         waveAndFade = GetComponent<WaveAndFade>();
-        text = "";
+        text = null;
         progress = 0f;
         timeSinceCompletion = 0f;
     }
@@ -43,7 +43,7 @@ public class SpeechDisplay : MonoBehaviour
     public void SetText(string text)
     {
         this.text = text;
-        ugui.text = "";
+        ugui.text = null;
     }
 
     public void SetColor(Color color)

@@ -46,16 +46,17 @@ private static Dictionary<int, Emotion.Type> emotionIndexMap = new Dictionary<in
     
     private static Dictionary<int, Argument.Type> argumentIndexMap = new Dictionary<int, Argument.Type>()
     {
-        {14, Argument.Type.Idealism},
-        {15, Argument.Type.Pacifism},
-        {16, Argument.Type.Altruism},
-        {17, Argument.Type.Fatalism},
-        {18, Argument.Type.Futurism},
-        {19, Argument.Type.Tribalism},
-        {20, Argument.Type.Authoritarianism},
-        {21, Argument.Type.Militarism},
-        {22, Argument.Type.Utilitarianism},
-        {23, Argument.Type.Superiority}
+        {14, Argument.Type.Humanism},
+        {15, Argument.Type.Idealism},
+        {16, Argument.Type.Pacifism},
+        {17, Argument.Type.Altruism},
+        {18, Argument.Type.Fatalism},
+        {19, Argument.Type.Futurism},
+        {20, Argument.Type.Tribalism},
+        {21, Argument.Type.Authoritarianism},
+        {22, Argument.Type.Militarism},
+        {23, Argument.Type.Utilitarianism},
+        {24, Argument.Type.Superiority}
     };
 
     public static Dictionary<string,HashSet<Topic>> LoadTopics(TextAsset textAsset, HashSet<ActorStack> actors)
@@ -65,7 +66,7 @@ private static Dictionary<int, Emotion.Type> emotionIndexMap = new Dictionary<in
         foreach (ActorStack actorStack in actors)
         {
             char[] nextLineChars = {'\n'};
-            char[] nextValueChars = {','};
+            char[] nextValueChars = {'\t'};
         
             string text = textAsset.text;
             string[] lines = text.Split(nextLineChars);
@@ -88,6 +89,7 @@ private static Dictionary<int, Emotion.Type> emotionIndexMap = new Dictionary<in
                     if (values.Length < 2) continue;
                 
                     string parentName = values[1].Trim();
+                    if (parentName.Equals("")) continue;
                     if (!branches.ContainsKey(parentName)) branches[parentName] = new HashSet<Topic>();
                     branches[parentName].Add(topic);
                 }
@@ -103,12 +105,24 @@ private static Dictionary<int, Emotion.Type> emotionIndexMap = new Dictionary<in
                 string parentName = pair.Key;
                 HashSet<Topic> children = pair.Value;
 
-                Topic parent = identities[parentName];
-                foreach (Topic child in children) child.Parent = parent;
+                try
+                {
+                    Topic parent = identities[parentName];
+                    foreach (Topic child in children) child.Parent = parent;
+                }
+                catch (Exception e)
+                {
+                    Debug.Log("Didn't find parent topic: \"" + parentName + "\"");
+                }
+                
             }
 
             HashSet<Topic> newTopics = new HashSet<Topic>();
-            foreach (Topic topic in identities.Values) newTopics.Add(topic);
+            foreach (Topic topic in identities.Values)
+            {
+                //Debug.Log("Loaded topic: " + topic.TopicName);
+                newTopics.Add(topic);
+            }
 
             actorTopics[actorStack.Me] = newTopics;
         }
@@ -133,7 +147,7 @@ private static Dictionary<int, Emotion.Type> emotionIndexMap = new Dictionary<in
         for (int i = 1; i < lines.Length; i++)
         {
             string line = lines[i];
-            string[] values = line.Split(nextValueChars, 24);
+            string[] values = line.Split(nextValueChars, 25);
             
             try
             {
@@ -159,6 +173,12 @@ private static Dictionary<int, Emotion.Type> emotionIndexMap = new Dictionary<in
                 // Read Text
                 string thoughtText = values[4].Trim();
                 if (values[4].Equals("")) continue;
+                
+                // bruh moment (I get it, but still)
+                if (thoughtText.Contains(",") && thoughtText[0] == '\"' && thoughtText[thoughtText.Length - 1] == '\"')
+                {
+                    thoughtText = thoughtText.Substring(1, thoughtText.Length - 2);
+                }
                 
                 // Read Social Expectations
                 Thought.Interrupt interruptStrategy = Thought.Interrupt.None;

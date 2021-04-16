@@ -7,7 +7,8 @@ public class NPCStateManagerImp : StateManagerImp
     {
         Beliefs = new Dictionary<Argument.Type, float>()
         {
-            {Argument.Type.Idealism, 1.0f},
+            {Argument.Type.Humanism, 1.0f},
+            {Argument.Type.Idealism, 0.9f},
             {Argument.Type.Pacifism, 0.9f},
             {Argument.Type.Altruism, 0.7f},
             {Argument.Type.Fatalism, 0.5f},

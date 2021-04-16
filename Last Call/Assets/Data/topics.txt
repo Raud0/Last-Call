@@ -1,6 +1,37 @@
 Topic	Parent
 Call	
-Malfunction	
-Defcon	
 Launch	
-War	
+Malfunction	Launch
+Others	Launch
+Confront	Launch
+Forget	Launch
+Normality	
+Calamity	
+War	Calamity
+Defcon	War
+Nukes	
+Development	Nukes
+Destruction	Nukes
+Civilians	
+Authority	
+Russians	
+Duty	
+Complex	
+Justice	
+Civilization	
+Eroticism	
+History	
+Japan	History
+Indians	History
+Scientists	History
+Doomsday	
+Jack	
+Nature	
+Man	Nature
+Dreamers	Man
+Death	Man
+Time	Nature
+Land	Nature
+God	Nature
+Cycles	Time
+Childhood	Time

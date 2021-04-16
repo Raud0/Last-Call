@@ -100,7 +100,7 @@ public class AttentionImp : Attention
             if (add) focusedThoughts.Add(focusedThought);
         }
         
-        if (true) ClimaxFilter(focusedThoughts);
+        if (false) ClimaxFilter(focusedThoughts);
         if (true) FocusFilter(focusedThoughts, 10f);
 
         focusedThoughts = focusedThoughts.GetRange(0, Math.Min(focusedThoughts.Count,10));
@@ -114,6 +114,7 @@ public class AttentionImp : Attention
         Send(rankedThoughts);
     }
 
+    //TODO: Make this topic-specific
     private void ClimaxFilter(List<FocusedThought> focusedThoughts)
     {
         Queue<FocusedThought> delete = new Queue<FocusedThought>();
@@ -130,7 +131,9 @@ public class AttentionImp : Attention
 
         foreach (FocusedThought focusedThought in focusedThoughts)
         {
-            if (focusedThought.Stage.Equals(Topic.Stage.Climax) || focusedThought.Stage.Equals(Topic.Stage.Complication)) continue;
+            if (focusedThought.Stage.Equals(Topic.Stage.Climax)
+                || focusedThought.Stage.Equals(Topic.Stage.Complication)
+                || focusedThought.Stage.Equals(Topic.Stage.Denouement)) continue;
             delete.Enqueue(focusedThought);
         }
         
@@ -176,6 +179,10 @@ public class AttentionImp : Attention
             //Debug.Log("\"" + tangent + "\"");
             Topic tangentialTopic = topicsByName[tangent];
             ExitTo(tangentialTopic, Topic.Stage.Orientation);
+            if (tangentialTopic.MyStage.Equals(Topic.Stage.Complication))
+            {
+                ShiftFocusChange(tangentialTopic, tangentialTopic.Focus + 3f, true, thoughtFocus.FinalMultiplier);
+            }
         }
         
         TopicHeard(topic, thoughtFocus);
@@ -298,7 +305,7 @@ public class AttentionImp : Attention
 
     private void Coda(Topic topic, ThoughtFocus thoughtFocus)
     {
-        if (thoughtFocus.MyStage.Equals(Topic.Stage.Coda)) ExitTo(topic, Topic.Stage.Ended);
+        if (myInput.IsMe(thoughtFocus.MainThought.Actor) && thoughtFocus.MyStage.Equals(Topic.Stage.Coda)) ExitTo(topic, Topic.Stage.Ended);
         ShiftFocusChangeDiminishing(topic, thoughtFocus.Complexity, true, 5f, thoughtFocus.FinalMultiplier);
     }
 

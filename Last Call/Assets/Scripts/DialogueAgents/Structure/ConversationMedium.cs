@@ -74,8 +74,9 @@ public class ConversationMedium : MonoBehaviour
                     Topic.Stage.None,
                     0f,
                     new HashSet<string>() {"Call"},
-                    0.0f,
-                    false
+                    1.0f,
+                    false,
+                    true
                     ));
     
         }

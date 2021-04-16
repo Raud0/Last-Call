@@ -9,8 +9,9 @@ public class ThoughtFocus
     public HashSet<string> Tangents { get; set; }
     public float FinalMultiplier { get; set; }
     public bool RemoveThought { get; set; }
+    public bool Tangent { get; set; }
 
-    public ThoughtFocus(Thought mainThought, string topic, Topic.Stage myStage, float complexity, HashSet<string> tangents, float finalMultiplier, bool removeThought)
+    public ThoughtFocus(Thought mainThought, string topic, Topic.Stage myStage, float complexity, HashSet<string> tangents, float finalMultiplier, bool removeThought, bool tangent)
     {
         MainThought = mainThought;
         Topic = topic;
@@ -19,8 +20,9 @@ public class ThoughtFocus
         Tangents = tangents;
         FinalMultiplier = finalMultiplier;
         RemoveThought = removeThought;
+        Tangent = tangent;
     }
 
-    public ThoughtFocus(Thought mainThought, float finalMultiplier, bool removeThought) :
-        this(mainThought, mainThought.Topic, mainThought.Stage, mainThought.Complexity, mainThought.Tangents, finalMultiplier, removeThought) { }
+    public ThoughtFocus(Thought mainThought, float finalMultiplier, bool removeThought, bool tangent) :
+        this(mainThought, mainThought.Topic, mainThought.Stage, mainThought.Complexity, mainThought.Tangents, finalMultiplier, removeThought, tangent) { }
 }

@@ -54,6 +54,7 @@
           <e p="Display" t="Include">
             <e p="ConversationDisplayer.cs" t="Include" />
             <e p="FudgeHeight.cs" t="Include" />
+            <e p="FullScreenSprite.cs" t="Include" />
             <e p="Option.cs" t="Include" />
             <e p="OptionDisplayer.cs" t="Include" />
             <e p="SpeechDisplay.cs" t="Include" />

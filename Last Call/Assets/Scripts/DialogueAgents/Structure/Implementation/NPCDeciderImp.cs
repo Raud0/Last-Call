@@ -52,17 +52,16 @@ public class NPCDeciderImp : DeciderImp
     {
         if (Thoughts.Count == 0) return;
 
-        float waitThreshold = 0f;
-
-        if (SomeoneElseIsSpeaking() || TimeSinceLastHeardSpeech() < 3f)
-        {
-            waitThreshold += 5f * (2f - Weights[Emotion.Type.Anger] / 100f - Weights[Emotion.Type.Ego] / 100f + Weights[Emotion.Type.Respect] / 100f);
-        }
-
+        float waitThreshold = 0.5f;
         bool waitingForAnswer = WaitingForAnswer();
         bool otherWaitingForAnswer = OtherWaitinForAnswer();
         bool continuingThought = ContinuingTurn();
         bool otherContinuingThought = OtherContinuingTurn();
+
+        if (SomeoneElseIsSpeaking() || TimeSinceLastHeardSpeech() < 0.5f)
+        {
+            waitThreshold += 4f * (2f - Weights[Emotion.Type.Anger] / 100f - Weights[Emotion.Type.Ego] / 100f + Weights[Emotion.Type.Respect] / 100f);
+        }
         
         // Do I respect the other people enough to care about being civil?
         if (!CareAboutCivility())
@@ -72,10 +71,10 @@ public class NPCDeciderImp : DeciderImp
         }
         else
         {
-            waitThreshold += 3f;
+            waitThreshold += 1f + Weights[Emotion.Type.Respect] / 100f;
         }
         
-        waitThreshold += Thoughts[0].Rank;
+        if (Thoughts.Count > 0) waitThreshold *= Thoughts[0].Rank / 10f;
 
         if (waitingForAnswer) waitThreshold *= (1f + Weights[Emotion.Type.Respect] / 100f - Weights[Emotion.Type.Anger] / 100f) * 2f;
         if (otherWaitingForAnswer) waitThreshold *= (1f - Weights[Emotion.Type.Respect] / 100f) * 2f;

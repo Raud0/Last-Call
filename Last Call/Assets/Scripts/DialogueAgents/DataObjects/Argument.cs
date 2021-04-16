@@ -2,6 +2,7 @@
 {
     public enum Type
     {
+        Humanism,
         Idealism,
         Pacifism,
         Altruism,

@@ -51,6 +51,7 @@ public abstract class StateManagerImp : StateManager
         float agreement = AppraiseAgreement(argument);
         switch (argument.MyType)
         {
+            case Argument.Type.Humanism: HandleHumanism(argument, agreement); break;
             case Argument.Type.Idealism: HandleIdealism(argument, agreement); break;
             case Argument.Type.Pacifism: HandlePacifism(argument, agreement); break;
             case Argument.Type.Altruism: HandleAltruism(argument, agreement); break;
@@ -69,9 +70,14 @@ public abstract class StateManagerImp : StateManager
         return Beliefs[argument.MyType];
     }
     
+    private void HandleHumanism(Argument argument, float agreement)
+    {
+        HandleAnything(0.25f, 0.3f, -0.25f, agreement, argument.Strength);
+    }
+    
     private void HandleIdealism(Argument argument, float agreement)
     {
-        HandleAnything(-0.25f * agreement, -0.25f * agreement, agreement, agreement, argument.Strength);
+        HandleAnything(-0.25f * agreement, 0.25f * agreement, agreement, agreement, argument.Strength);
     }
 
     private void HandlePacifism(Argument argument, float agreement)
@@ -81,12 +87,12 @@ public abstract class StateManagerImp : StateManager
 
     private void HandleAltruism(Argument argument, float agreement)
     {
-        HandleAnything(0f, 0f, 0.5f * agreement, agreement, argument.Strength);
+        HandleAnything(0f, 0.2f, 0.5f * agreement, agreement, argument.Strength);
     }
 
     private void HandleFatalism(Argument argument, float agreement)
     {
-        HandleAnything(0f, 0.5f, 0f, agreement, argument.Strength);
+        HandleAnything(0f, -1f, 0f, agreement, argument.Strength);
     }
 
     private void HandleFuturism(Argument argument, float agreement)
@@ -101,22 +107,22 @@ public abstract class StateManagerImp : StateManager
 
     private void HandleAuthoritarianism(Argument argument, float agreement)
     {
-        HandleAnything(0.5f * agreement, 1f, 0f, agreement, argument.Strength);
+        HandleAnything(0.5f * agreement, 1f * agreement, 0f, agreement, argument.Strength);
     }
 
     private void HandleMilitarism(Argument argument, float agreement)
     {
-        HandleAnything(0.5f, 0f, 0.5f * agreement, agreement, argument.Strength);
+        HandleAnything(0.5f, 0.1f * agreement, 0.5f * agreement, agreement, argument.Strength);
     }
 
     private void HandleUtilitarianism(Argument argument, float agreement)
     {
-        HandleAnything(0f, 0.5f, 0f, agreement, argument.Strength);
+        HandleAnything(0f, 0.5f * agreement, 0f, agreement, argument.Strength);
     }
     
     private void HandleSuperiority(Argument argument, float agreement)
     {
-        HandleAnything(0.2f, 0.01f, -0.2f, agreement, argument.Strength);
+        HandleAnything(0.2f, 0.1f * agreement, -0.2f, agreement, argument.Strength);
     }
 
     private void HandleAnything(float angerMod, float fearMod, float egoMod, float respectMod, float argumentStrength)

@@ -1,13 +1,604 @@
-Topic	Stage	Actor	Complexity	Text	Interrupt	Turn	Affinity	Tangents (;)	Event	Anger	Fear	Ego	Respect	Idealism	Pacifism	Altruism	Fatalism	Futurism	Tribalism	Authoritarianism	Militarism	Utilitarianism	Supperiority
-Call	Orientation	Joe	5	I just got a call from command.																			
-		Jack	8	More malfunctions?	Want			Malfunction															
-	Complication	Joe	10	DEFCON 1.				Defcon															
-			14	The Ruskies finally did it.															0.3				
-		Jack	13	Are you sure?		Give																	
-	Climax	Joe	20	We have 30 minutes to launch.				Launch															
-	Denouement	Joe	16	We have no choice.													0.1						
-		Jack	14	I can't believe it.										0.2	0.2								
-	Coda	Joe	14	"And now, a shooting war."				War						0.2	0.2								
-			12	Those bastards.										1									
-			12	About time they made the call.																0.5	0.5		
-		Jack	10	Those bastards!										1									
+Topic	Stage	Actor	Complexity	Text	Interrupt	Turn	Affinity	Tangents (;)	Event	Anger	Fear	Ego	Respect	Humanism	Idealism	Pacifism	Altruism	Fatalism	Futurism	Tribalism	Authoritarianism	Militarism	Utilitarianism	Supperiority
+Call	Orientation	Joe	5	I just got a call from command.																				
+		Jack	8	I assume it's about the malfunctions.	Want			Malfunction																
+	Complication	Joe	10	We're in DEFCON 1.				Defcon																
+		Jack	13	You sure about that? You're not pulling a fast one on me?		Give																		
+	Climax	Joe	20	We have 30 minutes to launch.				Launch																
+	Denouement	Joe	16	We have no choice.														0.1						
+		Jack	14	I can't believe it.							3				0.2	0.2								
+	Coda	Joe	14	"""Nuclear combat toe-to-toe with the Russkies"""				War							0.2	0.2								
+			12	Those bastards.											1									
+			12	About time they made the call.																	0.5	0.5		
+		Jack	10	Bastards!						5					1									
+Launch	Orientation	Joe	5	The launch code is 51193646.																				
+			8	Confirm?		Give																		
+		Jack	8	Screw the launch... And screw the command.				Jack		3		3												
+	Complication	Jack	10	I'm not doing this.		Keep						3												
+			12	"You do whatever you want, kiddo."																				
+			17	It'll be a slaughter.														2						
+		Joe	5	We have our orders.				Duty																
+			15	Calm down.																				
+			15	I'm in this with you.										1						0.5				
+			20	"You know this is treason, right?"																	2	1		2
+			22	This is a no-lone zone.		Keep								1										
+	Climax	Joe	17	"Fine, let's talk about it. It's our call, not just mine."				Confront						0.5		1								
+			25	I am authorized to wield deadly force.																				
+		Jack	27	"Shoot me if you want, I won't shoot back."		Give																		
+		Joe	30	God will judge you.					7															3
+	Denouement	Joe	24	We need to calm down.																				
+		Jack	20	You can't convince me.																				
+		Joe	18	Shouting at each other will do us no good.																				
+		Jack	15	You won't get anywhere with me.																				
+	Coda	Joe	10	"Well, one rocket less won't make a difference."				Others																
+			14	I got so carred away I forgot that you're my senior.																				
+			17	"You didn't just lose your key, did you?"																				
+		Jack	10	I'm just a grumpy motherfucker.				Jack																
+Malfunction	Orientation	Joe	5	Malfunctions?																				
+		Jack	7	"Electrical malfunctions. Communications, ventilations."		Keep																		
+			8	Can't you feel how hot it is?	Want																			
+	Complication	Jack	10	Must be a broken power supply.																				
+		Joe	12	I haven't noticed anything.																				
+			14	The elevator did give me a good scare before.																				
+		Jack	16	There's also other things. Weird command codes. Strange voices on the phone.																				
+	Climax	Joe	18	I'll talk to command. Well I would...				Launch																
+	Denouement	Jack	17	Could be ghosts.																				
+	Coda	Jack	15	It's probably ghosts.																				
+		Joe	14	It could be ghosts.										0.5										
+			13	Could be a failing power supply.																	0.5			0.5
+			12	"Who knows, our missiles might not even go up in the air."																				
+Others	Orientation	Joe	7	"Let's get down to brass tacks, Jacks. Won't make a difference whether our rocket goes up or not."		Keep																		
+		Jack	10	"Ten. We have ten missiles, Joe."						5														
+	Complication	Jack	10	What am I supposed to take you for? Some kind of a cowboy?								5	-5											
+		Joe	12	Your struggle is essentially pointless.		Keep								-2				2						1
+			14	Everyone but you will obey.				Jack													3			
+			16	"You alone are nout enough to save everybody, or even anybody."										-1	-1		-5	5					3	
+			18	"Besides, we don't know how long the war will last."				War								-1						2	1	
+			20	"It is our duty, whether we divine the reason or not."				Duty													1	1		
+		Jack	16	So we should just launch because others are launching?	Want	Give	Hate																	
+	Climax	Joe	18	"If the Russkies thought like you did, we wouldn't be on DEFCON 1."				Defcon;Russians												5				
+			20	This is reality. We have to operate on the dual principles of panic and paranoia.				Normality																
+		Jack	20	Everyone can't think like you. We'd all be dead.		Keep							-5	3	3									
+			22	"God, we're all gonna die."				Death			5							3						
+			24	There's no hope.														5						
+	Denouement	Joe	15	It actually doesn't matter what they're doing.										5				-5		-5				
+			12	We'll be better of thinking it through together.										3		2		-3						
+	Coda	Jack	10	The no-lone zone...																				
+		Joe	5	I suppose it's up to everyone else.																1				
+Normality	Orientation	Joe	5	Where did we go so wrong?											2									
+		Jack	7	The beautiful balance of powers... And mutually assured destruction.				Authority;Cycles					-3											
+	Complication	Joe	9	The world will never be the same again.										2				3						
+			11	We were the last ones to grow up.				Childhood						1				2						
+	Climax	Jack	23	Your normal was just the last step to our end.		Keep		Doomsday		3		3	-1											
+			25	What you really want back is your innocence.																				
+		Joe	20	I just wish we could go back.										1	2			1						
+	Denouement	Joe	15	"Alright, back to the present."				Calamity											1					
+		Jack	30	"Shut up, you old curr! Is this really the time for nostaliga?"						10	3	3	-5											
+	Coda	Jack	5	The past is past. We must think about tomorrow.															3					
+Calamity	Orientation	Joe	6	I wonder how long the war will last.				War																
+		Jack	8	"Open your eyes, Joe. You have no grasp on the present."																				
+	Complication	Jack	10	The cost to the economy is enormous. The Manhattan project alone took 2 billion dollars. How much have us two leeched off of people's fear?		Keep		Complex;Development		4		1												
+			13	School children are being drilled to take cover behind desks!		Keep		Civilians		4		1		-1									1	
+			16	All this tension. How does this shit fuck with our minds?		Keep		Civilians		5		2		-0.5										
+			19	These are the end times! There is no after!		Keep		Doomsday		5		2						2						
+			22	"The land will be scarred, the life that depended on it ruined."		Keep		Nature		6		3						2						
+			25	Two millenia of progress… Gone! We'll return to the dark ages.		Keep		Civilization;Cycles		6		3						3	-1					
+			27	Hundreds of millions will die.		Give		Death		7		4						3						
+		Joe	11	I suppose the preppers were right.										-1	-1		-1							
+			12	Every man for himself.													-3			-1				
+	Climax	Jack	23	"We will foot the bill, Joe."										1	1		1	3			2			
+			20	"Joe. We can still survive. Not us, but humanity."				Man		-10	-10	5	5	5					2					
+			26	The atom will be thankful.				Nukes		7								5						
+		Joe	20	People are durable. We'll get through this.										1	2				1	1				
+			22	It won't be all that bad.										-1	3		-1						2	
+			24	The Russkies will pay for this.				Russians										1		4				3
+	Denouement	Jack	30	I gotta calm my nerves.				Jack		-5	-5	5				5								
+		Joe	10	Our sins will stop mattering soon.										1	-1								1	
+	Coda	Jack	7	Somebody will have to dig the graves.				Death										2						
+			5	What do you think will happen to our souls?				God																
+War	Orientation	Jack	5	It'll be over before we know it.														0.5					0.5	
+	Complication	Joe	10	Like a cowboy standoff. Nothing… nothing… then BLAM! Over.																		2		
+		Jack	12	"After initial retaliation, there will be a land invasion."																				
+		Joe	14	The war will be fought by those that are left over.										0.5				1						
+			16	Only the bullets in this war will take 30 minutes to hit their targets.				Nukes																
+		Jack	20	We're stuck dwiddling our thumbs.							3							0.5						
+	Climax	Jack	22	"Joe, the missiles were already in the air when Germany invaded Poland."														2						
+		Joe	22	It's an ugly war.												3								
+			26	"It's an ugly war, but there is justice in it."				Justice						-3	1									1
+			28	Any terrible war is followerd by an equivalently prosperous peace.											1	-1			1			1		
+	Denouement	Joe	24	At least nobody will have to suffer for long.														1					0.5	
+			20	I never thought that World War III would actually happen in our lifetimes.																				
+	Coda	Jack	18	It doesn't make any sense.							2			0.5										
+Defcon	Orientation	Joe	5	Maximum readiness. Immediate response.																				
+		Jack	7	We've been on DEFCON 2 for two weeks now. What happened?		Give																		
+	Complication	Joe	10	The first of the Russky missiles are expected to arrive in 15 minutes.				Russians										0.5		0.5				
+			14	I wonder what the Russkies call their DEFCON. Are their people aware of what's happening?				Russians						1										
+		Jack	12	They better be evacuating everyone.										0.5						0.5				
+			15	We were jinxed from the moment we gave DEFCON a name.														1						
+	Climax	Jack	16	"When this is over, I'm going to retire from the air force."				Normality								0.5			0.5					
+		Joe	16	"If all goes well, we'll be back at DEFCON 2 soon enough."											0.5	0.5								
+	Denouement	Joe	14	The word DEFCON seems meaningless somehow now that we're here.																				
+	Coda	Jack	10	So we hit doomsday while I was on alert. Great.				Doomsday																
+		Joe	5	I suppose we should ready our defences.				Launch														0.1		
+Nukes	Orientation	Jack	5	Our missiles have 50 times more power than the bombs we dropped on Japan.				Japan																
+		Joe	5	They're a marvel of engineering aren't they?		Give		Development											1			2		
+			5	What terrifying beasts!		Give		Destruction						0.5							1	0.25		0.5
+	Complication	Jack	8	"They're also inter-continental, you don't even need to know who you're killing."				Destruction		5														
+			11	Right now they're sleeping like babies. Odd how much destruction lies dormant.																				
+			12	This is what they call deterrence. What use are they now? Deterrence has failed. Now they're trash.																				
+			13	And they're phallic in shape. By chance you think?				Eroticism						0.5										
+	Climax	Joe	20	"Isn't it about time we launched them, Jack?"				Confront													0.25			0.25
+	Denouement	Jack	22	We should dismantle them all.						5														
+	Coda	Joe	20	They're making newer ones. Better ones.																				
+		Jack	15	How many lives would ours claim?				Death																
+Development	Orientation	Jack	5	Somebody thought it was a good idea to build these machines.														0.25						
+		Joe	7	I heard development started with Einstein. He wrote a letter you see.											0.25				0.25					
+	Complication	Joe	10	The weapons were necessary at the time. To beat Japan.				Japan							0.25							0.25		
+			12	The Manhattan Project must have fed many mouths.										0.25								0.25	0.25	
+			14	Oppenheimer was against the fusion nukes.																				
+		Jack	8	The development started with our minds. We built a man who could conceive of death.				Scientists										1	0.5					
+			14	We never got a say in what America would become.																	-0.25			
+			16	It should have stopped at Harry Daghlian. We were like children playing with crayons.				Nature										1						
+			18	Most of the development time went to producing enough plutonium to build the darned bombs. Did nature want us to have these things?														1						
+			20	And it's all thanks to those Nazis of Peenesmünde that we even have these things.		Keep				3								1						
+			22	Thank God for Werhner von Braun!						5								1				1		
+			23	"Fission was not enough, we needed fusion."														1				1		
+			24	If only Oppenheimer and his ilk had had some backbone!				Scientists		5					1			1						
+	Climax	Joe	20	"It was inevitable that they would be built, once we had the technology."																				
+			22	The dream of an ultimate weapon had always been there.				Dreamers											0.5			0.25		
+			24	Thank god that they take so much to build.										0.5		1								
+			26	"For a decade after the World War II, the world was a safe place."											1		0.5		0.5					
+		Jack	26	We thought we'd been given divine right.				Man;God					-10					1						
+			24	It was too early for them. We were not ready.									10	1	1				1					
+	Denouement	Joe	20	Somebody else could have built them.																		1	1	
+	Coda	Jack	20	The market wanted it. So much time has disappeared into this day of destruction.				Complex;Time										3						
+		Joe	20	It was blind pursuit.										0.5										
+Destruction	Orientation	Joe	5	"Realistically, most people will survive. The nukes will only target key points of military interest."										1			1						1	
+		Jack	10	Ten percent of the world will just die.		Keep		Death										1						
+	Complication	Jack	12	More than that will perish second-hand.												-1								
+			13	Massive amounts of fallout will cover the Earth.												-1								
+			16	What about the total collapse of international order?		Give																	0.5	
+			17	Ridiculuous! Who are we really targeting with these weapons? The concept of Communism? Is it worth the casualties?														2						
+		Joe	14	Maybe the Russians have a doomsday device.				Doomsday														1		
+			14	"With all that background radiation, we might not be able to reproduce."				Eroticism						0.5						0.5				
+			15	Other species will have it worse.													1			1				
+	Climax	Joe	16	"When we've been cleaned with atomic fire, we will truly enter the new world. A truly human era."				Man						3		-5		5	5					5
+			20	"Only some of us will die, but none of the Russkies will survive."				Russians												10				
+			18	Every action must have an equal and opposite reaction.														2						1
+			14	"You're right, Jack. It will be terrible."				Forget						2	2	2		1						
+		Jack	18	This is the only thing we're good at. Ask the Indians.				Indians		3		3								2				1
+			18	We should send all 12 megatons of TNT the way Pentagon.				Confront		5	5		-5											
+	Denouement	Joe	17	Destruction was the lovechild of the US and the USSR. The world will remember us for that.										2					2					
+			20	Hopefully they'll learn from our mistakes. It won't have been pointless.										1					1				3	-1
+		Jack	20	Perhaps by some miracle every nuke will be faulty.									10		3			2						
+	Coda	Joe	15	"God, I really hope the Russkies actually attacked us."										1	1					0.5		0.25		
+		Jack	15	"When the nukes land, let's go tour the holocaust, Joe. I want to see the world we helped create."						5	5		5	1				1						
+			15	Which of the Joint Chiefs of Staff do you think is the most erect right now?																	-1			
+Civilians	Orientation	Joe	5	"This is for the good of the people, Jack. Would you rather just let them die without a fight?"										0.5						1			1	
+	Complication	Jack	8	I don't see how we the people will benefit from this. Joe.										1	1			1						
+		Joe	10	They're relying on us. I don't want our children to ask us what happened to the old America.				Time						1			0.5			0.5				
+			12	Some will die. That's just how it is.																			1	
+			14	Would you rather have the Russkies have their way with our women and children?				Eroticism										1		5				
+		Jack	11	What about the Russian civilians?										1			1							
+	Climax	Jack	20	"You don't get to pull civilians into this. It's our hand on the button, not theirs."						5			-5		2						1			
+		Joe	15	"Okay, you're right. Little Timmy had no say in this."										0.5		0.5								
+			20	What gives you the right to make that choice for them?		Give		Authority																1
+			22	At least they will get to die for the good of the country.				Duty										3		1			5	
+		Jack	26	What good is killing for the people who will soon cease to exist?						5					3			3						
+	Denouement	Joe	10	I feel sorry for them. They're weak. We're strong.										1	1		1							1
+		Jack	25	Let's go shake every civilians hand and ask them what they would have us do with the Russkies.						-5										1				
+	Coda	Joe	20	"Well, the world ain't just, Jack, has nobody told you?"											-5			3						
+			17	We're going to have to choose the lesser of two evils.											1			-1					3	1
+			10	If only we could save everyone.												3	1			0.5				
+		Jack	20	You're a heartless bastard.											-1			1						-2
+			15	I hope LBJ appreciates your concern for the American people with a medal of honor.			Hate								-1						-2			
+			10	The future generations will hate us.															1					-1
+Authority	Orientation	Jack	5	We don't have the right to make this decision fo everyone.										0.5										
+		Joe	7	We are given power by the Joint Chiefs of Staff.																	2			
+	Complication	Joe	11	The Joint Chiefs of Staff were democratically elected.										1	1						1			
+		Jack	14	"Really, and which of the Chiefs did you elect?"		Give															-1			
+		Joe	18	Lyndon B Johnson won by a landslide. I personally voted for him.										0.25	0.5					0.25				
+		Jack	22	It doesn't really matter. Don't you think this decision transcends politics?	Want	Keep	Love														-2			
+			26	"After all, did the Russians cast a vote to be killed?"		Keep		Russians		1		1		1				1		-2				
+			28	The children didn't cast a vote.		Keep								2										
+			30	Neither did I nor did a third of the Americans cast a vote.		Keep														-1				
+			32	"And of course Goldwater said that we should ""lob one into the men's room of the Kremlin"", so it wasn't much of a choice."		Keep												0.5			-0.5	-0.5		
+			34	Fact is that one president alone cannot turn the ship of government.														1						
+		Joe	20	America has involved itself in nuclear research. Whether we like it or not we have a responsibility before the world.											1				1					1
+			25	Anyone would choose to retaliate. Besides you apparently.										0.5		-1				2				
+			29	The democrats are not blind to the dangers of nuclear power.										0.5	0.5	0.5								
+			33	LBJ signed the non-proliferation treaty.											0.25	0.25	0.25		0.5		1			
+		Jack	38	You're pretending like nuclear weapons just happened to fall into our lap. We pursued them.				Scientists								-0.5		1						
+			42	We have in effect a monopoly over nuclear power.								3												1
+			46	We're at war. This is real. 		Give		War		5				0.5				0.25				0.5		
+		Joe	40	Better us than them.											0.5					1				1
+			44	You are claiming monopoly over nuclear power. Who are you?		Give														1				3
+			46	You're the only one who doesn't seem to get it.																3				5
+	Climax	Jack	50	We owe the future generations more than a reflexive response.						-5		-5	5		1		1							
+			55	Which is more important to you? Our rights to arms or the rights of mankind to live?		Give				5		5	-5		3				1			-1		
+			60	"Your ""authority"" is based on a system of government that was declared obselete fifteen minutes ago."						10		10	-10	2	-1				1					
+		Joe	40	"So basically, you're saying that since no one has real authority use nuclear weapons, no one should."	Want		Love							3	5	3							1	
+			44	"In a democracy, military officials are in absolute servitude of the democratically elected government, you included, whether you like it or not. "		Keep									5						3	3		
+			48	"Without a chain of command, there is no democracy in a military organization. That is the meaning of duty."				Jack;Duty							5						5	3		
+			54	"You're wrong. The American people have a right to freedom, which was granted us by the constitution. If any, and I mean any, force should restrict that right, it is only just that we resist that force with utmost brutality for the good of mankind."											2					1		1		1
+			58	You are advocating for a world where the mild and the weak live under the tyranny of the strong and the cruel.				Eroticism; Justice						1	3	1	1				-1			-1
+	Denouement	Jack	60	You're a weak-minded fool.						3	3													1
+			55	Being able to dispense swift justice with violence but not doing so is a virtue all of its own.				Justice		-3	-3				1	3	1							
+		Joe	50	Let's agree to disagree.														0.5						
+			45	Should I invite LBJ here to discuss the notion of power with a washed up air force sergeant?		Give															1			1
+			30	"Fine, you're right, we have no authority. But we have the power. So let us do what is right."				Justice						1			0.5				-1		0.5	1
+			20	"It's not about legal authority anyways, it's about the spirit of the people."				Civilians						1						1				
+			18	But you're my senior. So I guess I should listen to what you have to say.																	0.5			-1
+			10	God gave us this power because he wanted us to use it. Who are we to question His designs?				God						-1										
+	Coda	Jack	15	The future traps us. We have no more options left.														3						
+		Joe	15	"Your idealism has rendered you immobile, Jack. You will begin to regret it."										1	-1			3	1					1
+Russians	Orientation	Jack	9	"Why do you keep calling them ""Russkies""?"																				
+		Joe	5	The Russkies think they can pull a fast one over us.																0.5				0.5
+		Joe	13	Russky's a Russky. What do you call them? Soviets?										0.25						0.25				
+		Jack	15	They're people too you know?										1										
+	Complication	Jack	16	You do know that there are other peoples living in the Soviet Union?										0.5						-0.5				
+		Joe	18	They're all the same though. They're commies.																1				
+		Jack	22	Not all of them are communists.		Keep																		
+			26	I'm just wondering whether you have anything against the Russians.																				
+		Joe	28	"As I said, communists."																0.5				
+			30	I guess they could be good people.										0.5		0.5		-2						-1
+			34	But they aren't good people. Their tendrils have infiltrated the nearby nations.														3						
+			38	Even we full-blooded Americans are in danger of their Russky Propaganda.											0.5					1				1
+		Jack	34	"I mean, I don't personally know any Russians. Or communists for that matter."																				
+			38	There was a chance at the start of century that Russia would become a democratic country. Imagine a world without the Soviets!											1				1	0.25				
+			40	The world would be a better place without them. But that doesn't give us the right to murder them like the jews.												1			1	0.25				
+			42	The Soviets did help us against the Nazis.										1										-1
+		Joe	40	"What's more, the Russkies are numerours. "		Keep														2				
+			42	"There're more Russkies than a more than us normal people, blacks included, in our United States. "																3				
+			44	The Ruskies don't have the sort of family-oriented culture we do.										-1										1
+			48	I knew a girl back in college.		Keep																		
+			52	My friend knew a steady girl who he'd been off-and-on with since childhood. She ended up running away with a devilishly handsome Russky. Man cried tears I never thought a man could. Thought his heart would never heal.																				
+			52	"I had a steady girl in college, thought of marrying her. But she was stolen away with lies by a silver-tongued Russky."																				
+	Climax	Jack	54	The Soviets saw what happened to Japan. History make victims out of them.				History;Japan											0.5					
+		Joe	48	"If we don't destroy the Russkies now, they will come after all of our women and children."				Eroticism												3				
+	Denouement	Joe	48	"You know I'm getting too caught up on this Russky thing. This war isn't against Russkies, it's for Americans."										3										-3
+			44	They would destroy us in a land war. That's why we had to trust the Europeans with NATO.												-1				1		1	1	
+			34	"If they stayed in Ruskieland, I wouldn't care what they did."												0.5								
+		Jack	50	I guess there are probably many good reasons to hate the Russians.									10											
+	Coda	Jack	60	I'm sorry I asked.									10											
+			50	The US and USSR really are like star-crossed lovers.																				
+			30	I suppose the Soviets were facing a similar dilemma.										3										
+		Joe	50	"We'll make sure they won't forget, Jack."												-3		3		1				
+			30	Bastards don't stay put.														1		1				1
+Duty	Orientation	Joe	6	You have sworn an oath to the Constitution of the United States.										1							0.5			
+			10	Yet you seem to be acting in complete disregard of that document.																	1			
+	Complication	Joe	10	"What's more, you are also disobeying orders from the president."																	1			
+		Jack	12	"But Joe, you have also given an oath to obey your superior officers. I order you to stand down."											-0.5							1	0.5	
+			14	Our first duty is to be human. Being a citizen comes second. Being a military officer comes third. Our military does not exist outside citizenry. Our citizenry does not exist outside humanity.										3										
+			16	The Joint Chiefs of Staff are crooks and enemies to the people and the consitution they pretend to uphold.											1									
+			20	"My duty is to the people, the lives of the living, the memory of the dead, and the future of the unborn."						10				0.5	0.5									
+		Joe	18	Laws should be followed in their spirit and not in their letter.											1								-1	
+			22	You can't just follow the law when it suits you and not do so when it doesn't.											0.5						0.1		0.1	
+		Jack	20	Of course the intent of the law is more important than what is written in ink.											1								-1	
+			22	"As a supperior officer, my judgment in moral matters is greater than yours."																	1			1
+			24	"I admit, I may not have the most honest intentions towards our military here."																		-1		
+		Joe	26	"The chiefs have a moral consenus, you don't even have a consensus in this room."										0.5							1	1		
+			28	Everyone can't just stop doing their duty on a whim. It would be chaos!				Justice								0.5							0.5	
+	Climax	Jack	30	What fierce defence of an abstract concept!											1									
+			32	I suppose the abstractions we inhabit are more important than we ourselves!	Want		Hate							-1	1									
+			50	Of course! The Japanese Kamikaze attacks were peak civilization.	Want		Hate	Japan		10			-5					1						
+		Joe	36	"Justice, Democracy, and Duty are the pillars of any civilized society."											1						0.5			
+	Denouement	Jack	40	I honor the ideals of the constitution and will not act in contempt of them.									10		1									
+		Joe	20	Carrying out justice is our highest duty.				Justice						-0.5	1									
+	Coda	Jack	25	I guess there's a reason they prefer young buck like you for these jobs.																				
+		Joe	25	I will have you court martialled after this.																	1	1		1
+			20	"You don't seem to believe in anything, Jack."																				1
+			20	You're a communist.				Jack																
+Complex	Orientation	Joe	5	The military industry has been good for the economy.										0.5			0.5					0.5		
+	Complication	Jack	8	The military industry is just an expression of political interests.											-1									
+		Joe	10	The military industry has given science and engineering projects a stable income.				Scientists						0.5								0.3		
+			14	Science and engineering have benefitted greatly from DARPA.										0.5	0.5									
+	Climax	Jack	12	Of course the military industry has now become its own political interest.														1				-0.5		
+		Joe	10	They're using missile technology to go to the moon after all.											1				1			0.3		
+			12	Military technology has the power to change the world.				Civilization											3			1		
+	Denouement	Joe	10	A known market can be regulated and controlled. It is the black market of the CIA that I find the most dangerous.											1						0.5	1		
+	Coda	Jack	10	You should have been using past tense. The military industry is inherently self-destructive as evidenced by today.														3				-2		
+		Joe	8	Not all wars are fought against men.				Man						1								1		
+Justice	Orientation	Joe	5	America's wars have no self-interests besides that of living in a just world.											1		1							
+			9	"There is justice in this, even if you're blind of this."											0.5		0.5							0.5
+		Jack	11	So you think this nuclear war is just.		Keep											0.5							
+			12	I'm intersted how you came to that silly conclusion.		Give																		
+	Complication	Joe	14	They started this conflict.				Russians								1				1				1
+			16	We will end it before it gets worse.										1	1								1	
+			18	Should a man not retaliate when he is struck?				Man						1						1				
+		Jack	22	These all seem pretty self-interested to me.		Give									1									
+		Joe	20	"If it weren't for the Americans, the Russkies could do as they please wherever they pleased."				Russians							1	1						1		1
+			22	Shouldn't the forces of liberty not blot out the forces of authority?	Want									1	2									1
+			24	"Our missiles are aimed at military bases, not civilians."											0.5		0.5						1	
+	Climax	Joe	22	"If it's nuclear armageddon they want, they will get it."				Doomsday										3		5		5		
+		Jack	30	"I see, so it's more about degree than measure for you."	Want		Hate			-10			10										2	
+			30	"Get a grip, your country is dead. There is no justice in pointless vengeance."						10			-10					5						1
+	Denouement	Joe	20	I'm going to stop justifying something I had no say in.										3				1			0.5			
+		Jack	24	"Okay, okay, that's enough. I'm getting flustered myself."																				
+	Coda	Joe	15	I guess I can't really prove that this is justice.										1	-1									
+Civilization	Orientation	Joe	5	Civilizations must either prosper or perish.																				
+		Jack	9	We have chosen to perish.														1						
+	Complication	Joe	11	You seem to be under the strange impression that we are somehow at fault for the nuclear war.		Keep														0.5				1
+			13	"This is not some sort of special sort of war. It's a war like any other, and we will get through this."		Keep									1	-0.5								
+			15	The world is not black and white. It's not thrive or die.		Keep								0.5	-0.5				0.5					-0.5
+	Climax	Joe	17	"In this conflict, democracy will finally prove that it is ultimately superior to authoritarianism."										1										1
+			20	Your worldview is poisoned by fear.										0.5										0.5
+			24	You fear the end. And your fear has paralyzed you.										1				-0.5						
+			26	"You're afraid of making it worse, so you won't even try to make it better."				Duty						2	1		1	-2	0.5					
+		Jack	19	"You're wrong, this has happened before. We will keep making the same mistakes."				Cycles										3						
+	Denouement	Joe	15	"I don't know what's going to happen to us. But I'm hoping for the best. And while the end is not yet decided, I'm giving it my all."											1		0.5	-0.5						
+	Coda	Jack	17	I'm just trying to stop us from killing this beautiful idea of humanity which we ourselves gave birth to.				Dreamers							1									
+		Joe	17	"There's an interesting quote. ""Fear is the mind-killer."" Pay it some mind, will you Jack."																				
+			15	If the world ends today. I suppose you have made our control center into the last democracy of our civilization.				Doomsday						0.5	0.5									
+			12	No matter what happens today. Our global civilization will have lost something important today.				Man										2						
+Eroticism	Orientation	Jack	10	"Your hatred for the ""Ruskies"" seems rather strange, Joe."		Keep				5		5	-5											
+	Complication	Jack	11	"Is this all about reproduction, maybe?"	Want	Keep	Hate													1				
+	Climax	Jack	12	That's the only reason you would want to kill all of them.																-0.5				-0.5
+			13	"If you can't have them, neither can anyone else."																				
+	Denouement	Joe	13	"What are you, Freud?"																				2
+	Coda	Joe	10	There really is something wrong with you.				Jack						0.5										1
+			10	I suppose the rockets do look like cocks to a degree.										1										-0.5
+			10	So what if I want to spready my spawn?																				
+		Jack	10	It might be true. You might not even know it.																				
+Japan	Orientation	Joe	5	Japan is actually a good example of a nuclear weapon working as intended.																		0.5	1	
+	Complication	Joe	7	This doesn't excuse the lives that were lost.										1	1								-2	
+			10	Dropping the Little Boy and Fat Man ended the war before it could get worse.										1	1	0.5						0.5	1	
+		Jack	14	How do you know the war ended because of the bombs?																				
+		Joe	16	Look at Japan now. An economic miracle! A bastion of democracy in Asia!																1			0.5	
+			18	"Back then, the Japanese themselves were ready to fight to the last. They already were doing so."												0.5				0.5		0.5		
+			20	The bombs saved lives. It's simple arithmetic. Potential deaths minus actual deaths equals lives saved.																			5	
+		Jack	18	"The Japanese were scarred by the event. Imagine how you would react to a city in your state being blow up by a bomb out of nowhere. In fact, how will you react?"		Give								3										
+			24	"You can't compare those bombs to the monsters we, and the Soviets, have presently built. And there's not just 2 this time around, there's thousands."														3						
+	Climax	Joe	22	"We can make history repeat itself, Jack."											1			2				0.5	1	1
+			24	Can't you accept that everyone besides you isn't evil? Our leaders are not genocidial maniacs. Their decisions are rational.										1	0.5	0.5	0.5	-1			0.5	0.5		-1
+		Jack	30	"I suppose you're right. With smaller quantities, there was some small good in nuclear power."								-5	10				0.5	-3				1		
+			30	Don't conflate fission with the power of the stars. Today is incomparable to the bombings of Japan.							5		-10					3						
+	Denouement	Joe	20	"Anyways, the decision to bomb Japan was made in the past by the generation of our fathers. We must now pick up that mantle ourselves."										1						1				
+			10	"What happened to Japan, won't repeat today, Joe."				Forget						1	1	1	1	-2						
+	Coda	Joe	20	"You can't always avoid death, Jack, lest you grow evil from sloth. You need to face that truth."				Confront;Death							0.5			-1					1	
+			20	"In the end, only god can judge whether what happned to Japan was right."				God						-1							1			
+			20	We took responsibility for the bombing of Japan back then. And today we will take responsibility for the attack on the Russkies.				Russians							0.25			0.5			0.5			
+		Jack	20	"What would have happened, if Japan had had atomic weapons back then, I wonder."										0.5				2		-1				
+			10	"Sometimes, we must sacrifice ourselves, our honour and position, just so we could do the right thing."										1	2		3	3					0.5	
+Indians	Orientation	Jack	5	We were not the first ones here. This land is not ours.	Want		Love	Land						1	1									
+			10	The Soviet will supplant just as we supplanted the Native American.		Keep												3		1				
+			12	At least that would be fitting.														1						
+	Complication	Joe	14	We integrated them into our culture.											0.5	0.5				0.5				2
+		Jack	14	We have always destroyed in equal measure to what we created.											-0.5			1						-0.5
+	Climax	Jack	16	The native civilizations are gone now. That is what we're going to do to the Soviet people.			Hate							-1	-1			1						
+	Denouement	Joe	14	I don't really care about the Indians. They have their reservations.										-1	-1			1		1				1
+		Jack	18	"Our passing is inevitable, Joe. The missiles are almost here."				Death;Time										3						
+			17	I wonder if their mystics had an equivalent to our DEFCON.				Doomsday;Defcon											1					
+	Coda	Jack	16	I don't want to destroy those who inherit.				Land						1		1			1					
+			14	Who will remember?				Time										1						
+		Joe	18	There were people before them as well. Nobody was the first. You're remembering ghosts.										3				2	0.5					-1
+			16	"You're right. All passing is inevitable, not only ours but also Russkies'."				Confront										4		1		1		
+			14	We are death.				Death						0.5	-0.5			1				0.5		0.5
+			14	"You're wrong. The Native American is still here. He just changed shaped, as did the European immigrant."				Man						2						-1				
+Scientists	Orientation	Joe	5	You have to respect the ingenuity of the human mind to be able to bring us here underground to send missiles to the other continents that will blow up entire cities.											0.5				1			0.2		0.1
+		Jack	9	It was some sick curiosity that drove our scientists forward.										-0.5					-0.5					
+	Complication	Joe	13	You know nothing of science. You're an aging man who doesn't want the world to change.														1						0.5
+			14	Szilard didn't want them to bomb Japan. He started a petition to effect the opposite. 										1	0.5	0.5								
+			17	"You think Otto Hahn, Lise Meitner, and Fritz Strassmans gave a shit or even realized the potential of fission?"										1				1	1					
+		Jack	20	"They still created the technology that made it possible, goddamn it. Isn't that enough to damn them?"	Want		Love							-0.5									0.5	
+		Joe	22	"If you want to blame anyone, blame Mother Nature. Blame the universe for giving us stars."				Nature						1	1			1						-1
+			24	"Mankind must deal in all sciences, both safe and dangerous."											0.5				1				0.5	
+		Jack	24	There's just something perverted about science. The world is one big experiment to them.		Keep									-0.5				-1					
+			26	You do know rocket technology was developed by Nazis?		Keep												1		1		-0.5		
+			28	It's all maths to the scientists. They see souls in numbers and numbers in souls.											-0.5								0.5	
+	Climax	Joe	24	"Science can be controlled, science can be regulated."											1									
+			28	One day our civilization will be powered by fusion reactors and we will sail between the stars.															5					
+			32	"For better or worse, scientists carry the most supreme trait of man, the ability to dream."				Dreamers						1										1
+			36	"They make the future. You want to control it, just as our government does."				Justice							2						1			1
+		Jack	30	"There is human science, and there is inhuman science."																				
+			40	Blind faith in science is no different from any other sort of fanaticism.										1				1						
+	Denouement	Joe	32	"And let me tell your partner, they will be called astronauts, not cosmonauts."															1	1				
+			26	You really are illiterate!																				2
+			20	Did you get beat up by a group of nerds or something?				Childhood																0.5
+			14	Science is more of a process anyways.											0.5									
+	Coda	Jack	29	Today is the end of the experiment called planet Earth.				Doomsday										1						
+			23	Science doesn't mean anything to me. It's pursuit without purpose or benefit.											-0.5			0.5	-0.5					
+			17	All the great people of the world couldn't stop the flow of time.														1						
+			11	I cannot divine the purpose of their theorems.																				-0.5
+		Joe	29	"On my fifth birthday I realized I wanted to become an astronaut and I've come to respect science a great deal as a result. Sorry, if this gets me a little excited."										0.5	0.5									
+			23	Science only seeks to shine a light upon the darkness.											1									
+			17	"I'm not saying they were gods or anything. They were normal people, just like us."										3										-1
+			11	"I admit, I don't understand much either. I only dabble in understanding."										1										-3
+Doomsday	Orientation	Joe	5	"It's not the end of the world, Jack."														-1						
+		Jack	8	"There is a thin line between the end of the world and a ""close call""."														1						
+	Complication	Joe	10	It takes more than two of the world's greatest arsenals being emptied out to end the world.				Destruction						1				-1				-1		-1
+		Jack	25	The paranoia of the diplomatic market will lead to a complete breakdown of trust.		Keep		Calamity			10							2		-1				
+			14	This will trigger an ecological collapse. Earth is like a house of cards.				Land										1						
+		Joe	10	"The world has not ended yet, has it? We're still here."				Noramlity										-1						
+			12	"Radiation is not alive, it cannot reporduce. Life will win out in the end."										1				-1						
+			14	"And ""nature does not know extinction""."																				
+	Climax	Jack	25	I guess it's better to wait and see for ourselves what the world will become.				Jack			-10							-1	1					
+			25	"If the world doesn't end, I'll probably kill myself anyways."							10							10						
+		Joe	14	That really is the worst-case scenario.																				
+			16	"If the Russkies somehow manage to climb out of hell, we'll be there to kick them back in."				Russians						-1		-1		-2		3				1
+	Denouement	Jack	20	"We will never know which of us was right though, will we."														1						
+		Joe	18	The end of the world is hard to even think about.																				
+			16	We are cut off from the future we are creating.				Time																
+			15	"Alright, the world might end today. But let's worry about it when we get there."																				
+			14	I suppose the world as is will come to an end today.																				
+			10	Doomsdays are more of a Catholic thing. I have faith in our Lord.				God										-1		0.5	0.5			
+	Coda	Joe	16	We don't have much time left.														0.5						
+			12	"God, this is surreal."										1										
+		Jack	14	If only optimism alone could ward off radiation...										0.5	0.5			-1						
+Jack	Orientation	Joe	6	"There's something deeply wrong with you, Jack."																				0.5
+	Complication	Joe	8	You are clearly anti-social. At least today.																0.5				0.5
+			10	You're going against your duty as a military officer and citizen of a democracy.				Duty												0.5		0.5		0.5
+			12	You seem to have some sort of a savior complex.													-0.5	0.5						0.5
+			12	You also have a god complex.				God							-0.5									0.5
+		Jack	14	Lay it on thick. Tell the old-timer about all he's doing wrong.										0.5										0.5
+		Joe	16	You're not a Russky. Nor did you ever have any Russky friends. You didn't even go to college.																0.5				
+			18	"Before today, I thought your record was clear."																	0.5			
+			20	I just don't understand what happened.										0.5										
+	Climax	Jack	24	I just got old.		Keep								1										
+			25	It will happen to you as well.										2				1						
+		Joe	27	"That being said, you will now do as I say. You are not of sound mind."			Hate	Confront													5			5
+			26	I think there might be something wrong with your brain.										-1				1			1			1
+			25	This world has made you sick.										1	1			3						
+	Denouement	Joe	22	I don't know what to do about you.																				
+			17	Of course I've seen many people worse off than you. In our very own squadron in fact.										0.5										-1
+			12	"You are a contradiction, somewhere between sanity and madness."										1	0.1		0.5	1						
+	Coda	Jack	15	I doubt your sanity as well.										1				1						
+		Joe	14	Just... Don't take this the wrong way.																				0.5
+Man	Orientation	Jack	5	There must be some sort of darkness in the hearts of men.		Keep								0.5				1						0.2
+		Joe	8	What is a man?																				
+			9	What is it that you mean by that?																				
+	Complication	Jack	10	We want to destroy anything that is in any way other than ourselves.		Keep												3						
+			14	Perhaps we seek to eliminate all uncertainties.														1					2	
+			16	We sing and we talk. Those are our main tools of corruption.										1				0.5						
+		Joe	20	We are highly advanced predators.											-1	-0.5		0.5		0.1	0.5	0.25		
+			18	"We are brains, ghosts bottled up within in vessels."										1										
+			16	"Perhaps, but we're not computers."										2										
+		Jack	22	The brain is a parasite of the stomach.														1						
+			20	We consume things. We hunt.														1						
+			18	We destroy. We hate. We let our hate destroy us.														1						
+	Climax	Joe	20	A man is a man is a man.																				
+			20	A man is a rock. He can beat anything.																	0.5	0.5		
+			20	"We make fires, we make tools, and we explore. That's what makes us humans."										1										
+			20	We all fight in our personal war. It gives us purpose.										3				0.5				0.5		
+			20	We are beautiful beings.				Dreamers																
+		Jack	22	We are lines.		Keep												1						
+			24	We are missiles sent into the world.		Keep												1						
+			26	Where we land is known.		Keep												1						
+			28	We are agents of fate.														1						
+	Denouement	Joe	30	"Unlike missiles, we have free will."										2				-1						
+			20	We must take the form the situation calls for. It's best to remain undefined.										0.5							0.5			
+			15	But god made us. I will not question his design.				God													0.5			
+	Coda	Jack	24	"Future generations will be as blind as us. Not knowing themselves, ourselves, they will repeat our mistakes."				Cycles										3						
+			17	Who we are will remain a mystery.										1				0.5						
+		Joe	24	There is freedom in not knowing oneself.														-1						
+			17	The human mind will one day be mapped.															1					
+Dreamers	Orientation	Joe	5	We are dreaming.														0.5						
+	Complication	Joe	9	We exist somwhere on the border between sleep and wakefulness.														0.5						
+			13	"Always, not just now. But especially now."														0.5						
+			17	We are passing creatures.														0.5						
+	Climax	Joe	21	"We belong to the future, but we are stuck in the present."														0.5						
+			25	Even now we cannot escape it.														0.5						
+			29	The nuke is the wish-granter.														0.5						
+	Denouement	Joe	33	I wish to live in the future.				Time										0.5						
+			28	The nuke is the dream-destroyer.														0.5						
+			24	"There are 1,000,000 doors, but only 999,999 of them are exits. With each passing second, a new non-exit is being added to the doors."														0.5						
+			20	The present is stuck in the past. What was will be. Time is a flat circle. Or wait... Maybe it was an oval?														0.5						
+			16	I have become a shadow of my true immortal self.														0.5						
+			12	"But at this moment in time, I am completley awake."														0.5						
+	Coda	Joe	30	But wishes aren't real.														0.5						
+			26	"Sir, I wish to disintegrate!"					11									0.5						
+			22	I am suddenly having a panic attack.														0.5						
+			18	Why was I created?														0.5						
+			14	I was dreaming. The future is here.														0.5						
+		Jack	33	" The end of the story is the nuke. It almost landed back there, while you were day-dreaming. Just try not to disintegrate."									10					0.5						
+Death	Orientation	Joe	5	Many lives will be lost today.														2					0.5	
+		Jack	5	"At this rate, the human race will go extinct."														2						
+	Complication	Joe	8	Some losses are unavoidable.														1					1	
+			10	Russky deaths are necessary for the good of mankind.										-0.5		-1				1.5			0.5	0.5
+		Jack	12	None of the Soviets have to die.		Keep								1						-1				
+			14	MAD has failed. It is no longer a valid strategy.															0.5					
+		Joe	18	I think I get it. Adherence to the MAD strategy will cost more human lives than ignoring it would save?	Want		Hate									2		1					3	
+			20	The Russkies were dead from the moment they took aim at us.												-0.5		0.5				1		
+	Climax	Joe	22	The deaths will be many times less than they would be with conventional strategic bombing.																			3	
+			24	"Compared to a plague, a nuclear strike is almost surgical. It is instant and total death. There is no prolonged suffering and there is no spread."																			5	
+			26	"Surely, the calculations have been made. The path with least losses has been found."																	3		3	
+		Jack	25	It seems I am talking to a nuclear scientist.									-10											1
+			25	Try to imagine the people you are going to kill. Can you imagine their faces? Can you imagine their voices?	Want		Love						10	1										
+	Denouement	Joe	22	They were idiots. They should have know that we would strike back.																1				1
+			20	There is a second more sophisticated level to the MAD doctrine which you do not comprehend.																		1		1
+			18	There is no way to keep your hands clean in a nuclear situation.												-1	-1	3					1	
+			16	"Jack, how can we carry this weight on our shoulders?"													3.5				0.5			0.5
+			10	Thinking about death will not making it easier to deal death.												-0.5							0.5	
+	Coda	Joe	20	I wonder what future population graphs will look like.														1	0.5					
+			15	I hope my family will be okay.										1						0.1				
+		Jack	20	It's like we're killing numbers.															0.1					
+			15	Almost feels like we're playing Yahtzee with Death.															0.3					
+Time	Orientation	Joe	5	"Goddamn, I wish we had more time."										0.5										
+		Jack	10	Time is our biggest enemy.										0.5										
+	Complication	Jack	12	"If I could stop time, I could just stop and think about things."		Keep																		
+			14	Just clear out my head.																				
+		Joe	18	Yeah. I'm feeling pretty claustrophobic myself.																				
+			20	"If I'd known there would be a nuclear war coming, I would have worried less about homework."										0.2							-0.2			
+			22	If you had asked me this morning I would have said I had lived a pretty long life. Now it feels rather short.																				
+			24	The march of time is relentless.														1						
+		Jack	20	Can you shut up for a moment? I need to gather my thoughts.		Keep																		
+			22	This feeling is horrible. It feels like the minute hands are smearing me around the clock-face.														5						
+			24	One moment follows another. It makes no sense.														1						
+		Joe	26	"You could become a missile yourself. According to Einstein, since the missiles are so fast when compared to us, time should be passing slower for them."										-0.2				1				1		
+	Climax	Joe	26	"When we were children, we had all the time in the world."				Childhood						0.5										
+			28	It is so human to be steeped in time. It is hard imagine life without it.				Man						1										
+			30	"The earth, this desert for example, is almost completely outside of time."				Land																
+			34	We're just sparks pecked off its surface.																				
+		Jack	30	"Everything scientists do is about shortening time, not prolonging it."											-0.5			1						
+			31	It's a shame.										0.5					-0.5					
+	Denouement	Joe	28	"Jack, we're quite short on time. It's time we made the decision."				Confront										3			1			
+			25	Time is unfair.				Justice						0.5	1									
+			21	I missed 7 years of life that you got to live through.				Childhood																
+			13	Time is our friend. We couldn't do anything without it.																				
+	Coda	Jack	18	I'm so old. I'm decrepit and dying.																				
+		Joe	18	"You're right, Jack. Time is our enemy."												1								
+			18	The inverse relationship between my ability to act in time and my ability to experience that time is rather annoying.										0.3	0.2								0.1	
+Land	Orientation	Jack	5	The land we're on used to be Native American land. It was taken from them.																0.5				
+	Complication	Joe	10	This land no longer belongs to them.																-0.5				
+			10	This land belongs to the Americans now.										1						1				1
+		Jack	14	Land never belongs to anyone.										-0.5						-1				
+		Joe	16	I doubt the explosions will do much harm to the ground.																				
+			16	"The desert cannot reflect on good and evil, it just ""is"" the desert."										0.1	0.1									
+	Climax	Jack	18	It is free from the shackles of time.				Time																
+		Joe	12	A country needs land more than people.																			0.5	
+		Jack	14	"Even if we die, as long as there is land, there is America."														1						
+		Joe	22	"It is just as us, but more so."																				
+	Denouement	Joe	18	It is bound to us. It needs us to give it names.										1										
+			16	Land is not alive of course.																				0.1
+			14	"It will be called the Soviet Union of States soon enough, if we're not careful."																0.5				
+	Code	Joe	18	"If we could listen, what would it say?"				Cycles																
+			12	Won't be Russky land at least.				Russians										1		1				
+		Jack	17	"At the end, there will just be silence."														1						
+			11	This land stinks of death and rot.				Calamity										1						
+God	Orientation	Joe	5	"Do you even believe in god, Jack?"																				
+		Jack	9	What sort of god would this be?																				
+	Complication	Jack	10	I do not believe in a loving god.														1						
+			12	I don't believe in any Abrahamic god.																-1	-0.5			
+			14	This world is too evil to house any gods.											-2									
+		Joe	16	There are no atheists in fox-holes.																				1
+			17	God works in mysterious ways.																	0.5			1
+	Climax	Jack	21	God works in ass-backwards ways.																	-0.5			-1
+			26	I only believe in the god of death.		Keep					10			-1				1						
+			28	I became a convert within the last hour.		Keep												2						
+			30	"My Gadget is my Trinity, the Fat Man and Little Boy my prophets. The glory of the lord however belongs to an atomic bomb."														3						
+	Denouement	Jack	31	"Alright, Joe, whatever, let's just move on with our short lives."																				
+			32	I just don't to spend my last minutes on this Earth debating you.																				
+			23	In fact I do not believe in any god at all.						5		5												
+		Joe	16	"I won't bother you with belief, you clearly have not an ounce faith left in you."																				
+	Coda	Joe	26	I'll pray for your soul.													1							1
+			15	"You have free will because of god, not despite Him."																				
+		Jack	23	My god will annihilate you.																	-1	0.5		1
+			15	"If you think dragging me along to heaven will be your path to salvation, you're wrong."													-0.5							
+Cycles	Orientation	Joe	5	"History won't repeat itself, I'll promise you that."																				
+		Jack	8	And who grants it.													0.5							
+	Complication	Joe	12	No one does.																				
+			14	God might.																	0.5			
+	Climax	Jack	16	It wouldn't repeat if you stopped killing everyone. Someone could remember the present and preserve what we knew.																				
+			24	Sometimes it seems like even you don't believe in what you're saying.																				
+		Joe	20	The United States will survive.																				0.5
+	Denouement	Joe	14	All I'm saying is that history is not a supernatural force.														-1						
+			20	We have more shelters than the Russkies.										-1		-1	-0.5						0.5	0.5
+	Coda	Joe	18	"Fine, maybe a more direct approach is better."		Confront;Forget																		
+			14	"Sure, history has patterns, but you can't live your life in fear of them."										0.5				-0.5						
+		Jack	16	"The world is just such a simple for you, isn't it."	Want		Hate																	
+Childhood	Orientation	Joe	5	Do you remember your childhood?																				
+	Complication	Jack	7	"I remember my mother, she was a very sweet lady, as was my nan."										0.2										
+			9	I remember white picket fences and all that stuff.										0.2										
+			11	I used to get quite a catch at the creek.										0.2										
+		Joe	12	Did you ever want to become anyone? A dream job?		Give																		
+			13	I wanted to be an astronaut.																				
+		Jack	17	I never did. I was always gonna figure it out eventually. I never did.																				
+	Climax	Joe	20	Your childhood sounds pretty idyllic.																				
+			22	I grew up in LA. It was very different from that for sure.																				
+			24	I had to deal with the adult world from a very early age.														-0.5						
+			28	"As a kid, I didn't care much."											1									
+		Jack	30	Seems like you grew up just fine.																				
+	Denouement	Joe	28	This could have been the future.														1	1					
+			12	That sounds way nicer than I thought it would.																				
+	Coda	Jack	26	Nothing is stopping the Soviet children from having that sort of childhood.													1							
+			10	I always wanted to grow up faster. Never could grow fast enough.																				
+		Joe	10	I wish I could be a kid again.											0.1									

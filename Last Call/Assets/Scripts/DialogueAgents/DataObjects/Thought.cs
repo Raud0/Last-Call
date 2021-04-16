@@ -53,21 +53,9 @@ public class Thought
         Emotions = emotions;
     }
 
-    public Thought(Thought thought)
-    {
-        Topic = thought.Topic;
-        Stage = thought.Stage;
-        Actor = thought.Actor;
-        Complexity = thought.Complexity;
-        Text = thought.Text;
-        InterruptStrategy = thought.InterruptStrategy;
-        TurnStrategy = thought.TurnStrategy;
-        MyAffinity = thought.MyAffinity;
-        Tangents = thought.Tangents;
-        EventCode = thought.EventCode;
-        Arguments = thought.Arguments;
-        Emotions = thought.Emotions;
-    }
+    public Thought(Thought thought) : this(thought.Topic, thought.Stage, thought.Actor, thought.Complexity,
+        thought.Text,thought.InterruptStrategy, thought.TurnStrategy, thought.MyAffinity, thought.Tangents,
+        thought.EventCode, thought.Arguments, thought.Emotions) { }
 }
 
 public class FocusedThought : Thought,  IComparable<FocusedThought>

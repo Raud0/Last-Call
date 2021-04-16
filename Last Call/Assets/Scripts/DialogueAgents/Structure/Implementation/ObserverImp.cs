@@ -109,7 +109,7 @@ public class ObserverImp : Observer
 
     private void HandleStageOne(Thought thought)
     {
-        ThoughtFocus thoughtFocus = new ThoughtFocus(thought, 0.2f, false);
+        ThoughtFocus thoughtFocus = new ThoughtFocus(thought, 0.2f, false, false);
         Send(thoughtFocus);
         
         SocialInput socialInput = new SocialInput(thought.Actor, thought, 1);
@@ -118,7 +118,7 @@ public class ObserverImp : Observer
 
     private void HandleStageTwo(Thought thought)
     {
-        ThoughtFocus thoughtFocus = new ThoughtFocus(thought, 0.3f, true);
+        ThoughtFocus thoughtFocus = new ThoughtFocus(thought, 0.3f, true, false);
         Send(thoughtFocus);
 
         SocialInput socialInput = new SocialInput(thought.Actor, thought, 2);
@@ -136,7 +136,7 @@ public class ObserverImp : Observer
 
     private void HandleStageThree(Thought thought)
     {
-        ThoughtFocus thoughtFocus = new ThoughtFocus(thought, 0.5f, true);
+        ThoughtFocus thoughtFocus = new ThoughtFocus(thought, 0.5f, true, true);
         Send(thoughtFocus);
         
         SocialInput socialInput = new SocialInput(thought.Actor, thought, 3);

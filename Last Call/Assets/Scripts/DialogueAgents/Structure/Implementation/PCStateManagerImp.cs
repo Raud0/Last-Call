@@ -7,6 +7,7 @@ public class PCStateManagerImp : StateManagerImp
     {
         Beliefs = new Dictionary<Argument.Type, float>()
         {
+            {Argument.Type.Humanism, 0.0f},
             {Argument.Type.Idealism, 0.0f},
             {Argument.Type.Pacifism, 0.0f},
             {Argument.Type.Altruism, 0.0f},
