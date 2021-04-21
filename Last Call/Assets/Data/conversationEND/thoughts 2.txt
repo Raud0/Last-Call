@@ -1,0 +1,17 @@
+Topic	Stage	Actor	Complexity	Text	Interrupt	Turn	Affinity	Tangents (;)	Event	Anger	Fear	Ego	Respect	Humanism	Idealism	Pacifism	Altruism	Fatalism	Futurism	Tribalism	Authoritarianism	Militarism	Utilitarianism	Supperiority
+Credits	Orientation	Ender	5	CREDITS																				
+	Complication	Ending	8	Many thanks to Siim Raudsepp for the song you are currently listening to.																				
+			11	And thank you for being here. :)																				
+			14	2021																				
+Facts	Orientation	Ender	5	FACTS																				
+	Complication	Ending	8	Not that it matters.		Keep																		
+			11	"But in the real world, other launch control centres in the same wing could also launch your missiles."																				
+			14	"Of course, in the real 1969, man landed on the moon."		Keep																		
+			17	"ARPANET, which would become the foundation of the internet, was also established in this year."																				
+			19	The worldwide DEFCON level never went past 3.		Keep																		
+			22	The world's current nuclear inventory consists of approximately 14 thousand warheads.		Keep																		
+			25	"You're alive to read this though, so it can't be that bad. ;)"																				
+Research	Orientation	Ender	5	WHAT NOW?																				
+	Complication	Ending	8	"While you were playing, a log file was being created of your conversation."		Keep																		
+			11	"In addition, there is a link to a QUESTIONNAIRE in the README there as well."																				
+			14	"If you have the time, fill it out and send me that log."																				

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Security.Cryptography;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class Option : MonoBehaviour
@@ -28,6 +26,15 @@ public class Option : MonoBehaviour
     {
         this.thought = thought;
         ugui.text = thought.Text;
+        if (ugui.text.Length > 80)
+        {
+            ugui.fontSize *= 0.9f;
+        }
+
+        if (ugui.text.Length < 40)
+        {
+            ugui.fontSize *= 1.2f;
+        }
     }
 
     public void Hovered(bool status)

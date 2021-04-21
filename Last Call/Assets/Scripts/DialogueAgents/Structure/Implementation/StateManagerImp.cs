@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class StateManagerImp : StateManager
 {
     protected Dictionary<Emotion.Type, float> States { get; set; }
+    protected Dictionary<Emotion.Type, float> InitialStates { get; set; }
     protected Dictionary<Argument.Type, float> Beliefs { get; set; }
 
     public abstract void ImpReceive(Argument argument);
@@ -16,10 +16,9 @@ public abstract class StateManagerImp : StateManager
 
     private void Start()
     {
-        foreach (KeyValuePair<Emotion.Type, float> statePair in States)
+        foreach (KeyValuePair<Emotion.Type, float> statePair in InitialStates)
         {
-            Emotion emotion = new Emotion(statePair.Key, statePair.Value);
-            Send(emotion);
+            ChangeState(statePair.Key, statePair.Value);
         }
     }
 
@@ -43,6 +42,23 @@ public abstract class StateManagerImp : StateManager
         States[type] += change;
         Emotion emotion = new Emotion(type, States[type]);
         Send(emotion);
+
+        if (myOutput.IsMe("Jack"))
+        {
+            AnimationController AC = myOutput.myStack.conversation.animationController;
+            if (AC == null) return;
+            float value = States[type];
+            
+            switch (type)
+            {
+                case Emotion.Type.Anger: AC.UpdateAnger(value/100f); break;
+                case Emotion.Type.Fear: AC.UpdateFear(value/100f); break;
+                case Emotion.Type.Ego: AC.UpdateEgo(value/100f); break;
+            }
+        } else if (myOutput.IsMe("Joe") && States[Emotion.Type.Fear] >= 90f)
+        {
+            myOutput.myStack.conversation.manager.CallEvent(7);
+        }
     }
     
     public override void Receive(Argument argument)

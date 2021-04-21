@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 public class NPCStateManagerImp : StateManagerImp
 {
@@ -20,6 +19,13 @@ public class NPCStateManagerImp : StateManagerImp
             {Argument.Type.Superiority, -0.7f}
         };
         States = new Dictionary<Emotion.Type, float>()
+        {
+            {Emotion.Type.Anger, 0f},
+            {Emotion.Type.Fear, 0f},
+            {Emotion.Type.Ego, 0f},
+            {Emotion.Type.Respect, 0f}
+        };
+        InitialStates = new Dictionary<Emotion.Type, float>()
         {
             {Emotion.Type.Anger, 50f},
             {Emotion.Type.Fear, 50f},

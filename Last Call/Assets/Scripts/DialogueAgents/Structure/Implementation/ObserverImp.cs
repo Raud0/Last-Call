@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 
 public class ObserverImp : Observer
 {
@@ -48,11 +46,11 @@ public class ObserverImp : Observer
         newInteractions = true;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         HandleNewActions();
         
-        timeSinceLastCheck = Time.time - lastCheck;
+        timeSinceLastCheck = Time.fixedTime - lastCheck;
         if (timeSinceLastCheck > 1f || newSpeech) { HandleSpeech(); }
     }
 
@@ -91,7 +89,7 @@ public class ObserverImp : Observer
 
         HandleContext();
 
-        lastCheck = Time.time;
+        lastCheck = Time.fixedTime;
     }
 
     private void HandleContext()
@@ -131,6 +129,10 @@ public class ObserverImp : Observer
                 Argument newArgument = new Argument(argument.MyType, argument.Strength * 0.5f);
                 Send(newArgument);
             }
+        }
+        else
+        {
+            myInput.myStack.conversation.manager.CallEvent(thought.EventCode);
         }
     }
 

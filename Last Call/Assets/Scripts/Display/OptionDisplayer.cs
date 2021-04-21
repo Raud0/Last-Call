@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class OptionDisplayer : Singleton<OptionDisplayer>
+public class OptionDisplayer : MonoBehaviour
 {
     public GameObject optionPrefab;
     public GameObject panelPrefab;
@@ -18,6 +17,8 @@ public class OptionDisplayer : Singleton<OptionDisplayer>
     private List<GameObject> panels = new List<GameObject>();
     private List<Option> options = new List<Option>();
     private List<Thought> thoughts = new List<Thought>();
+    private List<Thought> unUpdatedThoughts = new List<Thought>();
+    private bool update = false;
 
     private Dictionary<KeyCode, int> numberKeys = new Dictionary<KeyCode, int>()
     {
@@ -54,6 +55,11 @@ public class OptionDisplayer : Singleton<OptionDisplayer>
             panels.Add(Instantiate(panelPrefab, transform));
             panels[j].GetComponent<RectTransform>().SetAsLastSibling();
         }
+    }
+
+    private void LateUpdate()
+    {
+        if (update) UpdateThoughts();
     }
 
     private void Update()
@@ -112,21 +118,28 @@ public class OptionDisplayer : Singleton<OptionDisplayer>
             }
         }
     }
-    
-    public void UpdateThoughts(List<Thought> newThoughts)
+
+    public void UpdateThoughts()
     {
+        update = false;
         Queue<Thought> delete = new Queue<Thought>();
         if (locked)
         {
             Thought lockedThought = panels[lockedIndex].GetComponentInChildren<Option>().thought;
-            foreach (Thought newThought in newThoughts)
+            foreach (Thought newThought in unUpdatedThoughts)
             { if (newThought.Text.Equals(lockedThought.Text)) delete.Enqueue(newThought); }
         }
 
-        while (delete.Count > 0) newThoughts.Remove(delete.Dequeue());
+        while (delete.Count > 0) unUpdatedThoughts.Remove(delete.Dequeue());
         
-        thoughts = newThoughts;
+        thoughts = new List<Thought>(unUpdatedThoughts);
         UpdateOptions();
+    }
+    
+    public void QueueUpdateThoughts(List<Thought> newThoughts)
+    {
+        unUpdatedThoughts = new List<Thought>(newThoughts);
+        update = true;
     }
 
     public void SelectThought(Thought thought)
@@ -151,28 +164,14 @@ public class OptionDisplayer : Singleton<OptionDisplayer>
 
     public void FinishThought(Thought thought)
     {
-        ReleaseThought(thought);
         thoughts.Remove(thought);
+        ReleaseThought(thought);
         UpdateOptions();
     }
     
     private void UpdateOptions()
     {
-        ClearOptions();
         ShowOptions(page * pageN);
-    }
-
-    private void ClearOptions()
-    {
-        for (int i = 0; i < pageN; i++)
-        {
-            if (options.Count - 1 < i) { options.Add(null); }
-            
-            if (options[i] == null) continue;
-            
-            if (locked && i == lockedIndex) continue;
-            options[i].Destroy();
-        }
     }
 
     private void ShowOptions(int first)
@@ -181,10 +180,27 @@ public class OptionDisplayer : Singleton<OptionDisplayer>
         
         for (int i = 0; i < pageN; i++)
         {
+            if (options.Count - 1 < i) { options.Add(null); }
             if (locked && i == lockedIndex) continue;
-            if (first + i > thoughts.Count - 1) break;
+            if (first + i > thoughts.Count - 1)
+            {
+                if (options[i] != null)
+                {
+                    options[i].Destroy();
+                }
+            } 
+            else 
+            {
+                if (options[i] == null)
+                {
+                    options[i] = CreateOption(thoughts[first + j], i);
+                } else if (!options[i].thought.Equals(thoughts[first + j]))
+                {
+                    options[i].Destroy();
+                    options[i] = CreateOption(thoughts[first + j], i);
+                }
+            }
             
-            options[i] = CreateOption(thoughts[first + j], i);
             j++;
         }
     }

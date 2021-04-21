@@ -1,6 +1,4 @@
-﻿using System;
-
-public abstract class Observer : InputStackModule
+﻿public abstract class Observer : InputStackModule
 {
     public abstract void Receive(Speech speech);
     public abstract void Receive(Interaction interaction);

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UIElements;
+﻿using System.Collections.Generic;
 
 public class NPCDeciderImp : DeciderImp
 {
@@ -52,7 +49,12 @@ public class NPCDeciderImp : DeciderImp
     {
         if (Thoughts.Count == 0) return;
 
-        float waitThreshold = 0.5f;
+        float waitThreshold = 3f;
+        if (myOutput.myStack.IsMe("Ending"))
+        {
+            waitThreshold = 0f;
+        }
+        
         bool waitingForAnswer = WaitingForAnswer();
         bool otherWaitingForAnswer = OtherWaitinForAnswer();
         bool continuingThought = ContinuingTurn();
@@ -77,9 +79,9 @@ public class NPCDeciderImp : DeciderImp
         if (Thoughts.Count > 0) waitThreshold *= Thoughts[0].Rank / 10f;
 
         if (waitingForAnswer) waitThreshold *= (1f + Weights[Emotion.Type.Respect] / 100f - Weights[Emotion.Type.Anger] / 100f) * 2f;
-        if (otherWaitingForAnswer) waitThreshold *= (1f - Weights[Emotion.Type.Respect] / 100f) * 2f;
+        if (otherWaitingForAnswer) waitThreshold *= (1f - Weights[Emotion.Type.Respect] / 100f) * 0.2f;
         if (continuingThought) waitThreshold *= (1f + Weights[Emotion.Type.Respect] / 100f) * 0.2f;
-        if (otherContinuingThought) waitThreshold *= (1f - Weights[Emotion.Type.Respect] / 100f) * 0.2f;
+        if (otherContinuingThought) waitThreshold *= (1f - Weights[Emotion.Type.Respect] / 100f) * 2f;
         
         if (TimeSinceLastSpeech() < waitThreshold)
         {

@@ -6,17 +6,23 @@ public class AttentionImp : Attention
 {
     private Dictionary<string, Topic> topicsByName = new Dictionary<string, Topic>();
     private List<FocusedThought> thoughts = new List<FocusedThought>();
+    private float secondCounter = 0f;
+    private float secondCounterCap = 1f;
 
-    private void Awake()
+    public Dictionary<string, Topic> GetTopics() => topicsByName;
+    private void FixedUpdate()
     {
-        Events.OnUpdateTime += Decay;
+        if (secondCounter <= 0f)
+        {
+            Decay();
+            secondCounter = secondCounterCap;
+        }
+        else
+        {
+            secondCounter -= Time.fixedDeltaTime;
+        }
     }
 
-    private void OnDestroy()
-    {
-        Events.OnUpdateTime -= Decay;
-    }
-    
     protected void Update()
     {
         if (Input.GetKeyDown(KeyCode.T)) DebugText();
@@ -197,9 +203,9 @@ public class AttentionImp : Attention
         FocusThoughts();
     }
 
-    private void Decay(int seconds, int minutes)
+    private void Decay()
     {
-        ShiftAllTopics(0f, -0.15f * Time.deltaTime, 1f); // decays by 9 points per minute, intuition tells me to switch to percentage, since decay is usually exponential
+        ShiftAllTopics(0f, -0.001f * secondCounterCap, 1f);
         FocusThoughts();
     }
     
@@ -389,6 +395,7 @@ public class AttentionImp : Attention
             if (topic.Equals(soughtTopic)) { sought += topicFocus; }
         }
 
-        return sought / total;
+        float value = sought / total;
+        return float.IsNaN(value) ? 1f : value;
     }
 }

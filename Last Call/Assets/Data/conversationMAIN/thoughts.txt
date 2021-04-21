@@ -1,20 +1,22 @@
 Topic	Stage	Actor	Complexity	Text	Interrupt	Turn	Affinity	Tangents (;)	Event	Anger	Fear	Ego	Respect	Humanism	Idealism	Pacifism	Altruism	Fatalism	Futurism	Tribalism	Authoritarianism	Militarism	Utilitarianism	Supperiority
 Call	Orientation	Joe	5	I just got a call from command.																				
-		Jack	8	I assume it's about the malfunctions.	Want			Malfunction																
-	Complication	Joe	10	We're in DEFCON 1.				Defcon																
-		Jack	13	You sure about that? You're not pulling a fast one on me?		Give																		
-	Climax	Joe	20	We have 30 minutes to launch.				Launch																
-	Denouement	Joe	16	We have no choice.														0.1						
-		Jack	14	I can't believe it.							3				0.2	0.2								
-	Coda	Joe	14	"""Nuclear combat toe-to-toe with the Russkies"""				War							0.2	0.2								
-			12	Those bastards.											1									
-			12	About time they made the call.																	0.5	0.5		
-		Jack	10	Bastards!						5					1									
+		Jack	5	I assume it's about the malfunctions.	Want			Malfunction																
+	Complication	Joe	9	We're in DEFCON 1.				Defcon																
+			13	This is it.																				
+		Jack	13	"You're not pulling a fast one on me, are you?"		Give																		
+	Climax	Joe	17	We have 20 minutes to launch.				Launch																
+	Denouement	Joe	20	Want to do the honors?														0.1						
+			18	At times like these I'm glad we have a protocol to follow.																				
+		Jack	20	I can't believe it.											0.2	0.2								
+	Coda	Joe	18	"""Nuclear combat toe-to-toe with the Russkies"""				Launch;War							0.2	0.2								
+			18	Those bastards.											1									
+			16	About time they made the call.																	0.5	0.5		
+		Jack	16	Bastards!											1									
 Launch	Orientation	Joe	5	The launch code is 51193646.																				
 			8	Confirm?		Give																		
-		Jack	8	Screw the launch... And screw the command.				Jack		3		3												
-	Complication	Jack	10	I'm not doing this.		Keep						3												
-			12	"You do whatever you want, kiddo."																				
+		Jack	10	I'm not doing this.		Give						3												
+	Complication	Jack	14	Screw the launch... And screw the command.				Jack		3		3												
+			15	"You do whatever you want, kiddo."																				
 			17	It'll be a slaughter.														2						
 		Joe	5	We have our orders.				Duty																
 			15	Calm down.																				
@@ -22,16 +24,15 @@ Launch	Orientation	Joe	5	The launch code is 51193646.
 			20	"You know this is treason, right?"																	2	1		2
 			22	This is a no-lone zone.		Keep								1										
 	Climax	Joe	17	"Fine, let's talk about it. It's our call, not just mine."				Confront						0.5		1								
-			25	I am authorized to wield deadly force.																				
-		Jack	27	"Shoot me if you want, I won't shoot back."		Give																		
-		Joe	30	God will judge you.					7															3
+			21	I am authorized to wield deadly force.																				
+		Jack	24	"Shoot me if you want, I won't shoot back."		Give				3		3												
+		Joe	24	God will judge you. See you in hell.					7															3
 	Denouement	Joe	24	We need to calm down.																				
-		Jack	20	You can't convince me.																				
+		Jack	26	You can't convince me.						-3		-3												
 		Joe	18	Shouting at each other will do us no good.																				
-		Jack	15	You won't get anywhere with me.																				
 	Coda	Joe	10	"Well, one rocket less won't make a difference."				Others																
-			14	I got so carred away I forgot that you're my senior.																				
-			17	"You didn't just lose your key, did you?"																				
+			14	I got so carried away I forgot that you are my senior.																				
+			17	"You didn't just, uh, lose your key now, did you?"																				
 		Jack	10	I'm just a grumpy motherfucker.				Jack																
 Malfunction	Orientation	Joe	5	Malfunctions?																				
 		Jack	7	"Electrical malfunctions. Communications, ventilations."		Keep																		
@@ -40,8 +41,8 @@ Malfunction	Orientation	Joe	5	Malfunctions?
 		Joe	12	I haven't noticed anything.																				
 			14	The elevator did give me a good scare before.																				
 		Jack	16	There's also other things. Weird command codes. Strange voices on the phone.																				
-	Climax	Joe	18	I'll talk to command. Well I would...				Launch																
-	Denouement	Jack	17	Could be ghosts.																				
+	Climax	Joe	18	I'll talk to command. Well I would. . .				Launch																
+	Denouement	Jack	20	Could be ghosts.																				
 	Coda	Jack	15	It's probably ghosts.																				
 		Joe	14	It could be ghosts.										0.5										
 			13	Could be a failing power supply.																	0.5			0.5
@@ -50,30 +51,32 @@ Others	Orientation	Joe	7	"Let's get down to brass tacks, Jacks. Won't make a dif
 		Jack	10	"Ten. We have ten missiles, Joe."						5														
 	Complication	Jack	10	What am I supposed to take you for? Some kind of a cowboy?								5	-5											
 		Joe	12	Your struggle is essentially pointless.		Keep								-2				2						1
-			14	Everyone but you will obey.				Jack													3			
-			16	"You alone are nout enough to save everybody, or even anybody."										-1	-1		-5	5					3	
+			14	Everyone but you will obey their commands anyways. I don't get it.				Jack													3			
+			16	"You alone cannot save everybody, or even anybody."										-1	-1		-5	5					3	
+			17	Nuclear war is the best chance we got.				War						1		-2		1				5	1	
 			18	"Besides, we don't know how long the war will last."				War								-1						2	1	
-			20	"It is our duty, whether we divine the reason or not."				Duty													1	1		
+			20	It is our duty. . . whether we divine the reason or not.				Duty													1	1		
 		Jack	16	So we should just launch because others are launching?	Want	Give	Hate																	
 	Climax	Joe	18	"If the Russkies thought like you did, we wouldn't be on DEFCON 1."				Defcon;Russians												5				
 			20	This is reality. We have to operate on the dual principles of panic and paranoia.				Normality																
-		Jack	20	Everyone can't think like you. We'd all be dead.		Keep							-5	3	3									
-			22	"God, we're all gonna die."				Death			5							3						
+		Jack	20	Everyone can't think like you. We'd all be dead.		Keep					-5		5	3	3									
+			22	"God, we're all gonna die."				Death			5		-5					3						
 			24	There's no hope.														5						
 	Denouement	Joe	15	It actually doesn't matter what they're doing.										5				-5		-5				
 			12	We'll be better of thinking it through together.										3		2		-3						
-	Coda	Jack	10	The no-lone zone...																				
+	Coda	Jack	10	The no-lone zone. . . Huh.																				
 		Joe	5	I suppose it's up to everyone else.																1				
 Normality	Orientation	Joe	5	Where did we go so wrong?											2									
-		Jack	7	The beautiful balance of powers... And mutually assured destruction.				Authority;Cycles					-3											
+		Jack	7	The beautiful balance of powers. . . And mutually assured destruction.				Authority;Cycles					-3											
 	Complication	Joe	9	The world will never be the same again.										2				3						
 			11	We were the last ones to grow up.				Childhood						1				2						
 	Climax	Jack	23	Your normal was just the last step to our end.		Keep		Doomsday		3		3	-1											
-			25	What you really want back is your innocence.																				
+			25	What you really want is to get your innocence back.																				
 		Joe	20	I just wish we could go back.										1	2			1						
 	Denouement	Joe	15	"Alright, back to the present."				Calamity											1					
-		Jack	30	"Shut up, you old curr! Is this really the time for nostaliga?"						10	3	3	-5											
-	Coda	Jack	5	The past is past. We must think about tomorrow.															3					
+		Jack	23	God damn it you green horn! Is this really the time to get homesick?						10	3	3	-5											
+	Coda	Jack	13	The past is past. We must think about tomorrow.															3					
+			11	"Today's today, tomorrow's tomorrow."																				
 Calamity	Orientation	Joe	6	I wonder how long the war will last.				War																
 		Jack	8	"Open your eyes, Joe. You have no grasp on the present."																				
 	Complication	Jack	10	The cost to the economy is enormous. The Manhattan project alone took 2 billion dollars. How much have us two leeched off of people's fear?		Keep		Complex;Development		4		1												
@@ -81,7 +84,7 @@ Calamity	Orientation	Joe	6	I wonder how long the war will last.				War
 			16	All this tension. How does this shit fuck with our minds?		Keep		Civilians		5		2		-0.5										
 			19	These are the end times! There is no after!		Keep		Doomsday		5		2						2						
 			22	"The land will be scarred, the life that depended on it ruined."		Keep		Nature		6		3						2						
-			25	Two millenia of progress… Gone! We'll return to the dark ages.		Keep		Civilization;Cycles		6		3						3	-1					
+			25	Two millenia of progress. . . Gone! We'll return to the dark ages.		Keep		Civilization;Cycles		6		3						3	-1					
 			27	Hundreds of millions will die.		Give		Death		7		4						3						
 		Joe	11	I suppose the preppers were right.										-1	-1		-1							
 			12	Every man for himself.													-3			-1				
@@ -91,12 +94,13 @@ Calamity	Orientation	Joe	6	I wonder how long the war will last.				War
 		Joe	20	People are durable. We'll get through this.										1	2				1	1				
 			22	It won't be all that bad.										-1	3		-1						2	
 			24	The Russkies will pay for this.				Russians										1		4				3
-	Denouement	Jack	30	I gotta calm my nerves.				Jack		-5	-5	5				5								
+	Denouement	Jack	20	I gotta calm my nerves.				Jack		-5	-5	5				5								
 		Joe	10	Our sins will stop mattering soon.										1	-1								1	
 	Coda	Jack	7	Somebody will have to dig the graves.				Death										2						
 			5	What do you think will happen to our souls?				God																
-War	Orientation	Jack	5	It'll be over before we know it.														0.5					0.5	
-	Complication	Joe	10	Like a cowboy standoff. Nothing… nothing… then BLAM! Over.																		2		
+War	Orientation	Jack	5	This war will be over before we know it.														0.5					0.5	
+			8	And we too have our role to play.				Launch																
+	Complication	Joe	10	Like a cowboy standoff. Nothing. . . nothing. . . then BLAM! Over.																		2		
 		Jack	12	"After initial retaliation, there will be a land invasion."																				
 		Joe	14	The war will be fought by those that are left over.										0.5				1						
 			16	Only the bullets in this war will take 30 minutes to hit their targets.				Nukes																
@@ -108,9 +112,10 @@ War	Orientation	Jack	5	It'll be over before we know it.														0.5					0.5
 	Denouement	Joe	24	At least nobody will have to suffer for long.														1					0.5	
 			20	I never thought that World War III would actually happen in our lifetimes.																				
 	Coda	Jack	18	It doesn't make any sense.							2			0.5										
-Defcon	Orientation	Joe	5	Maximum readiness. Immediate response.																				
-		Jack	7	We've been on DEFCON 2 for two weeks now. What happened?		Give																		
-	Complication	Joe	10	The first of the Russky missiles are expected to arrive in 15 minutes.				Russians										0.5		0.5				
+Defcon	Orientation	Joe	5	"DEFCON 1. . . Jack. Are we maximally ready, are we immediately responsive?"		Give		Launch																
+		Jack	7	We've been on DEFCON 2 for two weeks now. What bumped us up to 1?		Give																		
+	Complication	Joe	10	The first of the Russky missiles are expected to arrive in 15 minutes.				Russians																
+			11	I don't know what happened. All I know are our orders.														0.5		0.5				
 			14	I wonder what the Russkies call their DEFCON. Are their people aware of what's happening?				Russians						1										
 		Jack	12	They better be evacuating everyone.										0.5						0.5				
 			15	We were jinxed from the moment we gave DEFCON a name.														1						
@@ -120,16 +125,16 @@ Defcon	Orientation	Joe	5	Maximum readiness. Immediate response.
 	Coda	Jack	10	So we hit doomsday while I was on alert. Great.				Doomsday																
 		Joe	5	I suppose we should ready our defences.				Launch														0.1		
 Nukes	Orientation	Jack	5	Our missiles have 50 times more power than the bombs we dropped on Japan.				Japan																
+			7	I've always wondered about their shape.				Eroticism						0.5										
 		Joe	5	They're a marvel of engineering aren't they?		Give		Development											1			2		
-			5	What terrifying beasts!		Give		Destruction						0.5							1	0.25		0.5
+			7	What terrifying beasts!		Give		Destruction						0.5							1	0.25		0.5
 	Complication	Jack	8	"They're also inter-continental, you don't even need to know who you're killing."				Destruction		5														
-			11	Right now they're sleeping like babies. Odd how much destruction lies dormant.																				
+			11	Right now they're sleeping like babies.																				
 			12	This is what they call deterrence. What use are they now? Deterrence has failed. Now they're trash.																				
-			13	And they're phallic in shape. By chance you think?				Eroticism						0.5										
-	Climax	Joe	20	"Isn't it about time we launched them, Jack?"				Confront													0.25			0.25
-	Denouement	Jack	22	We should dismantle them all.						5														
-	Coda	Joe	20	They're making newer ones. Better ones.																				
-		Jack	15	How many lives would ours claim?				Death																
+	Climax	Joe	16	"Isn't it about time we launched them, Jack?"				Confront;Launch													0.25			0.25
+	Denouement	Jack	18	We should dismantle them all.						5														
+	Coda	Joe	16	They're making newer ones. Better ones.																				
+		Jack	16	How many lives would ours claim?				Death																
 Development	Orientation	Jack	5	Somebody thought it was a good idea to build these machines.														0.25						
 		Joe	7	I heard development started with Einstein. He wrote a letter you see.											0.25				0.25					
 	Complication	Joe	10	The weapons were necessary at the time. To beat Japan.				Japan							0.25							0.25		
@@ -147,14 +152,14 @@ Development	Orientation	Jack	5	Somebody thought it was a good idea to build thes
 			22	The dream of an ultimate weapon had always been there.				Dreamers											0.5			0.25		
 			24	Thank god that they take so much to build.										0.5		1								
 			26	"For a decade after the World War II, the world was a safe place."											1		0.5		0.5					
-		Jack	26	We thought we'd been given divine right.				Man;God					-10					1						
-			24	It was too early for them. We were not ready.									10	1	1				1					
-	Denouement	Joe	20	Somebody else could have built them.																		1	1	
+		Jack	26	We thought we'd been given divine right.				Man;God		5			-10					1						
+			24	It was too early for them. We were not ready.						-5			10	1	1				1					
+	Denouement	Joe	22	Somebody else could have built them.																		1	1	
 	Coda	Jack	20	The market wanted it. So much time has disappeared into this day of destruction.				Complex;Time										3						
 		Joe	20	It was blind pursuit.										0.5										
-Destruction	Orientation	Joe	5	"Realistically, most people will survive. The nukes will only target key points of military interest."										1			1						1	
+Destruction	Orientation	Joe	5	"Realistically, most people will survive. The nukes will only target military interests."										1			1						1	
 		Jack	10	Ten percent of the world will just die.		Keep		Death										1						
-	Complication	Jack	12	More than that will perish second-hand.												-1								
+	Complication	Jack	12	But more than that will perish second-hand.												-1								
 			13	Massive amounts of fallout will cover the Earth.												-1								
 			16	What about the total collapse of international order?		Give																	0.5	
 			17	Ridiculuous! Who are we really targeting with these weapons? The concept of Communism? Is it worth the casualties?														2						
@@ -165,14 +170,14 @@ Destruction	Orientation	Joe	5	"Realistically, most people will survive. The nuke
 			20	"Only some of us will die, but none of the Russkies will survive."				Russians												10				
 			18	Every action must have an equal and opposite reaction.														2						1
 			14	"You're right, Jack. It will be terrible."				Forget						2	2	2		1						
-		Jack	18	This is the only thing we're good at. Ask the Indians.				Indians		3		3								2				1
+		Jack	18	This is the only thing we're good at. Ask any Native American.				Indians		3		3								2				1
 			18	We should send all 12 megatons of TNT the way Pentagon.				Confront		5	5		-5											
 	Denouement	Joe	17	Destruction was the lovechild of the US and the USSR. The world will remember us for that.										2					2					
 			20	Hopefully they'll learn from our mistakes. It won't have been pointless.										1					1				3	-1
-		Jack	20	Perhaps by some miracle every nuke will be faulty.									10		3			2						
+		Jack	20	Perhaps by some miracle every nuke will be faulty.							-5		10		3			2						
 	Coda	Joe	15	"God, I really hope the Russkies actually attacked us."										1	1					0.5		0.25		
 		Jack	15	"When the nukes land, let's go tour the holocaust, Joe. I want to see the world we helped create."						5	5		5	1				1						
-			15	Which of the Joint Chiefs of Staff do you think is the most erect right now?																	-1			
+			15	Which of the Joint Chiefs of Staff do you think is the most erect right now?						5	-5	5									-1			
 Civilians	Orientation	Joe	5	"This is for the good of the people, Jack. Would you rather just let them die without a fight?"										0.5						1			1	
 	Complication	Jack	8	I don't see how we the people will benefit from this. Joe.										1	1			1						
 		Joe	10	They're relying on us. I don't want our children to ask us what happened to the old America.				Time						1			0.5			0.5				
@@ -206,23 +211,23 @@ Authority	Orientation	Jack	5	We don't have the right to make this decision fo ev
 		Joe	20	America has involved itself in nuclear research. Whether we like it or not we have a responsibility before the world.											1				1					1
 			25	Anyone would choose to retaliate. Besides you apparently.										0.5		-1				2				
 			29	The democrats are not blind to the dangers of nuclear power.										0.5	0.5	0.5								
-			33	LBJ signed the non-proliferation treaty.											0.25	0.25	0.25		0.5		1			
-		Jack	38	You're pretending like nuclear weapons just happened to fall into our lap. We pursued them.				Scientists								-0.5		1						
-			42	We have in effect a monopoly over nuclear power.								3												1
-			46	We're at war. This is real. 		Give		War		5				0.5				0.25				0.5		
-		Joe	40	Better us than them.											0.5					1				1
-			44	You are claiming monopoly over nuclear power. Who are you?		Give														1				3
-			46	You're the only one who doesn't seem to get it.																3				5
-	Climax	Jack	50	We owe the future generations more than a reflexive response.						-5		-5	5		1		1							
-			55	Which is more important to you? Our rights to arms or the rights of mankind to live?		Give				5		5	-5		3				1			-1		
-			60	"Your ""authority"" is based on a system of government that was declared obselete fifteen minutes ago."						10		10	-10	2	-1				1					
+			32	LBJ signed the non-proliferation treaty.											0.25	0.25	0.25		0.5		1			
+		Jack	35	You're pretending like nuclear weapons just happened to fall into our lap. We pursued them.				Scientists								-0.5		1						
+			38	We have in effect a monopoly over nuclear power.								3												1
+			41	We're at war. This is real. 		Give		War		5				0.5				0.25				0.5		
+		Joe	38	Better us than them.											0.5					1				1
+			41	You are claiming monopoly over nuclear power. Who are you?		Give														1				3
+			44	You're the only one who doesn't seem to get it.																3				5
+	Climax	Jack	47	We owe the future generations more than a reflexive response.						-5		-5	5		1		1							
+			47	Which is more important to you? Our rights to arms or the rights of mankind to live?		Give				5		5	-5		3				1			-1		
+			47	"Your ""authority"" is based on a system of government that was declared obselete fifteen minutes ago."						10		10	-10	2	-1				1					
 		Joe	40	"So basically, you're saying that since no one has real authority use nuclear weapons, no one should."	Want		Love							3	5	3							1	
-			44	"In a democracy, military officials are in absolute servitude of the democratically elected government, you included, whether you like it or not. "		Keep									5						3	3		
-			48	"Without a chain of command, there is no democracy in a military organization. That is the meaning of duty."				Jack;Duty							5						5	3		
-			54	"You're wrong. The American people have a right to freedom, which was granted us by the constitution. If any, and I mean any, force should restrict that right, it is only just that we resist that force with utmost brutality for the good of mankind."											2					1		1		1
-			58	You are advocating for a world where the mild and the weak live under the tyranny of the strong and the cruel.				Eroticism; Justice						1	3	1	1				-1			-1
-	Denouement	Jack	60	You're a weak-minded fool.						3	3													1
-			55	Being able to dispense swift justice with violence but not doing so is a virtue all of its own.				Justice		-3	-3				1	3	1							
+			43	"In a democracy, military officials are in absolute servitude of the democratically elected government, you included, whether you like it or not. "		Keep									5						3	3		
+			46	"Without a chain of command, there is no democracy in a military organization. That is the meaning of duty."				Jack;Duty							5						5	3		
+			49	"You're wrong. The American people have a right to freedom, which was granted us by the constitution. If any, and I mean any, force should restrict that right, it is only just that we resist that force with utmost brutality for the good of mankind."											2					1		1		1
+			52	You are advocating for a world where the mild and the weak live under the tyranny of the strong and the cruel.				Eroticism; Justice						1	3	1	1				-1			-1
+	Denouement	Jack	50	You're a weak-minded fool.						3	3													1
+			50	Being able to dispense swift justice with violence but not doing so is a virtue all of its own.				Justice		-3	-3				1	3	1							
 		Joe	50	Let's agree to disagree.														0.5						
 			45	Should I invite LBJ here to discuss the notion of power with a washed up air force sergeant?		Give															1			1
 			30	"Fine, you're right, we have no authority. But we have the power. So let us do what is right."				Justice						1			0.5				-1		0.5	1
@@ -242,24 +247,24 @@ Russians	Orientation	Jack	9	"Why do you keep calling them ""Russkies""?"
 		Joe	28	"As I said, communists."																0.5				
 			30	I guess they could be good people.										0.5		0.5		-2						-1
 			34	But they aren't good people. Their tendrils have infiltrated the nearby nations.														3						
-			38	Even we full-blooded Americans are in danger of their Russky Propaganda.											0.5					1				1
+			37	Even we full-blooded Americans are in danger of their Russky Propaganda.											0.5					1				1
 		Jack	34	"I mean, I don't personally know any Russians. Or communists for that matter."																				
-			38	There was a chance at the start of century that Russia would become a democratic country. Imagine a world without the Soviets!											1				1	0.25				
-			40	The world would be a better place without them. But that doesn't give us the right to murder them like the jews.												1			1	0.25				
-			42	The Soviets did help us against the Nazis.										1										-1
-		Joe	40	"What's more, the Russkies are numerours. "		Keep														2				
-			42	"There're more Russkies than a more than us normal people, blacks included, in our United States. "																3				
-			44	The Ruskies don't have the sort of family-oriented culture we do.										-1										1
-			48	I knew a girl back in college.		Keep																		
-			52	My friend knew a steady girl who he'd been off-and-on with since childhood. She ended up running away with a devilishly handsome Russky. Man cried tears I never thought a man could. Thought his heart would never heal.																				
-			52	"I had a steady girl in college, thought of marrying her. But she was stolen away with lies by a silver-tongued Russky."																				
+			37	There was a chance at the start of century that Russia would become a democratic country. Imagine a world without the Soviets!											1				1	0.25				
+			39	The world would be a better place without them. But that doesn't give us the right to murder them like the jews.												1			1	0.25				
+			41	The Soviets did help us against the Nazis.										1										-1
+		Joe	39	"What's more, the Russkies are numerours. "		Keep														2				
+			41	"There're more Russkies than a more than us normal people, blacks included, in our United States. "																3				
+			43	The Ruskies don't have the sort of family-oriented culture we do.										-1										1
+			47	I knew a girl back in college.		Keep																		
+			51	My friend knew a steady girl who he'd been off-and-on with since childhood. She ended up running away with a devilishly handsome Russky. Man cried tears I never thought a man could. Thought his heart would never heal.																				
+			51	"I had a steady girl in college, thought of marrying her. But she was stolen away with lies by a silver-tongued Russky."																				
 	Climax	Jack	54	The Soviets saw what happened to Japan. History make victims out of them.				History;Japan											0.5					
 		Joe	48	"If we don't destroy the Russkies now, they will come after all of our women and children."				Eroticism												3				
 	Denouement	Joe	48	"You know I'm getting too caught up on this Russky thing. This war isn't against Russkies, it's for Americans."										3										-3
 			44	They would destroy us in a land war. That's why we had to trust the Europeans with NATO.												-1				1		1	1	
-			34	"If they stayed in Ruskieland, I wouldn't care what they did."												0.5								
-		Jack	50	I guess there are probably many good reasons to hate the Russians.									10											
-	Coda	Jack	60	I'm sorry I asked.									10											
+			34	"If they stayed in Russkyland, I wouldn't care what they did."												0.5								
+		Jack	55	I guess there are probably many good reasons to hate the Russians.						-5	-5		10											
+	Coda	Jack	55	I'm sorry I asked.						-5	-5		10											
 			50	The US and USSR really are like star-crossed lovers.																				
 			30	I suppose the Soviets were facing a similar dilemma.										3										
 		Joe	50	"We'll make sure they won't forget, Jack."												-3		3		1				
@@ -280,9 +285,9 @@ Duty	Orientation	Joe	6	You have sworn an oath to the Constitution of the United 
 			28	Everyone can't just stop doing their duty on a whim. It would be chaos!				Justice								0.5							0.5	
 	Climax	Jack	30	What fierce defence of an abstract concept!											1									
 			32	I suppose the abstractions we inhabit are more important than we ourselves!	Want		Hate							-1	1									
-			50	Of course! The Japanese Kamikaze attacks were peak civilization.	Want		Hate	Japan		10			-5					1						
+			37	Of course! The Japanese Kamikaze attacks were peak civilization.	Want		Hate	Japan		10			-5					1						
 		Joe	36	"Justice, Democracy, and Duty are the pillars of any civilized society."											1						0.5			
-	Denouement	Jack	40	I honor the ideals of the constitution and will not act in contempt of them.									10		1									
+	Denouement	Jack	37	I honor the ideals of the constitution and will not act in contempt of them.									10		1									
 		Joe	20	Carrying out justice is our highest duty.				Justice						-0.5	1									
 	Coda	Jack	25	I guess there's a reason they prefer young buck like you for these jobs.																				
 		Joe	25	I will have you court martialled after this.																	1	1		1
@@ -310,10 +315,10 @@ Justice	Orientation	Joe	5	America's wars have no self-interests besides that of 
 			22	Shouldn't the forces of liberty not blot out the forces of authority?	Want									1	2									1
 			24	"Our missiles are aimed at military bases, not civilians."											0.5		0.5						1	
 	Climax	Joe	22	"If it's nuclear armageddon they want, they will get it."				Doomsday										3		5		5		
-		Jack	30	"I see, so it's more about degree than measure for you."	Want		Hate			-10			10										2	
-			30	"Get a grip, your country is dead. There is no justice in pointless vengeance."						10			-10					5						1
+		Jack	28	"I see, so it's more about degree than measure for you."	Want		Hate			-10			10										2	
+			28	"Get a grip, your country is dead. There is no justice in pointless vengeance."						10			-10					5						1
 	Denouement	Joe	20	I'm going to stop justifying something I had no say in.										3				1			0.5			
-		Jack	24	"Okay, okay, that's enough. I'm getting flustered myself."																				
+		Jack	28	"Okay, okay, that's enough. I'm getting flustered myself."																				
 	Coda	Joe	15	I guess I can't really prove that this is justice.										1	-1									
 Civilization	Orientation	Joe	5	Civilizations must either prosper or perish.																				
 		Jack	9	We have chosen to perish.														1						
@@ -330,14 +335,14 @@ Civilization	Orientation	Joe	5	Civilizations must either prosper or perish.
 		Joe	17	"There's an interesting quote. ""Fear is the mind-killer."" Pay it some mind, will you Jack."																				
 			15	If the world ends today. I suppose you have made our control center into the last democracy of our civilization.				Doomsday						0.5	0.5									
 			12	No matter what happens today. Our global civilization will have lost something important today.				Man										2						
-Eroticism	Orientation	Jack	10	"Your hatred for the ""Ruskies"" seems rather strange, Joe."		Keep				5		5	-5											
-	Complication	Jack	11	"Is this all about reproduction, maybe?"	Want	Keep	Hate													1				
+Eroticism	Orientation	Jack	7	"Your obsession with the ""Russkies"" seems rather strange."		Keep				5		5	-5											
+	Complication	Jack	11	Is this all about breeding to you?	Want	Keep	Hate													1				
 	Climax	Jack	12	That's the only reason you would want to kill all of them.																-0.5				-0.5
 			13	"If you can't have them, neither can anyone else."																				
 	Denouement	Joe	13	"What are you, Freud?"																				2
 	Coda	Joe	10	There really is something wrong with you.				Jack						0.5										1
 			10	I suppose the rockets do look like cocks to a degree.										1										-0.5
-			10	So what if I want to spready my spawn?																				
+			10	So what if I want to spread my spawn?																				
 		Jack	10	It might be true. You might not even know it.																				
 Japan	Orientation	Joe	5	Japan is actually a good example of a nuclear weapon working as intended.																		0.5	1	
 	Complication	Joe	7	This doesn't excuse the lives that were lost.										1	1								-2	
@@ -350,8 +355,8 @@ Japan	Orientation	Joe	5	Japan is actually a good example of a nuclear weapon wor
 			24	"You can't compare those bombs to the monsters we, and the Soviets, have presently built. And there's not just 2 this time around, there's thousands."														3						
 	Climax	Joe	22	"We can make history repeat itself, Jack."											1			2				0.5	1	1
 			24	Can't you accept that everyone besides you isn't evil? Our leaders are not genocidial maniacs. Their decisions are rational.										1	0.5	0.5	0.5	-1			0.5	0.5		-1
-		Jack	30	"I suppose you're right. With smaller quantities, there was some small good in nuclear power."								-5	10				0.5	-3				1		
-			30	Don't conflate fission with the power of the stars. Today is incomparable to the bombings of Japan.							5		-10					3						
+		Jack	26	"I suppose you're right. With smaller quantities, there was some small good in nuclear power."								-5	10				0.5	-3				1		
+			26	Don't conflate fission with the power of the stars. Today is incomparable to the bombings of Japan.							5		-10					3						
 	Denouement	Joe	20	"Anyways, the decision to bomb Japan was made in the past by the generation of our fathers. We must now pick up that mantle ourselves."										1						1				
 			10	"What happened to Japan, won't repeat today, Joe."				Forget						1	1	1	1	-2						
 	Coda	Joe	20	"You can't always avoid death, Jack, lest you grow evil from sloth. You need to face that truth."				Confront;Death							0.5			-1					1	
@@ -375,9 +380,9 @@ Indians	Orientation	Jack	5	We were not the first ones here. This land is not our
 			14	We are death.				Death						0.5	-0.5			1				0.5		0.5
 			14	"You're wrong. The Native American is still here. He just changed shaped, as did the European immigrant."				Man						2						-1				
 Scientists	Orientation	Joe	5	You have to respect the ingenuity of the human mind to be able to bring us here underground to send missiles to the other continents that will blow up entire cities.											0.5				1			0.2		0.1
-		Jack	9	It was some sick curiosity that drove our scientists forward.										-0.5					-0.5					
-	Complication	Joe	13	You know nothing of science. You're an aging man who doesn't want the world to change.														1						0.5
-			14	Szilard didn't want them to bomb Japan. He started a petition to effect the opposite. 										1	0.5	0.5								
+		Jack	8	It was some sick curiosity that drove our scientists forward.										-0.5					-0.5					
+	Complication	Joe	10	You know nothing of science. You're an aging man who doesn't want the world to change.														1						0.5
+			13	Szilard didn't want them to bomb Japan. He started a petition to effect the opposite. 										1	0.5	0.5								
 			17	"You think Otto Hahn, Lise Meitner, and Fritz Strassmans gave a shit or even realized the potential of fission?"										1				1	1					
 		Jack	20	"They still created the technology that made it possible, goddamn it. Isn't that enough to damn them?"	Want		Love							-0.5									0.5	
 		Joe	22	"If you want to blame anyone, blame Mother Nature. Blame the universe for giving us stars."				Nature						1	1			1						-1
@@ -386,11 +391,11 @@ Scientists	Orientation	Joe	5	You have to respect the ingenuity of the human mind
 			26	You do know rocket technology was developed by Nazis?		Keep												1		1		-0.5		
 			28	It's all maths to the scientists. They see souls in numbers and numbers in souls.											-0.5								0.5	
 	Climax	Joe	24	"Science can be controlled, science can be regulated."											1									
-			28	One day our civilization will be powered by fusion reactors and we will sail between the stars.															5					
-			32	"For better or worse, scientists carry the most supreme trait of man, the ability to dream."				Dreamers						1										1
-			36	"They make the future. You want to control it, just as our government does."				Justice							2						1			1
-		Jack	30	"There is human science, and there is inhuman science."																				
-			40	Blind faith in science is no different from any other sort of fanaticism.										1				1						
+			27	One day our civilization will be powered by fusion reactors and we will sail between the stars.															5					
+			30	"For better or worse, scientists carry the most supreme trait of man, the ability to dream."				Dreamers						1										1
+			33	"They make the future. You want to control it, just as our government does."				Justice							2						1			1
+		Jack	30	"There is human science, and there is inhuman science."		Keep																		
+			33	Blind faith in science is no different from any other sort of fanaticism.										1				1						
 	Denouement	Joe	32	"And let me tell your partner, they will be called astronauts, not cosmonauts."															1	1				
 			26	You really are illiterate!																				2
 			20	Did you get beat up by a group of nerds or something?				Childhood																0.5
@@ -424,8 +429,8 @@ Doomsday	Orientation	Joe	5	"It's not the end of the world, Jack."														-
 	Coda	Joe	16	We don't have much time left.														0.5						
 			12	"God, this is surreal."										1										
 		Jack	14	If only optimism alone could ward off radiation...										0.5	0.5			-1						
-Jack	Orientation	Joe	6	"There's something deeply wrong with you, Jack."																				0.5
-	Complication	Joe	8	You are clearly anti-social. At least today.																0.5				0.5
+Jack	Orientation	Joe	6	Jack. You're not alright in the head.																				0.5
+	Complication	Joe	8	I never noticed the degree to which you are anti-social.																0.5				0.5
 			10	You're going against your duty as a military officer and citizen of a democracy.				Duty												0.5		0.5		0.5
 			12	You seem to have some sort of a savior complex.													-0.5	0.5						0.5
 			12	You also have a god complex.				God							-0.5									0.5
@@ -433,11 +438,11 @@ Jack	Orientation	Joe	6	"There's something deeply wrong with you, Jack."									
 		Joe	16	You're not a Russky. Nor did you ever have any Russky friends. You didn't even go to college.																0.5				
 			18	"Before today, I thought your record was clear."																	0.5			
 			20	I just don't understand what happened.										0.5										
-	Climax	Jack	24	I just got old.		Keep								1										
-			25	It will happen to you as well.										2				1						
-		Joe	27	"That being said, you will now do as I say. You are not of sound mind."			Hate	Confront													5			5
-			26	I think there might be something wrong with your brain.										-1				1			1			1
-			25	This world has made you sick.										1	1			3						
+	Climax	Jack	22	I just got old.		Keep								1										
+			24	It will happen to you as well.										2				1						
+		Joe	26	"That being said, you will now do as I say. You are not of sound mind."			Hate	Confront													5			5
+			24	I think there might be something wrong with your brain.										-1				1			1			1
+			22	This world has made you sick.										1	1			3						
 	Denouement	Joe	22	I don't know what to do about you.																				
 			17	Of course I've seen many people worse off than you. In our very own squadron in fact.										0.5										-1
 			12	"You are a contradiction, somewhere between sanity and madness."										1	0.1		0.5	1						
@@ -473,23 +478,26 @@ Man	Orientation	Jack	5	There must be some sort of darkness in the hearts of men.
 			17	The human mind will one day be mapped.															1					
 Dreamers	Orientation	Joe	5	We are dreaming.														0.5						
 	Complication	Joe	9	We exist somwhere on the border between sleep and wakefulness.														0.5						
-			13	"Always, not just now. But especially now."														0.5						
-			17	We are passing creatures.														0.5						
-	Climax	Joe	21	"We belong to the future, but we are stuck in the present."														0.5						
-			25	Even now we cannot escape it.														0.5						
-			29	The nuke is the wish-granter.														0.5						
-	Denouement	Joe	33	I wish to live in the future.				Time										0.5						
-			28	The nuke is the dream-destroyer.														0.5						
-			24	"There are 1,000,000 doors, but only 999,999 of them are exits. With each passing second, a new non-exit is being added to the doors."														0.5						
-			20	The present is stuck in the past. What was will be. Time is a flat circle. Or wait... Maybe it was an oval?														0.5						
-			16	I have become a shadow of my true immortal self.														0.5						
+			12	"Always, not just now. But especially now."														0.5						
+			15	We are passing creatures.														0.5						
+	Climax	Joe	18	"We belong to the future, but we are stuck in the present."														0.5						
+			21	Even now we cannot escape it.														0.5						
+			24	The nuke is the wish-granter.														0.5						
+			27	I wish I wish.																				
+			30	"Grant me death, o dear nuke of mine."					6															
+	Denouement	Joe	30	"How did it go again? Uh. . . ""HAPPINESS FOR EVERYBODY, FREE, AND NO ONE WILL GO AWAY UNSATISFIED?"""																				
+			27	I wish to live in the future.				Time										0.5						
+			24	The nuke is the dream-destroyer.														0.5						
+			21	"There are 1,000,000 doors, but only 999,999 of them are exits. With each passing second, a new non-exit is being added to the doors."														0.5						
+			18	The present is stuck in the past. What was will be. Time is a flat circle. Or wait... Maybe it was an oval?														0.5						
+			15	I have become a shadow of my true immortal self.														0.5						
 			12	"But at this moment in time, I am completley awake."														0.5						
-	Coda	Joe	30	But wishes aren't real.														0.5						
-			26	"Sir, I wish to disintegrate!"					11									0.5						
-			22	I am suddenly having a panic attack.														0.5						
-			18	Why was I created?														0.5						
+	Coda	Joe	27	But wishes aren't real.														0.5						
+			25	"Sir, I wish to disintegrate!"					11									0.5						
+			20	I am suddenly having a panic attack.														0.5						
+			17	Why was I created?														0.5						
 			14	I was dreaming. The future is here.														0.5						
-		Jack	33	" The end of the story is the nuke. It almost landed back there, while you were day-dreaming. Just try not to disintegrate."									10					0.5						
+		Jack	30	" The end of the story is the nuke. It almost landed back there, while you were day-dreaming. Just try not to disintegrate."									10					0.5						
 Death	Orientation	Joe	5	Many lives will be lost today.														2					0.5	
 		Jack	5	"At this rate, the human race will go extinct."														2						
 	Complication	Joe	8	Some losses are unavoidable.														1					1	
@@ -498,11 +506,11 @@ Death	Orientation	Joe	5	Many lives will be lost today.														2					0.5
 			14	MAD has failed. It is no longer a valid strategy.															0.5					
 		Joe	18	I think I get it. Adherence to the MAD strategy will cost more human lives than ignoring it would save?	Want		Hate									2		1					3	
 			20	The Russkies were dead from the moment they took aim at us.												-0.5		0.5				1		
-	Climax	Joe	22	The deaths will be many times less than they would be with conventional strategic bombing.																			3	
-			24	"Compared to a plague, a nuclear strike is almost surgical. It is instant and total death. There is no prolonged suffering and there is no spread."																			5	
-			26	"Surely, the calculations have been made. The path with least losses has been found."																	3		3	
-		Jack	25	It seems I am talking to a nuclear scientist.									-10											1
-			25	Try to imagine the people you are going to kill. Can you imagine their faces? Can you imagine their voices?	Want		Love						10	1										
+	Climax	Joe	18	The deaths will be many times less than they would be with conventional strategic bombing.																			3	
+			21	"Compared to a plague, a nuclear strike is almost surgical. It is instant and total death. There is no prolonged suffering and there is no spread."																			5	
+			24	"Surely, the calculations have been made. The path with least losses has been found."																	3		3	
+		Jack	24	It seems I am talking to a nuclear scientist.									-10											1
+			24	Try to imagine the people you are going to kill. Can you imagine their faces? Can you imagine their voices?	Want		Love						10	1										
 	Denouement	Joe	22	They were idiots. They should have know that we would strike back.																1				1
 			20	There is a second more sophisticated level to the MAD doctrine which you do not comprehend.																		1		1
 			18	There is no way to keep your hands clean in a nuclear situation.												-1	-1	3					1	
@@ -511,13 +519,13 @@ Death	Orientation	Joe	5	Many lives will be lost today.														2					0.5
 	Coda	Joe	20	I wonder what future population graphs will look like.														1	0.5					
 			15	I hope my family will be okay.										1						0.1				
 		Jack	20	It's like we're killing numbers.															0.1					
-			15	Almost feels like we're playing Yahtzee with Death.															0.3					
+			15	Almost feels like we're playing yahtzee with death.															0.3					
 Time	Orientation	Joe	5	"Goddamn, I wish we had more time."										0.5										
 		Jack	10	Time is our biggest enemy.										0.5										
 	Complication	Jack	12	"If I could stop time, I could just stop and think about things."		Keep																		
-			14	Just clear out my head.																				
+			15	Just clear out my head.																				
 		Joe	18	Yeah. I'm feeling pretty claustrophobic myself.																				
-			20	"If I'd known there would be a nuclear war coming, I would have worried less about homework."										0.2							-0.2			
+			21	"If I'd known there would be a nuclear war coming, I would have worried less about homework."										0.2							-0.2			
 			22	If you had asked me this morning I would have said I had lived a pretty long life. Now it feels rather short.																				
 			24	The march of time is relentless.														1						
 		Jack	20	Can you shut up for a moment? I need to gather my thoughts.		Keep																		
@@ -527,7 +535,7 @@ Time	Orientation	Joe	5	"Goddamn, I wish we had more time."										0.5
 	Climax	Joe	26	"When we were children, we had all the time in the world."				Childhood						0.5										
 			28	It is so human to be steeped in time. It is hard imagine life without it.				Man						1										
 			30	"The earth, this desert for example, is almost completely outside of time."				Land																
-			34	We're just sparks pecked off its surface.																				
+			33	We're just sparks pecked off its surface.																				
 		Jack	30	"Everything scientists do is about shortening time, not prolonging it."											-0.5			1						
 			31	It's a shame.										0.5					-0.5					
 	Denouement	Joe	28	"Jack, we're quite short on time. It's time we made the decision."				Confront										3			1			
@@ -538,15 +546,15 @@ Time	Orientation	Joe	5	"Goddamn, I wish we had more time."										0.5
 		Joe	18	"You're right, Jack. Time is our enemy."												1								
 			18	The inverse relationship between my ability to act in time and my ability to experience that time is rather annoying.										0.3	0.2								0.1	
 Land	Orientation	Jack	5	The land we're on used to be Native American land. It was taken from them.																0.5				
-	Complication	Joe	10	This land no longer belongs to them.																-0.5				
-			10	This land belongs to the Americans now.										1						1				1
-		Jack	14	Land never belongs to anyone.										-0.5						-1				
-		Joe	16	I doubt the explosions will do much harm to the ground.																				
-			16	"The desert cannot reflect on good and evil, it just ""is"" the desert."										0.1	0.1									
-	Climax	Jack	18	It is free from the shackles of time.				Time																
-		Joe	12	A country needs land more than people.																			0.5	
-		Jack	14	"Even if we die, as long as there is land, there is America."														1						
-		Joe	22	"It is just as us, but more so."																				
+	Complication	Joe	7	This land no longer belongs to them.																-0.5				
+			7	This land belongs to the Americans now.										1						1				1
+		Jack	10	Land never belongs to anyone.										-0.5						-1				
+		Joe	13	I doubt the explosions will do much harm to the ground.																				
+			13	"The desert cannot reflect on good and evil, it just ""is"" the desert."										0.1	0.1									
+	Climax	Jack	15	It is free from the shackles of time.				Time																
+		Joe	19	A country needs land more than people.																			0.5	
+		Jack	23	"Even if we die, as long as there is land, there is America."														1						
+		Joe	27	"It is just as us, but more so."																				
 	Denouement	Joe	18	It is bound to us. It needs us to give it names.										1										
 			16	Land is not alive of course.																				0.1
 			14	"It will be called the Soviet Union of States soon enough, if we're not careful."																0.5				
@@ -562,12 +570,12 @@ God	Orientation	Joe	5	"Do you even believe in god, Jack?"
 		Joe	16	There are no atheists in fox-holes.																				1
 			17	God works in mysterious ways.																	0.5			1
 	Climax	Jack	21	God works in ass-backwards ways.																	-0.5			-1
-			26	I only believe in the god of death.		Keep					10			-1				1						
-			28	I became a convert within the last hour.		Keep												2						
-			30	"My Gadget is my Trinity, the Fat Man and Little Boy my prophets. The glory of the lord however belongs to an atomic bomb."														3						
-	Denouement	Jack	31	"Alright, Joe, whatever, let's just move on with our short lives."																				
-			32	I just don't to spend my last minutes on this Earth debating you.																				
-			23	In fact I do not believe in any god at all.						5		5												
+			24	I only believe in the god of death.		Keep					10			-1				1						
+			25	I became a convert within the last hour.		Keep					10							2						
+			26	"My Gadget is my Trinity, the Fat Man and Little Boy my prophets. The glory of the lord however belongs to an atomic bomb."							10							3						
+	Denouement	Jack	26	"Alright, Joe, whatever, let's just move on with our short lives."																				
+			25	I just don't to spend my last minutes on this Earth debating you.																				
+			24	In fact I do not believe in any god at all.						5	-10	5												
 		Joe	16	"I won't bother you with belief, you clearly have not an ounce faith left in you."																				
 	Coda	Joe	26	I'll pray for your soul.													1							1
 			15	"You have free will because of god, not despite Him."																				
@@ -575,13 +583,13 @@ God	Orientation	Joe	5	"Do you even believe in god, Jack?"
 			15	"If you think dragging me along to heaven will be your path to salvation, you're wrong."													-0.5							
 Cycles	Orientation	Joe	5	"History won't repeat itself, I'll promise you that."																				
 		Jack	8	And who grants it.													0.5							
-	Complication	Joe	12	No one does.																				
+	Complication	Joe	11	No one does.																				
 			14	God might.																	0.5			
 	Climax	Jack	16	It wouldn't repeat if you stopped killing everyone. Someone could remember the present and preserve what we knew.																				
-			24	Sometimes it seems like even you don't believe in what you're saying.																				
-		Joe	20	The United States will survive.																				0.5
+			19	Sometimes it seems like even you don't believe in what you're saying.																				
+		Joe	19	The United States will survive.																				0.5
 	Denouement	Joe	14	All I'm saying is that history is not a supernatural force.														-1						
-			20	We have more shelters than the Russkies.										-1		-1	-0.5						0.5	0.5
+			17	We have more shelters than the Russkies.										-1		-1	-0.5						0.5	0.5
 	Coda	Joe	18	"Fine, maybe a more direct approach is better."		Confront;Forget																		
 			14	"Sure, history has patterns, but you can't live your life in fear of them."										0.5				-0.5						
 		Jack	16	"The world is just such a simple for you, isn't it."	Want		Hate																	
@@ -602,3 +610,37 @@ Childhood	Orientation	Joe	5	Do you remember your childhood?
 	Coda	Jack	26	Nothing is stopping the Soviet children from having that sort of childhood.													1							
 			10	I always wanted to grow up faster. Never could grow fast enough.																				
 		Joe	10	I wish I could be a kid again.											0.1									
+Confront	Orientation	Joe	5	This is the last time I'll ask. 																				
+			5	Will you or will you not co-operate?																				
+	Complication	Joe	7	There's only one answer that I will accept.																				
+			9	Your reasons are poor while mine are supperior.																				5
+			11	Let's not kid ourselves. You're fucked.																				
+			13	"One way or another, you're not leaving this mess. Yes or no?"																				
+		Jack	9	"Make it quick, I need to take a leak before the world ends."																				
+			11	I will not fight against my nature.				Man																
+		Joe	15	Those babies are going up there. Don't make it harder than it has to be.				Nukes																
+			17	"The efforts of our civilization, wasted!"				Civilization																
+		Jack	17	"You're like a barking dog. ""Bark! Bark! Bark!"""																				
+			18	Do you want to spend your last minutes on this earth yapping?				Time																
+			19	Do you realize what you're doing? Think for a moment!				Forget																
+	Climax	Joe	22	"Now, decide!"		Give																		
+		Jack	26	"I will. Let's get the keys, Kiddo."					6	-3	-3		3											
+			26	I won't.						3	3		-3											
+		Joe	28	I hereby judge you guilty for treason. Die!					7															
+	Denouement	Joe	22	Fine! Let the others do it then.				Others																
+			16	"Ah, forget it!"																				
+	Coda	Joe	18	"I swear, this is like some fucked up dream."				Dreamers																
+		Jack	18	I guess this shouting match had to happen.																				
+Forget	Orientation	Joe	5	"Can I hear your reasoning, one last time?"																				
+	Complication	Jack	7	The world is fucked.																				
+			9	We are dead.																				
+			11	Why waste the last of our lives on anger?		Keep																		
+		Joe	15	"We are supposed to do what's right, we are supposed to protect people."				Civilization																
+			15	How can you justify leaving behind your people?		Keep		Justice																
+		Jack	19	I believe our country to be full of good people.																				
+			21	In their dying breath they would want this.																				
+	Climax	Joe	20	I get it now.		Keep																		
+			22	"Let's leave, Jack. I want to see the sky, before it breaks apart."					6															
+	Denouement	Joe	21	You can't be helped.				Confront;Jack																
+	Coda	Joe	20	This forgive and forget thing ain't for me.																				
+		Jack	18	I don't know what I was expecting.																				

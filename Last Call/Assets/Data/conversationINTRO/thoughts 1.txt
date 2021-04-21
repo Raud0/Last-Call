@@ -1,0 +1,16 @@
+Topic	Stage	Actor	Complexity	Text	Interrupt	Turn	Affinity	Tangents (;)	Event	Anger	Fear	Ego	Respect	Humanism	Idealism	Pacifism	Altruism	Fatalism	Futurism	Tribalism	Authoritarianism	Militarism	Utilitarianism	Supperiority
+Intro	Orientation	Man	5	LAST CALL					2															
+	Complication	Land	8	You look around and see my valleys stretch out in all directions. 		Keep																		
+			11	You are a stranger here. 		Keep																		
+			14	I date back to a time that did not know life. 		Keep																		
+			17	"My air is holy, my ground is dust."		Keep																		
+			20	Your history can be measured in the years of these here mountains surrounding you. 		Keep																		
+			23	"As the rains and winds hewed them, your kind came to be. "		Keep																		
+			26	The five-million-year long history of your people is one of endless repetition. 		Keep																		
+			29	Each generation a perfect re-enactment of the generation before them. 		Keep																		
+			32	Your time was a wheel. 		Keep																		
+			35	With each cycle your people gave me a new name.		Keep																		
+			38	"Now you have attempted to gut me with your metal slaves, my holy innards lie strewn about. "		Keep																		
+			41	Feel the ground hum below you - this is what you replaced it with. 		Keep																		
+			44	Look there into the distance. 		Keep																		
+	Climax	Land	47	Read from it the last name I will ever be given by your kind.					1															

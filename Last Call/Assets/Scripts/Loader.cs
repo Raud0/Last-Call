@@ -175,9 +175,16 @@ private static Dictionary<int, Emotion.Type> emotionIndexMap = new Dictionary<in
                 if (values[4].Equals("")) continue;
                 
                 // bruh moment (I get it, but still)
-                if (thoughtText.Contains(",") && thoughtText[0] == '\"' && thoughtText[thoughtText.Length - 1] == '\"')
+                if (thoughtText.Contains(",") || thoughtText.Contains("\"")
+                    && thoughtText[0] == '\"'
+                    && thoughtText[thoughtText.Length - 1] == '\"')
                 {
                     thoughtText = thoughtText.Substring(1, thoughtText.Length - 2);
+                }
+                
+                while (thoughtText.Contains("\"\""))
+                {
+                    thoughtText = thoughtText.Replace("\"\"", "\"");
                 }
                 
                 // Read Social Expectations

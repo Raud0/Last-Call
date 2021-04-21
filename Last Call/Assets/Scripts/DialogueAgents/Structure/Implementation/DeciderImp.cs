@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public abstract class DeciderImp : Decider
 {
-    protected float thoughtSpeed = 30f;
+    protected float thoughtSpeed = 25f;
     
     protected Thought currentThought = null;
     protected Thought lastThought = null;
@@ -71,6 +70,8 @@ public abstract class DeciderImp : Decider
         Thoughts = new List<RankedThought>();
         Weights = new Dictionary<Emotion.Type, float>();
         ActorSpeaking = new Dictionary<string, bool>();
+        lastSpokeAt = Time.time;
+        lastHeardSpokeAt = Time.time;
     }
 
     protected void Update()
@@ -133,17 +134,17 @@ public abstract class DeciderImp : Decider
         Speech speech = new Speech(myOutput.myStack.Me, currentThoughtProgress, currentThought);
         
         Send(speech);
-        lastSpokeAt = Time.time;
+        lastSpokeAt = Time.fixedTime;
 
         if (currentThoughtProgress >= 1f) FinishThought();
     }
 
-    protected float TimeSinceLastSpeech() => Time.time - lastSpokeAt;
-    protected float TimeSinceLastHeardSpeech() => Time.time - lastHeardSpokeAt;
+    protected float TimeSinceLastSpeech() => Time.fixedTime - lastSpokeAt;
+    protected float TimeSinceLastHeardSpeech() => Time.fixedTime - lastHeardSpokeAt;
 
     protected void ExperienceRudeness(Thought thought, float strength)
     {
-        myOutput.Route(new Argument(Argument.Type.Superiority, strength * Time.deltaTime));
+        myOutput.Route(new Argument(Argument.Type.Superiority, strength * Time.fixedDeltaTime));
     }
     
     protected Thought FindThoughtOfTopic(string topic) => Thoughts.FirstOrDefault(rankedThought => rankedThought.Topic.Equals(topic));

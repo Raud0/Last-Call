@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class ConversationDisplayer : Singleton<ConversationDisplayer>
+public class ConversationDisplayer : MonoBehaviour
 {
     public GameObject speechDisplayPrefab;
     private Dictionary<Thought, SpeechDisplay> speeches = new Dictionary<Thought, SpeechDisplay>();
@@ -44,9 +43,10 @@ public class ConversationDisplayer : Singleton<ConversationDisplayer>
     private void CreateSpeechDisplay(Speech speech)
     {
         SpeechDisplay speechDisplay = Instantiate(speechDisplayPrefab, transform).GetComponent<SpeechDisplay>();
+        speechDisplay.SetConversation(conversationMedium);
         speechDisplay.SetText(speech.Thought.Text);
         speechDisplay.SetColor(GetActor(speech.Actor).fg);
-        speechDisplay.SetAlignment(ActorIsLead(speech.Actor));
+        speechDisplay.SetLead(ActorIsLead(speech.Actor));
 
         Thought thought = speech.Thought;
         speeches[thought] = speechDisplay;

@@ -18,6 +18,11 @@ public class ConversationMedium : MonoBehaviour
     public Dictionary<string,HashSet<Topic>> Topics { get; set; }
     public Dictionary<string,HashSet<Thought>> Thoughts { get; set; }
 
+    public AnimationController animationController;
+    public AudioClipStorage audioClipStorage;
+    public OptionDisplayer optionDisplayer;
+    public Manager manager;
+
     public HashSet<Topic> GetTopics(string actor)
     {
         if (Topics.ContainsKey(actor)) return Topics[actor];
@@ -66,9 +71,9 @@ public class ConversationMedium : MonoBehaviour
 
         foreach (ActorStack actor in Actors)
         {
-            if (!actor.Me.Equals("Joe")) continue;
-            
-            actor.inputStack.Route(new ThoughtFocus(
+            if (actor.Me.Equals("Joe"))
+            {
+                actor.inputStack.Route(new ThoughtFocus(
                     null, 
                     null,
                     Topic.Stage.None,
@@ -77,8 +82,34 @@ public class ConversationMedium : MonoBehaviour
                     1.0f,
                     false,
                     true
-                    ));
-    
+                ));
+            }
+            if (actor.Me.Equals("Man"))
+            {
+                actor.inputStack.Route(new ThoughtFocus(
+                    null, 
+                    null,
+                    Topic.Stage.None,
+                    0f,
+                    new HashSet<string>() {"Intro"},
+                    1.0f,
+                    false,
+                    true
+                ));
+            }
+            if (actor.Me.Equals("Ender"))
+            {
+                actor.inputStack.Route(new ThoughtFocus(
+                    null, 
+                    null,
+                    Topic.Stage.None,
+                    0f,
+                    new HashSet<string>() {"Credits", "Facts", "Research"},
+                    1.0f,
+                    false,
+                    true
+                ));
+            }
         }
     }
 

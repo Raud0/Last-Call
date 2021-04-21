@@ -1,6 +1,4 @@
-﻿using UnityEditor;
-
-public class Action
+﻿public class Action
 {
     public enum Type
     {

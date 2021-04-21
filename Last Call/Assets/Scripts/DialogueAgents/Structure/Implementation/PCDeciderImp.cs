@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 
 public class PCDeciderImp : DeciderImp
 {
+    private bool queue = false;
+    List<RankedThought> queuedThoughts;
+    
     public override void ImpReceive(Emotion emotion)
     {
         return;
@@ -21,12 +22,21 @@ public class PCDeciderImp : DeciderImp
 
     public override void ImpReceive(List<RankedThought> thoughts)
     {
-        OptionDisplayer.Instance.DeciderImp = this;
-        OptionDisplayer.Instance.UpdateThoughts(new List<Thought>(thoughts));
+        queuedThoughts = new List<RankedThought>(thoughts);
+        queue = true;
+    }
+
+    private void SendUpdate()
+    {
+        queue = false;
+        myOutput.myStack.conversation.optionDisplayer.DeciderImp = this;
+        myOutput.myStack.conversation.optionDisplayer.QueueUpdateThoughts(new List<Thought>(queuedThoughts));
     }
     
     private void FixedUpdate()
     {
+        if (queue) SendUpdate();
+        
         DoSpeaking();
     }
 
@@ -34,8 +44,6 @@ public class PCDeciderImp : DeciderImp
     {
         ProgressThought();
     }
-
-    
 
     public void ReleaseThought(Thought thought)
     {
@@ -45,7 +53,7 @@ public class PCDeciderImp : DeciderImp
 
     protected override void FinishThought()
     {
-        OptionDisplayer.Instance.FinishThought(currentThought);
+        myOutput.myStack.conversation.optionDisplayer.FinishThought(currentThought);
         ReleaseThought(currentThought);
     }
 }
