@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b04634c2-073d-4ed4-a6b5-aa70d43bd294" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Last Call/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Last Call/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Last Call/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Last Call/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/conversationMAIN/thoughts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/conversationMAIN/thoughts.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/conversationMAIN/thoughts.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/conversationMAIN/thoughts.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/AttentionImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/AttentionImp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/DeciderImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/DeciderImp.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCDeciderImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCDeciderImp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Display/RoomController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Display/RoomController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Display/SpeechDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Display/SpeechDisplay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EndController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EndController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ticker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ticker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/StateManagerImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/StateManagerImp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Display/Option.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Display/Option.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Display/OptionDisplayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Display/OptionDisplayer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +84,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Emotion.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Decider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/StateManagerImp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E90BEB44-6898-4ECF-B706-59AC067ECC5C/e6/c1353d90/HashSet`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Display/TextEffects/ColourWaveEffect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/ThoughtRequest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62FFEEB7-EC02-4BEA-B61E-5FBF8D44AC5B/43/a7d92663/IComparable`1.cs" root0="SKIP_HIGHLIGHTING" />
@@ -121,7 +121,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Thought.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCStateManagerImp.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCStateManagerImp.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/StateManagerImp.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ThoughtsImp.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/ActorStack.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Attention.cs" />
@@ -134,21 +133,22 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Display/AudioClipStorage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Display/ConversationDisplayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Display/FudgeHeight.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Display/Option.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DesertController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EventButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Manager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Logger.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/DeciderImp.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ObserverImp.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/AttentionImp.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCDeciderImp.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Display/OptionDisplayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Display/RoomController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Display/SpeechDisplay.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ticker.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EndController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/DeciderImp.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCDeciderImp.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/StateManagerImp.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/AttentionImp.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Display/Option.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Display/OptionDisplayer.cs" />
       </list>
     </option>
   </component>
@@ -225,6 +225,7 @@
       <workItem from="1618921150859" duration="24528000" />
       <workItem from="1619005586243" duration="19893000" />
       <workItem from="1619039409997" duration="1641000" />
+      <workItem from="1619045026408" duration="1496000" />
     </task>
     <servers />
   </component>

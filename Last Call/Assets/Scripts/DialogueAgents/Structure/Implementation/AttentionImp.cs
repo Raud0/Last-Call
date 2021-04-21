@@ -205,7 +205,7 @@ public class AttentionImp : Attention
 
     private void Decay()
     {
-        ShiftAllTopics(0f, -0.001f * secondCounterCap, 1f);
+        ShiftAllTopics(0f, -0.0005f * secondCounterCap, 1f);
         FocusThoughts();
     }
     

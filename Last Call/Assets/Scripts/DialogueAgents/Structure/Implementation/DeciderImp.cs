@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class DeciderImp : Decider
 {
-    protected float thoughtSpeed = 25f;
+    protected float thoughtSpeed = 18.5f;
     
     protected Thought currentThought = null;
     protected Thought lastThought = null;

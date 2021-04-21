@@ -22,10 +22,10 @@ public class Option : MonoBehaviour
         Hovered(false);
     }
 
-    public void SetThought(Thought thought)
+    public void SetUp(Thought thought, int number)
     {
         this.thought = thought;
-        ugui.text = thought.Text;
+        ugui.text = number + ". " + thought.Text;
         if (ugui.text.Length > 80)
         {
             ugui.fontSize *= 0.9f;

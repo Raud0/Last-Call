@@ -157,11 +157,12 @@ public abstract class StateManagerImp : StateManager
         fearDelta = ModifyFear(fearDelta);
         egoDelta = ModifyEgo(egoDelta);
         respectDelta = ModifyRespect(respectDelta);
-        
-        ChangeState(Emotion.Type.Anger, angerDelta);
-        ChangeState(Emotion.Type.Fear, fearDelta);
-        ChangeState(Emotion.Type.Ego, egoDelta);
-        ChangeState(Emotion.Type.Respect, respectDelta);
+
+        float mod = 1.5f;
+        ChangeState(Emotion.Type.Anger, angerDelta * mod);
+        ChangeState(Emotion.Type.Fear, fearDelta * mod);
+        ChangeState(Emotion.Type.Ego, egoDelta * mod);
+        ChangeState(Emotion.Type.Respect, respectDelta * mod);
     }
 
     private float ModifyAnger(float angerDelta)

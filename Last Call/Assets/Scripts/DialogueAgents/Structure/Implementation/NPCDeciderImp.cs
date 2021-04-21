@@ -85,6 +85,8 @@ public class NPCDeciderImp : DeciderImp
         if (otherContinuingThought) waitThreshold *= (1f - Weights[Emotion.Type.Respect] / 100f) * 2f;
 
         waitThreshold = Mathf.Max(waitThreshold, 1f);
+
+        if (!continuingThought && !waitingForAnswer) waitThreshold *= 1.5f;
         
         if (TimeSinceLastSpeech() < waitThreshold)
         {

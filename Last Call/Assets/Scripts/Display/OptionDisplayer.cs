@@ -138,8 +138,14 @@ public class OptionDisplayer : MonoBehaviour
     
     public void QueueUpdateThoughts(List<Thought> newThoughts)
     {
-        unUpdatedThoughts = new List<Thought>(newThoughts);
-        update = true;
+        HashSet<Thought> set1 = new HashSet<Thought>(thoughts);
+        HashSet<Thought> set2 = new HashSet<Thought>(newThoughts);
+
+        if (!set1.SetEquals(set2))
+        {
+            unUpdatedThoughts = new List<Thought>(newThoughts);
+            update = true;
+        }
     }
 
     public void SelectThought(Thought thought)
@@ -208,7 +214,7 @@ public class OptionDisplayer : MonoBehaviour
     private Option CreateOption(Thought thought, int place)
     {
         Option option = Instantiate(optionPrefab, panels[place].transform).GetComponent<Option>();
-        option.SetThought(thought);
+        option.SetUp(thought, place + 1);
         
         return option;
     }
