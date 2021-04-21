@@ -1,4 +1,4 @@
-Topic	Stage	Actor	Complexity	Text	Interrupt	Turn	Affinity	Tangents (;)	Event	Anger	Fear	Ego	Respect	Humanism	Idealism	Pacifism	Altruism	Fatalism	Futurism	Tribalism	Authoritarianism	Militarism	Utilitarianism	Supperiority
+Topic	Stage	Actor	Complexity	Text	Interrupt	Turn	Affinity	Tangents (;)	Event	Anger	Fear	Ego	Respect	Humanism	Idealism	Pacifism	Altruism	Fatalism	Futurism	Tribalism	Authoritarianism	Militarism	Utilitarianism	Superiority
 Call	Orientation	Joe	5	I just got a call from command.																				
 		Jack	5	I assume it's about the malfunctions.	Want			Malfunction																
 	Complication	Joe	9	We're in DEFCON 1.				Defcon																
@@ -279,7 +279,7 @@ Duty	Orientation	Joe	6	You have sworn an oath to the Constitution of the United 
 		Joe	18	Laws should be followed in their spirit and not in their letter.											1								-1	
 			22	You can't just follow the law when it suits you and not do so when it doesn't.											0.5						0.1		0.1	
 		Jack	20	Of course the intent of the law is more important than what is written in ink.											1								-1	
-			22	"As a supperior officer, my judgment in moral matters is greater than yours."																	1			1
+			22	"As a superior officer, my judgment in moral matters is greater than yours."																	1			1
 			24	"I admit, I may not have the most honest intentions towards our military here."																		-1		
 		Joe	26	"The chiefs have a moral consenus, you don't even have a consensus in this room."										0.5							1	1		
 			28	Everyone can't just stop doing their duty on a whim. It would be chaos!				Justice								0.5							0.5	
@@ -613,7 +613,7 @@ Childhood	Orientation	Joe	5	Do you remember your childhood?
 Confront	Orientation	Joe	5	This is the last time I'll ask. 																				
 			5	Will you or will you not co-operate?																				
 	Complication	Joe	7	There's only one answer that I will accept.																				
-			9	Your reasons are poor while mine are supperior.																				5
+			9	Your reasons are poor while mine are superior.																				5
 			11	Let's not kid ourselves. You're fucked.																				
 			13	"One way or another, you're not leaving this mess. Yes or no?"																				
 		Jack	9	"Make it quick, I need to take a leak before the world ends."																				

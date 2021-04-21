@@ -85,6 +85,7 @@ public class SpeechDisplay : MonoBehaviour
         int oldLength = Mathf.Clamp(Mathf.FloorToInt(text.Length * this.progress), 0, text.Length);
         this.progress = progress;
         int newLength = Mathf.Clamp(Mathf.FloorToInt(text.Length * this.progress), 0, text.Length);
+        
         if (newLength > oldLength)
         {
             UpdateText(newLength);
@@ -129,8 +130,8 @@ public class SpeechDisplay : MonoBehaviour
 
     private void UpdateText(int n)
     {
-        
-        ugui.text = text.Substring(0, n);
+        ugui.maxVisibleCharacters = n;
+        ugui.text = text;
         waveAndFade.fadeEnd = n;
     }
 }

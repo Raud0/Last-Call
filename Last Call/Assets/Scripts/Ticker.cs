@@ -10,7 +10,7 @@ public class Ticker : MonoBehaviour
     private int seconds;
     private int minutes;
 
-    private int initialMinutes = 20;
+    private int initialMinutes = 15;
     private int initialSeconds = 0;
 
     private int tick = 1;

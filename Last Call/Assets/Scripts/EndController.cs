@@ -16,7 +16,7 @@ public class EndController : MonoBehaviour
     private void StartEndingSequence()
     {
         song.Play();
-        StartCoroutine(EndSequence(song.clip.length + 20f));
+        StartCoroutine(EndSequence(song.clip.length + 35f));
     }
 
     private IEnumerator EndSequence(float wait)

@@ -2,69 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b04634c2-073d-4ed4-a6b5-aa70d43bd294" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Last Call/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Last Call/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Last Call/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Last Call/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Last Call/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Last Call/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/thoughts.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/thoughts.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/thoughts.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/thoughts.xlsx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/topics.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/topics.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/topics.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Data/topics.xlsx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/CHAIR.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/CHAIR.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/CUSHION.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/CUSHION.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/GEOMETRY.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/GEOMETRY.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/Minuteman_III_Launch_Control.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/Minuteman_III_Launch_Control.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/SIGN.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/SIGN.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TABLE.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TABLE.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/WALL.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/WALL.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/boy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/boy.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/complete.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/complete.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/room.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/room.aseprite.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Conversation.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Conversation.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/OptionGameObject.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/OptionGameObject.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/SpeechDisplayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/SpeechDisplayer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DialogueScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DialogueScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Action.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Action.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Thought.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/DataObjects/Thought.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/ActorStack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/ActorStack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Attention.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Attention.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/ConversationMedium.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/ConversationMedium.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/AttentionImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/AttentionImp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/DeciderImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/DeciderImp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/conversationMAIN/thoughts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/conversationMAIN/thoughts.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Data/conversationMAIN/thoughts.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Data/conversationMAIN/thoughts.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCDeciderImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCDeciderImp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCStateManagerImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCStateManagerImp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ObserverImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ObserverImp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCDeciderImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCDeciderImp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCStateManagerImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCStateManagerImp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/StateManagerImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/StateManagerImp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ThoughtsImp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ThoughtsImp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/InputStack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/InputStack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/InputStackModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/InputStackModule.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Observer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Observer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/OutputStack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/OutputStack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Display/ConversationDisplayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Display/ConversationDisplayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Display/FudgeHeight.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Display/FudgeHeight.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Display/Option.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Display/Option.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Display/OptionDisplayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Display/OptionDisplayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Display/RoomController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Display/RoomController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Display/SpeechDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Display/SpeechDisplay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Display/TextEffects/ColourWaveEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Display/TextEffects/ColourWaveEffect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Loader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Loader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EndController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EndController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ticker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ticker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -190,20 +135,20 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Display/ConversationDisplayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Display/FudgeHeight.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Display/Option.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Display/RoomController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DesertController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EndController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EventButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Manager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Logger.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/DeciderImp.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/ObserverImp.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ticker.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/AttentionImp.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Display/SpeechDisplay.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/PCDeciderImp.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCDeciderImp.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Display/OptionDisplayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Display/RoomController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Display/SpeechDisplay.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ticker.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EndController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueAgents/Structure/Implementation/NPCDeciderImp.cs" />
       </list>
     </option>
   </component>
@@ -279,6 +224,7 @@
       <workItem from="1618529693797" duration="1109000" />
       <workItem from="1618921150859" duration="24528000" />
       <workItem from="1619005586243" duration="19893000" />
+      <workItem from="1619039409997" duration="1641000" />
     </task>
     <servers />
   </component>

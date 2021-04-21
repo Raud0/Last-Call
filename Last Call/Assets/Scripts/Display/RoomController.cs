@@ -28,9 +28,9 @@ public class RoomController : MonoBehaviour
 
         stage = stage switch
         {
-            0 when secondsLeft <= 900 => 1,
-            1 when secondsLeft <= 600 => 2,
-            2 when secondsLeft <= 300 => 3,
+            0 when secondsLeft <= 675 => 1,
+            1 when secondsLeft <= 450 => 2,
+            2 when secondsLeft <= 225 => 3,
             3 when secondsLeft <= 5 => 4,
             _ => stage
         };
