@@ -77,7 +77,7 @@ public class SpeechDisplay : MonoBehaviour
     
     public void SetAlignment(bool left)
     {
-        ugui.alignment = left ? TextAlignmentOptions.Left : TextAlignmentOptions.Right;
+        ugui.alignment = left ? TextAlignmentOptions.TopLeft : TextAlignmentOptions.TopRight;
     }
 
     public bool UpdateProgress(float progress)

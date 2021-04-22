@@ -423,6 +423,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1353512711}
     - target: {fileID: 3155435511643413298, guid: 999f16af0bc90574ca767ed44bb2e47e, type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3155435511643413298, guid: 999f16af0bc90574ca767ed44bb2e47e, type: 3}
       propertyPath: jackObject
       value: 
       objectReference: {fileID: 2056111150}

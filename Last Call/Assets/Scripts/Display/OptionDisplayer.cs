@@ -97,7 +97,7 @@ public class OptionDisplayer : MonoBehaviour
 
         if (selected == null)
         {
-            if (hovered && Input.GetKeyDown(KeyCode.Mouse0))
+            if (hovered != null && Input.GetKeyDown(KeyCode.Mouse0))
             {
                 SelectThought(hovered.thought);
                 pressed = KeyCode.Mouse0;
@@ -159,6 +159,8 @@ public class OptionDisplayer : MonoBehaviour
 
     public void ReleaseThought(Thought thought)
     {
+        if (thought == null) return;
+        
         if (selected == null || !selected.thought.Equals(thought)) return;
         
         selected.Selected(false);
@@ -170,6 +172,8 @@ public class OptionDisplayer : MonoBehaviour
 
     public void FinishThought(Thought thought)
     {
+        if (thought == null) return;
+        
         thoughts.Remove(thought);
         ReleaseThought(thought);
         UpdateOptions();
@@ -213,6 +217,8 @@ public class OptionDisplayer : MonoBehaviour
 
     private Option CreateOption(Thought thought, int place)
     {
+        if (thought == null) return null;
+        
         Option option = Instantiate(optionPrefab, panels[place].transform).GetComponent<Option>();
         option.SetUp(thought, place + 1);
         

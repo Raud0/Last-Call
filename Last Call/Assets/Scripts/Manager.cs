@@ -57,7 +57,7 @@ public class Manager : MonoBehaviour
     {
         if (exitStarted) return;
         exitStarted = true;
-        StartCoroutine(EndWithABang(3f));
+        StartCoroutine(EndWithABang(2f));
     }
 
     private void KillJack()
@@ -107,11 +107,18 @@ public class Manager : MonoBehaviour
     
     private IEnumerator EndWithABang(float wait)
     {
-        yield return new WaitForSeconds(wait * 1f/3f);
-        if (roomController != null) roomController.GoBlank();
-        yield return new WaitForSeconds(wait * 1f/3f);
-        if (gun != null) gun.Play();
-        yield return new WaitForSeconds(wait * 1f/3f);
+        if (roomController != null)
+        {
+            roomController.GoBlank();
+            yield return new WaitForSeconds(wait * 1f/2f);
+        }
+
+        if (gun != null)
+        {
+            gun.Play();
+            yield return new WaitForSeconds(wait * 1f/2f);
+        }
+        
         QuitGame();
     }
 

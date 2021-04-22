@@ -326,6 +326,10 @@ PrefabInstance:
       propertyPath: ActorStacks.Array.data[1]
       value: 
       objectReference: {fileID: 1353512711}
+    - target: {fileID: 3155435511643413298, guid: 999f16af0bc90574ca767ed44bb2e47e, type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 999f16af0bc90574ca767ed44bb2e47e, type: 3}
 --- !u!1 &289034639
